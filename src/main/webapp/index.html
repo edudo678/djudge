@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang = "pt-br">
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Djudge - Corretor de Questões</title>
+        <!--Importações-->
+        <script src="js/jquery/jquery-3.4.1.min.js"></script>
+        <script src="js/index.js"></script>
+        <!-- <link rel="shortcut icon" href="img/djudge-favicon.ico" type="image/x-icon"/> -->
+        <link href="img/djudge_favicon.png" rel="icon" type="image/x-icon">
+
     </head>
-    <body>
-        <h1>Hello World!</h1>
+
+        <div id="header"></div>
+
+<!--        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.menu-toggle').click(function () {
+                    $('nav').toggleClass('active');
+                });
+            });
+
+        </script>-->
+
+        <h1>Djudge:Corretor de Questões</h1>
+
+        <script>
+
+            function typeWrite(el) {
+
+                const textoArray = el.innerHTML.split('');
+                el.innerHTML = '';
+                textoArray.forEach((letra, i) => {
+                    setTimeout(function () {
+
+                        el.innerHTML += letra;
+
+                    }, 75 * i);
+                });
+            }
+
+            const titulo = document.querySelector('h1');
+            typeWrite(titulo);
+
+        </script>
+
     </body>
 </html>

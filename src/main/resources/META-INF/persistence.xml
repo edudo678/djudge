@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="djudgePU" transaction-type="RESOURCE_LOCAL">
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <!-- Unidade de persistência -->
+  <persistence-unit name="djudgePU">
+    <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!-- Lista de entidades -->
+    <class>model.bean.Aluno</class>
+    <class>model.bean.Coordenacao</class>
+    <class>model.bean.Privado</class>
+    <class>model.bean.ProfQuestCodigo</class>
+    <class>model.bean.ProfQuestao</class>
+    <class>model.bean.Professor</class>
+    <class>model.bean.PubQuestao</class>
+    <class>model.bean.QuestAluno</class>
+    <class>model.bean.QuestEntrada</class>
+    <class>model.bean.Questao</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/djudge?createDatabaseIfNotExist=true"/>
-      <property name="javax.persistence.jdbc.user" value="php"/>
+      <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/djudge?createDatabaseIfNotExist=true"/>
+      <property name="javax.persistence.jdbc.user" value="php"/>
       <property name="javax.persistence.jdbc.password" value="root"/>
-      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <!-- Configurações específicas do Hibernate -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>

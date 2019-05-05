@@ -1,0 +1,81 @@
+ body{
+        background-color: #000000;
+    }
+
+ 
+/*definitivo*/
+h1{
+	max-width: 480px;
+	text-align: center;
+	margin: 300px auto;
+	font-family: 'Courier New';
+	color: white;
+}
+
+h1:after{
+	content: '|';
+	margin-left: 5px;
+	opacity: 1;
+	animation: blink .10s infinite;
+}
+
+@keyframes blink{
+	
+	0%,100%{
+		opacity:1;
+	}
+
+	50%{
+		opacity: 0%;
+	}
+	
+}
+    
+/*definitivo*/
+    
+.navbar{
+    text-transform:none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.9)!important;
+    font-family: 'Courier New';
+    color: #fff;
+}
+    
+
+.nav-item{
+    padding-left: 20px;
+}
+
+.navbar-brand img{
+    height: 3rem;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.btn-cadastro .btn-login{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-cadastro{
+    background-color: black;
+    border-color: white;
+    color: white!important;
+}
+    
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link{
+    color: #fff; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+    
+ .btn-login{
+    background-color: black;
+    border-color: white;
+    color: white!important;
+}
+    
