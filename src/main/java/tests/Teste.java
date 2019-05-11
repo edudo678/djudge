@@ -20,29 +20,29 @@ public class Teste {
     public static void main(String[] args) {
 
 //saveOrUpdate save
-	Privado priv = new Privado(); 
-	GenericDAO<Privado> daoPriv = new GenericDAO<>();
-	priv.setEmail("privado@jmail.com");
-	daoPriv.saveOrUpdate(priv);
-	System.out.println("Entidades salvas com sucesso!");
+//	Privado priv = new Privado(); 
+//	GenericDAO<Privado> daoPriv = new GenericDAO<>();
+//	priv.setEmail("privado@jmail.com");
+//	daoPriv.saveOrUpdate(priv);
+//	System.out.println("Entidades salvas com sucesso!");
 	
-	Coordenacao c = new Coordenacao();
-	GenericDAO<Coordenacao> daoC = new GenericDAO<>();
-	c.setNome("Jucibs");
-	daoC.saveOrUpdate(c);
+//	Coordenacao c = new Coordenacao();
+//	GenericDAO<Coordenacao> daoC = new GenericDAO<>();
+//	c.setNome("Jucibs");
+//	daoC.saveOrUpdate(c);
 
 	Professor p = new Professor();
 	GenericDAO<Professor> daoP = new GenericDAO<>();
-	p.setNome("Emmsr");
+	p.setNome("Jucibs");
 	daoP.saveOrUpdate(p);
-
-	Professor prof = new Professor();
-	prof.setId(3L);
-	Questao q = new Questao();
-	q.setTitulo("Lobo Mau");
-	q.setProfessor(prof);
-	GenericDAO<Questao> daoQ = new GenericDAO<>();
-	daoQ.saveOrUpdate(q);
+//
+//	Professor prof = new Professor();
+//	prof.setId(3L);
+//	Questao q = new Questao();
+//	q.setTitulo("Lobo Mau");
+//	q.setProfessor(prof);
+//	GenericDAO<Questao> daoQ = new GenericDAO<>();
+//	daoQ.saveOrUpdate(q);
 
 
 //findById

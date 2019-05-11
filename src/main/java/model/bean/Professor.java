@@ -9,29 +9,15 @@ import model.dao.BaseEntity;
 
 @Entity
 public class Professor extends Privado implements Serializable, BaseEntity {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+
     private String siape;
-    
-    @Override
-    public Long getId() {
-	return id;
-    }
-    
-    @Override
-    public void setId(Long id) {
-	this.id = id;
-    }
 
     public String getSiape() {
-        return siape;
+	return siape;
     }
 
     public void setSiape(String siape) {
-        this.siape = siape;
+	this.siape = siape;
     }
-    
+
 }
