@@ -14,20 +14,22 @@
 
     <body data-spy= "scroll" data-target="#navbarResponsive">
 
-        <nav class="navbar navbar-expand-md fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top">
             <div class="container">
 
-                    <a class="navbar-brand" href="/djudge" style=" color: #fff; height: 50px; line-height: 50px; 
-                       font-size:24px; float:left; font-weight:bold;">Djudge</a>
+                <div class="logo">
+                    <a class="navbar-brand" href="index.html"><img src="img/djudge_logo.png"></a>
+                </div>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                    <span class="navbar-toggler-icon"></span>
+
+                <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="animated-icon1"><span></span><span></span><span></span><span></span></div>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-login" href="login.html">Entrar</a>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-login" href="login.html">Entrar<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-cadastro" href="cadastro.html">Cadastrar-se</a>
@@ -36,6 +38,14 @@
                 </div>
             </div>
         </nav>  
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.first-button').on('click', function () {
+                    $('animated-icon1').toggleClass('open');
+                });
+            });
+        </script>
 
     </body>
 </html>
