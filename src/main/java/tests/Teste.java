@@ -5,9 +5,7 @@
  */
 package tests;
 
-import model.bean.Coordenacao;
-import model.bean.Privado;
-import model.bean.Professor;
+import model.bean.Avaliador;
 import model.bean.Questao;
 import model.dao.GenericDAO;
 
@@ -20,30 +18,23 @@ public class Teste {
     public static void main(String[] args) {
 
 //saveOrUpdate save
-//	Privado priv = new Privado(); 
-//	GenericDAO<Privado> daoPriv = new GenericDAO<>();
-//	priv.setEmail("privado@jmail.com");
-//	daoPriv.saveOrUpdate(priv);
-//	System.out.println("Entidades salvas com sucesso!");
-	
-//	Coordenacao c = new Coordenacao();
-//	GenericDAO<Coordenacao> daoC = new GenericDAO<>();
-//	c.setNome("Jucibs");
-//	daoC.saveOrUpdate(c);
+//	model.bean.Privado p = new model.bean.Privado();
+//	GenericDAO<model.bean.Privado> daoP = new GenericDAO<>();
+//	p.setNome("Jucibs");
+//	daoP.saveOrUpdate(p);
+//	model.bean.Avaliador a = new model.bean.Avaliador();
+//	GenericDAO<model.bean.Avaliador> daoA = new GenericDAO<>();
+//	a.setNome("Emmsr");
+//	daoA.saveOrUpdate(a);
 
-	Professor p = new Professor();
-	GenericDAO<Professor> daoP = new GenericDAO<>();
-	p.setNome("Jucibs");
-	daoP.saveOrUpdate(p);
 //
-//	Professor prof = new Professor();
-//	prof.setId(3L);
-//	Questao q = new Questao();
-//	q.setTitulo("Lobo Mau");
-//	q.setProfessor(prof);
-//	GenericDAO<Questao> daoQ = new GenericDAO<>();
-//	daoQ.saveOrUpdate(q);
-
+	Avaliador prof = new Avaliador();
+	prof.setId(2L);
+	Questao q = new Questao();
+	q.setTitulo("Lobo Mau");
+	q.setAvaliador(prof);
+	GenericDAO<Questao> daoQ = new GenericDAO<>();
+	daoQ.saveOrUpdate(q);
 
 //findById
 //	GenericDAO<Privado> dao = new GenericDAO<>();
@@ -53,8 +44,6 @@ public class Teste {
 //	System.out.println("ID: " + p.getId());
 //	System.out.println("NOME: " + p.getEmail());
 //	System.out.println("Senha: " + p.getSenha());
-
-
 //saveOrUpdate update
 //	GenericDAO<Privado> dao = new GenericDAO<>();
 //
@@ -62,13 +51,10 @@ public class Teste {
 //	p.setSenha("quatromeiacinco");
 //	dao.saveOrUpdate(p);
 //	System.out.println("Entidade atualizada com sucesso.");
-
-
 //remove
 //	GenericDAO<Privado> dao = new GenericDAO<>();
 //	dao.remove(Privado.class, 1L);
 //	System.out.println("Entidades removidas com sucesso!");
-
     }
 
 }

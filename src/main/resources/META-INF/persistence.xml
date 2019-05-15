@@ -5,16 +5,16 @@
     <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- Lista de entidades -->
+    <class>model.bean.Administrador </class>
     <class>model.bean.Aluno</class>
-    <class>model.bean.Coordenacao</class>
+    <class>model.bean.Avaliador</class>
+    <class>model.bean.PrivQuestioCodFonte</class>
     <class>model.bean.Privado</class>
-    <class>model.bean.ProfQuestCodigo</class>
-    <class>model.bean.ProfQuestao</class>
-    <class>model.bean.Professor</class>
-    <class>model.bean.PubQuestao</class>
-    <class>model.bean.QuestAluno</class>
-    <class>model.bean.QuestEntrada</class>
+    <class>model.bean.PrivadoQuestio</class>
     <class>model.bean.Questao</class>
+    <class>model.bean.QuestaoEntrada</class>
+    <class>model.bean.QuestaoImagem</class>
+    <class>model.bean.Questionario</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

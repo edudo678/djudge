@@ -17,26 +17,23 @@ public class Privado implements Serializable, BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
-
-//    @Column(nullable = false)
-    private String email;
-
-    private String senha;
-
-    private String nome;
-
     
-//    private String emailCoord;
+    //@Column(nullable = false)
+    private String email;
+    
+    private String senha;
+    
+    private String nome;
     
 
     public Privado() {
     }
 
-    public Privado(Long id, String email, String nome, String senha) {
-	this.id = id;
-	this.email = email;
-	this.nome = nome;
-	this.senha = senha;
+    public Privado(String email, Long id, String senha, String nome) {
+        this.email = email;
+        this.id = id;
+        this.senha = senha;
+        this.nome = nome;
     }
 
     @Override

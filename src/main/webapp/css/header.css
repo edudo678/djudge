@@ -60,6 +60,7 @@ h1:after{
 .btn-cadastro .btn-login {
     font-size: 14px;
     font-weight: bold;
+    float:right;
 }
 
 .btn-cadastro {
@@ -79,10 +80,10 @@ h1:after{
     background-color: black;
     border-color: white;
     color: white!important;
+
 }
 
 .logo{
-
     color: #fff;
     height: 50px;
     line-height: 50px;

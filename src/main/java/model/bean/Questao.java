@@ -14,47 +14,50 @@ public class Questao implements Serializable, BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private int numero;
-
+    
     private String titulo;
-
+    
     private String enunciado;
-
+    
     private int nivel;
-
-    private String status;
-
-    private String codigoFonte;
-
+    
+    private String publico;
+    
+    private String codigoFonteGabarito;
+    
+    private int peso;
+    
     private String saidaEsperada;
-
+    
     private float tempoExec;
-
-//   private String siapeProf;
-
-//  private String emailProf;
     
+//    private String siapeAv;
+//    
+//    private int idQuestio;
     
-//    private String emailCoord;
-
     @ManyToOne
-    private Professor professor;
+    private Avaliador avaliador;
+    
+    @ManyToOne
+    private Questionario questionario;
+    
 
     public Questao() {
     }
 
-    public Questao(Long id, int numero, String titulo, String enunciado, int nivel, String status, String codigoFonte,
-	    String saidaEsperada, float tempoExec) {
+    public Questao(Long id, String titulo, String enunciado, int nivel, String publico, String codigoFonteGabarito,
+	    int peso, String saidaEsperada, float tempoExec, String siapeAv, int idQuestio) {
 	this.id = id;
-	this.numero = numero;
 	this.titulo = titulo;
 	this.enunciado = enunciado;
 	this.nivel = nivel;
-	this.status = status;
-	this.codigoFonte = codigoFonte;
+	this.publico = publico;
+	this.codigoFonteGabarito = codigoFonteGabarito;
+	this.peso = peso;
 	this.saidaEsperada = saidaEsperada;
 	this.tempoExec = tempoExec;
+//	this.siapeAv = siapeAv;
+//	this.idQuestio = idQuestio;
     }
 
     @Override
@@ -64,14 +67,6 @@ public class Questao implements Serializable, BaseEntity {
 
     public void setId(Long id) {
 	this.id = id;
-    }
-
-    public int getNumero() {
-	return numero;
-    }
-
-    public void setNumero(int numero) {
-	this.numero = numero;
     }
 
     public String getTitulo() {
@@ -98,20 +93,20 @@ public class Questao implements Serializable, BaseEntity {
 	this.nivel = nivel;
     }
 
-    public String getStatus() {
-	return status;
+    public String getPublico() {
+	return publico;
     }
 
-    public void setStatus(String status) {
-	this.status = status;
+    public void setPublico(String publico) {
+	this.publico = publico;
     }
 
-    public String getCodigoFonte() {
-	return codigoFonte;
+    public String getCodigoFonteGabarito() {
+	return codigoFonteGabarito;
     }
 
-    public void setCodigoFonte(String codigoFonte) {
-	this.codigoFonte = codigoFonte;
+    public void setCodigoFonteGabarito(String codigoFonteGabarito) {
+	this.codigoFonteGabarito = codigoFonteGabarito;
     }
 
     public String getSaidaEsperada() {
@@ -129,13 +124,45 @@ public class Questao implements Serializable, BaseEntity {
     public void setTempoExec(float tempoExec) {
 	this.tempoExec = tempoExec;
     }
+
+//    public String getSiapeAv() {
+//	return siapeAv;
+//    }
+//
+//    public void setSiapeAv(String siapeAv) {
+//	this.siapeAv = siapeAv;
+//    }
+
+    public int getPeso() {
+	return peso;
+    }
+
+    public void setPeso(int peso) {
+	this.peso = peso;
+    }
+
+//    public int getIdQuestio() {
+//	return idQuestio;
+//    }
+//
+//    public void setIdQuestio(int idQuestio) {
+//	this.idQuestio = idQuestio;
+//    }
     
-    public Professor getProfessor() {
-	return professor;
+    public Avaliador getAvaliador() {
+	return avaliador;
     }
 
-    public void setProfessor(Professor professor) {
-	this.professor = professor;
+    public void setAvaliador(Avaliador avaliador) {
+	this.avaliador = avaliador;
     }
 
+    public Questionario getQuestionario() {
+	return questionario;
+    }
+
+    public void setQuestionario(Questionario questionario) {
+	this.questionario = questionario;
+    }
+    
 }
