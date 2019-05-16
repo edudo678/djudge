@@ -4,30 +4,31 @@
 
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title></title>
+        <title>Djudge</title>
         <!--Importações-->
+        <script src="js/jquery/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet" href="css/header.css">
         <script src="js/bootstrap/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/header.css">
 
     </head>
 
     <body data-spy= "scroll" data-target="#navbarResponsive">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container">
 
                 <div class="logo">
-                <a class="navbar-brand" href="index.html"><img src="img/djudge_logo.png"></a>
+                    <a class="navbar-brand" href="index.html"><img alt="logo Djudge" src="img/djudge_logo.png"></a>
                 </div>
-                
-                 
-                <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					<div class="animated-icon1"><span></span><span></span><span></span><span></span></div>
-                </button>
-				
+
+
+                <a class="navbar-toggler btn-dark" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="animated-icon1"><span></span><span></span><span></span><span></span></div>
+                </a>
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link btn btn-login" href="login.html">Entrar<span class="sr-only">(current)</span></a>
                         </li>
@@ -38,14 +39,14 @@
                 </div>
             </div>
         </nav>  
-		
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$('.first-button').on('click' , function(){
-				$('animated-icon1').toggleClass('open');
-			});
-		});		
-		</script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.first-button').on('click', function () {
+                    $('animated-icon1').toggleClass('open');
+                });
+            });
+        </script>
     </body>
 </html>
 
