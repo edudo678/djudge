@@ -22,19 +22,19 @@ public class Teste {
 //	GenericDAO<model.bean.Privado> daoP = new GenericDAO<>();
 //	p.setNome("Jucibs");
 //	daoP.saveOrUpdate(p);
-//	model.bean.Avaliador a = new model.bean.Avaliador();
-//	GenericDAO<model.bean.Avaliador> daoA = new GenericDAO<>();
-//	a.setNome("Emmsr");
-//	daoA.saveOrUpdate(a);
+	model.bean.Aluno a = new model.bean.Aluno();
+	GenericDAO<model.bean.Aluno> daoA = new GenericDAO<>();
+	a.setNome("Eduardo");
+	daoA.saveOrUpdate(a);
 
-//
-	Avaliador prof = new Avaliador();
-	prof.setId(2L);
-	Questao q = new Questao();
-	q.setTitulo("Lobo Mau");
-	q.setAvaliador(prof);
-	GenericDAO<Questao> daoQ = new GenericDAO<>();
-	daoQ.saveOrUpdate(q);
+
+//	Avaliador prof = new Avaliador();
+//	prof.setId(1L);
+//	Questao q = new Questao();
+//	q.setTitulo("Lobo Mau");
+//	q.setAvaliador(prof);
+//	GenericDAO<Questao> daoQ = new GenericDAO<>();
+//	daoQ.saveOrUpdate(q);
 
 //findById
 //	GenericDAO<Privado> dao = new GenericDAO<>();

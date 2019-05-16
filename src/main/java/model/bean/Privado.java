@@ -11,7 +11,8 @@ import javax.persistence.InheritanceType;
 import model.dao.BaseEntity;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Privado implements Serializable, BaseEntity {
 
     @Id

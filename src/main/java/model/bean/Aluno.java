@@ -1,7 +1,6 @@
 package model.bean;
 
 import java.io.Serializable;
-import model.bean.Privado;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

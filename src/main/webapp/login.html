@@ -1,68 +1,80 @@
 <!DOCTYPE html>
 <html lang = "pt-br">
     <head>
-        
+
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Djudge - Corretor de Questões</title>
-        <!--Importações-->
         <!-- <link rel="shortcut icon" href="img/djudge-favicon.ico" type="image/x-icon"/> -->
         <link href="img/djudge_favicon.png" rel="icon" type="image/x-icon">
+        <title>Djudge - Corretor de Questões</title>
+        <!--Importações-->
         <script src="js/jquery/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+        <script src="js/bootstrap/bootstrap.min.js"></script>
         <link rel = "stylesheet" type="text/css" href=css/login.css>
         <script src="js/index.js"></script>
-        
+        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
     </head>
 
     <body>
-        
-        <div id="header"></div>
-        
-        <form action="/djudge/LoginServlet" method="POST">
 
-            <div class="box">
+        <div id="header" style="margin-bottom: 80px;"></div> 
 
-                <h2>Login</h2>
-				 <script>
-				
-		function typeWrite(el){
+        <div class="card col-md-4 mx-auto my-5">
+            <div class="card-body">
 
-			const textoArray = el.innerHTML.split('');
-			el.innerHTML='';
-			textoArray.forEach((letra, i) => {
-				setTimeout(function(){
+                <form class="form-sign-in" action="/djudge/LoginServlet" method="POST">
 
-					el.innerHTML += letra;
+                    <div class="col-12 text-center">
+                        <h2 style="font-weight: bold;">Login</h2>
+                    </div>
 
-				}, 75*i)
-			});
-		}
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input name="email" type="email" class="form-control" placeholder="Digite seu e-mail" required onchange="this.value = this.value.trim()">
+                        <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado.</small>
+                    </div>
 
-		const titulo = document.querySelector('h2')
-		typeWrite(titulo);	
-			</script>
+                    <div class="form-group">
+                        <label>Digite sua senha</label>
+                        <div class="input-group">
+                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <a href="#" class="text-dark" id="icon-click">
+                                        <i class="fa fa-eye-slash" id="icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>    
+                            </div>
+                        </div>
+                        <small id="mensagemTeclaCapsLock" class="form-text text-muted" style="visibility:hidden">Tecla Caps Lock está ativa.</small> 
 
-                <div class="inputBox">
+                    </div>
 
-                    <br>
-
-                    <label>Email</label><br>
-                    <input type="email" name="email" placeholder="Digite seu email" required="">
-
-                    <br>
-
-                    <label>Senha</label><br>
-                    <input type ="password" name="senha" placeholder="Digite sua senha" required=""><br><br>
-                    <br>
-
-                    <input type="submit" name="login" value="Entrar">
-
-                </div>
-
+                    <button type="submit" class="btn btn-dark btn-block">Entrar</button>
+                </form>
             </div>
+        </div>
+ <script>
 
-        </form>
+            function typeWrite(el) {
 
+                const textoArray = el.innerHTML.split('');
+                el.innerHTML = '';
+                textoArray.forEach((letra, i) => {
+                    setTimeout(function () {
+
+                        el.innerHTML += letra;
+
+                    }, 75 * i)
+                });
+            }
+
+            const titulo = document.querySelector('h2')
+            typeWrite(titulo);
+        </script>
     </body>
 </html>
+
+
 
