@@ -166,4 +166,13 @@ h1:after{
     transform: rotate(-135deg);
 }
 
-
+.footer{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid white;
+    background-color: #0C0A10;
+    color: white;
+    font-size: 0.9rem;
+}
