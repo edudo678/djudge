@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/06/2019, 20:21:13
+    Author     : daniela
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+.imgMaratona{
+    border-radius: 10px;
+    min-height: 200px;
+}
+
+.tab-pane{
+    background-color: white;
+}
+
+.carousel-indicators{
+    margin-top: 50px;
+}
+
+#carousel{
+    float: none;
+   margin: 0 auto;
+} 
+
+.submeter{
+    margin-top: 90px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+.text, h2, small, .nav-item{
+    font-family: 'Roboto Mono', monospaced;
+    color: white;
+}
+
+.heading{
+    color: #007bff;
+    border-top: 5px #0062cc;
+    font-weight: bold;
+}
+
+/* resources section */
+
+.fixed-background {
+    background-image: url(../img/binary.jpg);
+    z-index: -1;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tab-card-header > .nav-tabs > li > a:hover {
+    border-bottom: 2px #007bff;
+}
+
+.heading-underline {
+    width: 3rem;
+    height: .2rem;
+    background-color: #0062cc;
+    margin: 0 auto 2rem;
+}
+
+.offset:before {
+    display: block;
+    content: "";
+    height: 4rem;
+    margin-top: -4rem;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 7rem 2rem;
+}
+
+.fixed-background h3 {
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    margin-top: 1.5rem;
+    color: back;
+}
+
+.fa-3x:hover{
+    color: #0062cc;
+}
+
+h3{
+    text-shadow: 3px 3px black;
+}
+
+h2{
+    color: #0062cc;
+}
+
+.texto, .tab-pane{
+    text-align: center;
+}
+
+.fa{
+    margin-right: 10px;
+}
+
+.card{
+    min-width: 474px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
