@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import java.io.BufferedReader;
@@ -47,68 +42,68 @@ public class JDoodleServlet extends HttpServlet {
 
 	PrintWriter out = response.getWriter();
 
-//	String value = null; //Compiler value
-//	
-//	//Read archive
-//	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-//
-//	File uploadedFile = null;
-//
-//	if (isMultipart) {
-//	    FileItemFactory factory = new DiskFileItemFactory();
-//	    ServletFileUpload upload = new ServletFileUpload(factory);
-//
-//	    try {
-//		List items = upload.parseRequest(request);
-//		Iterator iterator = items.iterator();
-//		while (iterator.hasNext()) {
-//		    FileItem item = (FileItem) iterator.next();
-//
-//		    if (!item.isFormField()) {
-//			String fileName = item.getName();
-//
-//			File path = new File("/home/eduardo/Documentos/NetBeansProjects/djudge/");
-//			if (!path.exists()) {
-//			    boolean status = path.mkdirs();
-//			}
-//
-//			uploadedFile = new File(path + "/" + fileName);
-//			System.out.println(uploadedFile.getAbsolutePath());
-//			item.write(uploadedFile);
-//		    } else {
-//			String name = item.getFieldName();
-//			value = item.getString();
-//
-//			// **************************************************
-//			// Process your name and value pairs here! *****
-//			// **************************************************
-//			System.out.println("Found field " + name + " and value " + value);
-//		    }
-//		}
-//	    } catch (FileUploadException e) {
-//		e.printStackTrace();
-//	    } catch (Exception e) {
-//		e.printStackTrace();
-//	    }
-//	}
-//
-//	String line = null;
-//
-//	BufferedReader br = new BufferedReader(new FileReader(uploadedFile));
-//	while (br.ready()) {
-//	    line = br.readLine();
-//	}
-//	br.close();
+	String value = null; //Compiler value
+
+	//Read archive
+	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+	File uploadedFile = null;
+
+	if (isMultipart) {
+	    FileItemFactory factory = new DiskFileItemFactory();
+	    ServletFileUpload upload = new ServletFileUpload(factory);
+
+	    try {
+		List items = upload.parseRequest(request);
+		Iterator iterator = items.iterator();
+		while (iterator.hasNext()) {
+		    FileItem item = (FileItem) iterator.next();
+
+		    if (!item.isFormField()) {
+			String fileName = item.getName();
+
+			File path = new File("/home/eduardo/Documentos/NetBeansProjects/djudge/");
+			if (!path.exists()) {
+			    boolean status = path.mkdirs();
+			}
+
+			uploadedFile = new File(path + "/" + fileName);
+			System.out.println(uploadedFile.getAbsolutePath());
+			item.write(uploadedFile);
+		    } else {
+			String name = item.getFieldName();
+			value = item.getString();
+
+			// **************************************************
+			// Process your name and value pairs here! *****
+			// **************************************************
+			System.out.println("Found field " + name + " and value " + value);
+		    }
+		}
+	    } catch (FileUploadException e) {
+		e.printStackTrace();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+
+	String line = null;
+
+	BufferedReader br = new BufferedReader(new FileReader(uploadedFile));
+	while (br.ready()) {
+	    line = br.readLine();
+	}
+	br.close();
+
 	//JDoodle
 	String clientId = "a720f0daaadb0ebc5102fefe58f6513b"; //Replace with your client ID
 	String clientSecret = "89a23de3f78ff50a2a1ca7ab720ac8be20a876f6c39e41cd7de4e0e2281eb2aa"; //Replace with your client Secret
-	String script = "#include <stdio.h>\n" +
-"\n" +
-"int main() {\n" +
-"  printf(\"Hello World\\n\");\n" +
-"  return 0;\n" +
-"}";
-	String language = "c";
+	String script =  line;
+	String language = value;
+//	String scriptPython = "print('ola')" ou "print(\\\"ola\\\")";
+	//em arquivo -> "print('ola')" ou "print(\"ola\")"
+//	String scriptJava = "public class Teste { public static void main(String[] args) { System.out.println(\\\"testeJava\\\"); } }";
+	//em arquivo -> "public class Teste { public static void main(String[] args) { System.out.println(\"testeJava\"); } }"
 	String versionIndex = "0";
 
 	try {
@@ -139,7 +134,7 @@ public class JDoodleServlet extends HttpServlet {
 	    System.out.println("Output from JDoodle .... \n");
 	    while ((output = bufferedReader.readLine()) != null) {
 		System.out.println(output);
-//		out.println(output);
+		out.println(output);
 	    }
 
 	    connection.disconnect();
