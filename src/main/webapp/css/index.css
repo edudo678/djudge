@@ -33,7 +33,6 @@ and open the template in the editor.
 }
 
 .text, h2, small, .nav-item{
-    font-family: 'Roboto Mono', monospaced;
     color: white;
 }
 
