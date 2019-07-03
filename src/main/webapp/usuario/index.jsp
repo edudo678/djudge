@@ -43,7 +43,7 @@
             <div class="col-8 row justify-content-center">
                 <div class="card col-10 text-black">
                     <div class="card-body">
-                        <h4>Seja bem vindo(a)</h4> <br> 
+                        <h4>Seja bem-vindo(a)</h4> <br> 
                             <div class="row">
                                 <div class="col-6">
                                     <jsp:include page="../carousel/principal.jsp"/>
@@ -51,8 +51,8 @@
 
                                 <div class="col-6">
                                     <div class="card-body text-center">
-                                        <h3>Fique por dentro das proxímas maratonas 
-                                            do IFAM CMC. Vamos praticar!</h3> <br>
+                                        <h3>Fique por dentro das próximas maratonas 
+                                            do IFAM-CMC. Vamos praticar!</h3> <br>
 
                                         <button type="button" class="btn btn-outline-dark btn-block">Praticar</button>
                                     </div>
@@ -60,12 +60,12 @@
                             </div>
 
                         <br>
-                        <h3 class="border-bottom border-dark">Ultimas noticias</h3>
-                        <a href="#">Incrições para maratona de programação</a>
+                        <h3 class="border-bottom border-dark">Últimas notícias</h3>
+                        <a href="#">Histórico da maratona de programação</a>
 
                         <p>
-                            Estão abertas as inscrições para a maratona 2020. <br>
-                            Postado por Coordenação em 03/Julho/2019
+                            Aguardando a data da maratona 2020. <br>
+                            Postado por Coordenação em 05 de Julho de 2019
                         </p>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                             <a href="#">Nível 2</a>
 
                             <h6>Programação</h6>
-                            <a href="#">Nível  de prgramação júnior</a> <br>
-                            <a href="questao.jsp">Nível de programção 1</a> <br>
-                            <a href="#">Nível de programção 2</a>
+                            <a href="questao_junior.jsp">Nível de programação júnior</a> <br>
+                            <a href="questao.jsp">Nível de programação 1</a> <br>
+                            <a href="#">Nível de programação 2</a>
                         </div>
                     </div>
                 </div>

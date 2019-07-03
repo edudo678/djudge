@@ -20,10 +20,10 @@
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
 
         <script src="../js/bootstrap/bootstrap.js"></script>
-        
+
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
-        
+
 
         <script src="../js/jquery/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -43,13 +43,13 @@
                                 <h4 class="card-title text-center"><strong>Câmara de Compensação</strong></h4>
                                 <p class="card-text text-justify">
                                     Em uma cidade, muitas pessoas emprestam dinheiro para outras pessoas. A coisa chegou a um tal ponto que tem gente que é ao mesmo 
-                                    tempo devedor e credor. As pessoas resolveram então pagar suas dívidas e cada uma emitiu os cheques para pagar suas dívidas. Por exemplo, na figura, 
-                                    item~(a), a pessoa C emitiu um cheque de 5 dinheiros para a pessoa A, e a pessoa D emitiu um cheque de 3 dinheiros para a pessoa C. Ou seja, a pessoa 
-                                    C recebeu da pessoa D e pagou a pessoa~A. Pior ainda, existe um ciclo vicioso, em que a pessoa D emitiu um cheque de 3 dinheiros para a pessoa~C, que por sua vez emitiu um cheque de 2 dinheiros para a pessoa B, que por 
+                                    tempo devedor e credor. As pessoas resolveram então pagar suas dívidas e cada uma emitiu os cheques para pagar suas dívidas. Por exemplo, na figura (a), 
+                                    a pessoa C emitiu um cheque de 5 dinheiros para a pessoa A, e a pessoa D emitiu um cheque de 3 dinheiros para a pessoa C. Ou seja, a pessoa 
+                                    C recebeu da pessoa D e pagou a pessoa A. Pior ainda, existe um ciclo vicioso, em que a pessoa D emitiu um cheque de 3 dinheiros para a pessoa C, que por sua vez emitiu um cheque de 2 dinheiros para a pessoa B, que por 
                                     sua vez emitiu um cheque de 1 dinheiro para a pessoa D. A situação mostrada no item (a) da Figura abaixo é descrita através de uma lista de cheques, com quatro triplas da forma (X,V,Y), para indicar que X emitiu um cheque de V dinheiros para Y. Na mesma Figura, no item (b), 
                                     a situação é descrita com uma lista de apenas três cheques.
                                 </p>
-                                <img src="../img/questao.png">
+                                <img src="../img/questao.png" width="100%" height="100%">
 
                                 <h5 class=""><strong>Entrada</strong></h5>
                                 <p class="card-text text-justify">
@@ -81,33 +81,39 @@
                                         <td>77</td>
                                     </tr>
                                 </table>
-                                
+
                                 <div class="list-group list-group-flush card-body ">
                                     <table class="table">
-                                        <strong>Submição</strong>
+                                        <strong>Submissão</strong>
                                         <tr>
                                             <td>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-                                                        Selecione a linguagem
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">C</a>
-                                                        <a class="dropdown-item" href="#">C++</a>
-                                                        <a class="dropdown-item" href="#">Java</a>
+                                                <form>
+                                                    <div class="dropdown">
+
+                                                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+                                                            Selecione a linguagem
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">C</a>
+                                                            <a class="dropdown-item" href="#">C++</a>
+                                                            <a class="dropdown-item" href="#">Java</a>
+                                                            <a class="dropdown-item" href="#">Python 2</a>
+                                                            <a class="dropdown-item" href="#">Python 3</a>
+                                                            <a class="dropdown-item" href="#"></a>
+                                                        </div>
                                                     </div>
-                                                </div>
                                             </td>
                                             <td>
-                                                <form>
-                                                    <div class="form-group">
-                                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                                    </div>
+
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-block">Submeter</button>
                                                 </form>
                                             </td>
                                         </tr>
                                     </table>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>

@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="email">Sobrenome</label>
-                            <input type="email" class="form-control" name="email" placeholder="Segundo nome">
+                            <input type="email" class="form-control" name="email" placeholder="Último nome">
                         </div>
                     </div>
 

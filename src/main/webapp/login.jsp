@@ -26,10 +26,6 @@
                         <label for="senha">Senha</label>
                         <input type="password" class="form-control" name="senha" placeholder="Senha">
                     </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="checkbox">
-                        <label class="form-check-label" for="checkbox">Me manter conectado</label>
-                    </div>
 
                     <br><button type="submit" class="btn-lg btn-block bg-black text-light">Entrar</button><br>
                 </form>

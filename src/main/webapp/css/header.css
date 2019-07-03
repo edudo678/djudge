@@ -2,7 +2,6 @@ body{
     background-color: #000000;
 }
 
-
 /*definitivo*/
 h1{
     max-width: 480px;
@@ -38,7 +37,6 @@ h1:after{
     font-size: 14px;
     letter-spacing: 1px;
     background: rgba(0, 0, 0, 0.9)!important;
-    
     color: #fff;
 }
 
@@ -108,7 +106,6 @@ h1:after{
 }
 
 .animated-icon1 span{
-
     display: block;
     position: absolute;
     height: 3px;
@@ -161,15 +158,4 @@ h1:after{
     -moz-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
-}
-
-.footer{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid white;
-    background-color: #0C0A10;
-    color: white;
-    font-size: 0.9rem;
 }

@@ -141,8 +141,10 @@ public class JDoodleServlet extends HttpServlet {
 
             if (output[3].contains("\\n")) {
                 out.println(output[3].substring(0, output[3].length() - 2));
+		System.out.println(output[3].substring(0, output[3].length() - 2));
             } else {
                 out.println(output[3]);
+		System.out.println(output[3]);
             }
 
             connection.disconnect();

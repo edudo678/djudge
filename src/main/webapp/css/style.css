@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .background{
-    background-color: #EDEEED;
+    background-image: url(../img/binary.jpg);
 }
 
 .text-light{
@@ -23,7 +23,6 @@ and open the template in the editor.
 .bg-black{
     background-color: black;
 }
-
 
 .margin-login{
     margin-top: 9%;

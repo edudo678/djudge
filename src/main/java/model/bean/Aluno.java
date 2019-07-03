@@ -10,16 +10,19 @@ public class Aluno extends Privado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-    
+    private Long id;
+
     private String turma;
+
+    private String matricula;
 
     public Aluno() {
     }
 
-    public Aluno(String email, Long id, String senha, String nome, String turma) {
-        super(email, id, senha, nome);
-        this.turma = turma;
+    public Aluno(String email, Long id, String senha, String nome, String turma, String matricula) {
+	super(email, id, senha, nome);
+	this.turma = turma;
+	this.matricula = matricula;
     }
 
     @Override
@@ -38,6 +41,14 @@ public class Aluno extends Privado {
 
     public void setTurma(String turma) {
 	this.turma = turma;
+    }
+
+    public String getMatricula() {
+	return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+	this.matricula = matricula;
     }
 
 }

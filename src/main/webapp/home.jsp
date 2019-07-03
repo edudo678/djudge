@@ -15,14 +15,14 @@
         <jsp:include page="header.jsp"/>
         <div class="d-flex my-auto justify-content-center">
 
-            <h1>Djudge:Corretor de Questões</h1>
+            <h1 style="font-family: 'courier';">Djudge: Corretor de Questões</h1>
 
         </div>
         <div class="submeter">
             <p class="text"><b>A Ferramenta da Maratona de Programação do IFAM</b></p>
 
             <a href="" class="btn btn-primary"><i class="fas fa-file-alt fa"></i>Saiba mais</a>
-            <small>Ou</small>
+            <small>ou</small>
             <a href="" class="btn btn-outline-light"><i class="fas fa-file-code fa"></i>Submeta seu código-fonte</a>
         </div>
 
@@ -41,7 +41,7 @@
                     <div class="feature">
                         <i class="fab fa-creative-commons-share fa-3x"></i>
                     </div>
-                    <p class="lead">Saídas equivalentes as do código-gabarito.</p>
+                    <p class="lead">Saídas equivalentes as do código-gabarito</p>
                 </div>
 
                 <div class="col-md-4">
@@ -49,7 +49,7 @@
                     <div class="feature">
                         <i class="fas fa-code fa-3x"></i>
                     </div>
-                    <p class="lead">Lógica e sintaxe são avaliadas pelo professor.</p>
+                    <p class="lead">Lógica e sintaxe são avaliadas pelo professor</p>
                 </div>
 
                 <div class="col-md-4">
@@ -57,7 +57,7 @@
                     <div class="feature">
                         <i class="fas fa-clock fa-3x"></i>
                     </div>
-                    <p class="lead">Menor tempo de execução do arquivo.</p>
+                    <p class="lead">Menor tempo de execução do arquivo</p>
                 </div>
 
             </div>
