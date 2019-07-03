@@ -1,1 +1,1 @@
-#include<stdio.h> int main() { printf(\"hello world\"); return 0; }
+#include <stdio.h> \n int main(){printf(\"ola\");return 0;}
