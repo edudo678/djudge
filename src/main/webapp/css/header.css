@@ -1,6 +1,5 @@
 body{
     background-color: #000000;
-    font-family: "Courier New";
 }
 
 
@@ -36,11 +35,10 @@ h1:after{
 
 .navbar {
     text-transform:none;
-    font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
     background: rgba(0, 0, 0, 0.9)!important;
-    font-family: 'Courier New';
+    
     color: #fff;
 }
 
@@ -58,7 +56,7 @@ h1:after{
 }
 
 .btn-cadastro .btn-login {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     float:right;
 }
@@ -89,7 +87,6 @@ h1:after{
     line-height: 50px;
     font-size:24px;
     float:left;
-    font-weight:bold;
 
 }
 

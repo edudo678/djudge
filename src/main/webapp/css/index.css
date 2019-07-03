@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : 03/06/2019, 20:21:13
     Author     : daniela
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 .imgMaratona{
     border-radius: 10px;
     min-height: 200px;
@@ -33,7 +32,6 @@ and open the template in the editor.
 }
 
 .text, h2, small, .nav-item{
-    font-family: 'Roboto Mono', monospaced;
     color: white;
 }
 
