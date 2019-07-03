@@ -4,18 +4,19 @@
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Djudge - Corretor de Questões</title>
+        
         <link rel="stylesheet" href="css/fontawesome-all.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        
         <script src="js/jquery/jquery-3.4.1.min.js"></script>
-        <link rel="stylesheet" href="css/index.css" type="text/css">
-        <link href="img/djudge_favicon.png" rel="icon" type="image/x-icon">
     </head>
-    <body style="background-color: whitesmoke">
+    <body class="background">
 
         <jsp:include page="header.jsp"/>
 
-        <div class="row justify-content-center" style="margin-top: 10%; margin-bottom: 5%">
+        <div class="row justify-content-center margin-login">
             <div class="col-md-4 card text-black">
-                <form><br>
+                <form action="usuario/index.jsp"><br>
                     <div class="form-group">
                         <label for="email">Nome de usuário ou e-mail</label>
                         <input type="email" class="form-control" name="email" placeholder="Usuário ou e-mail">
@@ -30,7 +31,7 @@
                         <label class="form-check-label" for="checkbox">Me manter conectado</label>
                     </div>
 
-                    <br><button type="submit" class="btn btn-secondary btn-lg btn-block bg-dark text-light">Entrar</button><br>
+                    <br><button type="submit" class="btn-lg btn-block bg-black text-light">Entrar</button><br>
                 </form>
             </div>
         </div>

@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
         <div class="logo">
-            <a class="navbar-brand" href="index.html"><img alt="logo Djudge" src="img/djudge_logo.png"></a>
+            <a class="navbar-brand" href="home.jsp"><img alt="logo Djudge" src="img/djudge_logo.png"></a>
         </div>
 
 
@@ -17,10 +17,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link btn btn-login" href="index.jsp">Entrar<span class="sr-only">(current)</span></a>
+                    <a class="nav-link btn btn-login" href="login.jsp">Entrar<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-cadastro" href="usuario/cadastro.jsp">Cadastrar-se</a>
+                    <a class="nav-link btn btn-cadastro" href="cadastro.jsp">Cadastrar-se</a>
                 </li>
             </ul>
         </div>

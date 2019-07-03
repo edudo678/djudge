@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-black ">
 
     
         <a class="navbar-brand" href="#"><img alt="logo Djudge" src="../img/djudge_logo.png"></a>

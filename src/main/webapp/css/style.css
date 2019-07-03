@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Junior
 */
 
+.background{
+    background-color: #EDEEED;
+}
+
 .text-light{
     color: white;
 }
@@ -20,26 +24,21 @@ and open the template in the editor.
     background-color: black;
 }
 
-.index{
-    margin-top: 15%;
+
+.margin-login{
+    margin-top: 9%;
     margin-bottom: 10%;
 }
 
 .home{
     margin-top: 2%;
-    
 }
 
-.vertical-center { /*alinhamento vertical*/
-    min-height: 100%;  
-    min-height: 100vh; 
-
-    display: flex;
-    align-items: center;
+.btn-lg{
+    border: 0px;
 }
 
-.horizontal-center {
-    margin: 0 auto;
-    width: 80%;
-
+.card{
+    min-width: 474px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

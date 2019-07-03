@@ -63,14 +63,14 @@
             </div>
 
         </div>
-
+        <%--
         <div class="row text-center d-flex justify-content-center maratona">
 
             <div class="col-12">
                 <h3 class="heading">Questões, Maratona e Colocações</h3>
                 <div class="heading-underline"></div>
             </div>
-
+            
             <div class="col-md-4 d-flex justify-content-center">
                 <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-        
+        --%>
         <script>
 
             function typeWrite(el) {

@@ -4,12 +4,15 @@
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Djudge - Corretor de Questões</title>
+        
         <link rel="stylesheet" href="css/fontawesome-all.css">
-        <script src="js/jquery/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="css/index.css" type="text/css">
-        <link href="img/djudge_favicon.png" rel="icon" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        
+        <script src="js/jquery/jquery-3.4.1.min.js"></script>
     </head>
-    <body style="background-color: whitesmoke">
+    
+    <body class="background">
 
         <jsp:include page="header.jsp"/>
 
@@ -48,8 +51,8 @@
                         <input type="checkbox" class="form-check-input" id="checkbox">
                         <label class="form-check-label" for="checkbox">Li e concordo com os termos de uso</label>
                     </div>
-
-                    <br><button type="submit" class="btn btn-secondary btn-lg btn-block bg-dark text-light">Cadastrar-se</button><br>
+                    
+                    <br><button type="submit" class="btn-lg btn-block bg-black text-light">Cadastrar-se</button><br>
                 </form>
             </div>
         </div>
