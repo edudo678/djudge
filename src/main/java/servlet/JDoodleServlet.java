@@ -62,7 +62,7 @@ public class JDoodleServlet extends HttpServlet {
                     if (!item.isFormField()) {
                         String fileName = item.getName();
 
-                        File path = new File("/home/eduardo/Documentos/NetBeansProjects/djudge/");
+                        File path = new File("/home/eddunic/NetBeansProjects/djudge/");
                         if (!path.exists()) {
                             boolean status = path.mkdirs();
                         }
