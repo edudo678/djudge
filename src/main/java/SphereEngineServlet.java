@@ -1,4 +1,4 @@
-package servlet;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,7 +36,7 @@ import org.apache.http.message.BasicNameValuePair;
  *
  * @author eddunic
  */
-public class SubmissionServlet extends HttpServlet {
+public class SphereEngineServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

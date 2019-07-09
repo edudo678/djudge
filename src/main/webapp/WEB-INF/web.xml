@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>SubmissionServlet</servlet-name>
-        <servlet-class>servlet.SubmissionServlet</servlet-class>
+        <servlet-class>.SubmissionServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>JDoodleServlet</servlet-name>
