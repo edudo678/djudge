@@ -131,7 +131,7 @@ public class JDoodleServlet extends HttpServlet {
         //em arquivo -> "print('ola')" ou "print(\"ola\")"
 //	String scriptJava = "public class Teste { public static void main(String[] args) { System.out.println(\\\"testeJava\\\"); } }";
         //em arquivo -> "public class Teste { public static void main(String[] args) { System.out.println(\"testeJava\"); } }"
-
+//String c -> "#include <stdio.h> \\n int main(){printf(\\\"ola\\\");return 0;}"
         Client[] clientes = Client.values();
         teste:
         for (Client c : clientes) {
