@@ -5,29 +5,29 @@
         <servlet-class>servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SubmissionServlet</servlet-name>
-        <servlet-class>.SubmissionServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>JDoodleServlet</servlet-name>
         <servlet-class>servlet.JDoodleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuestaoServlet</servlet-name>
+        <servlet-class>servlet.QuestaoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SubmissionServlet</servlet-name>
-        <url-pattern>/SubmissionServlet</url-pattern>
-    </servlet-mapping>
     <context-param>
         <description>Location to store uploaded file</description>
         <param-name>file-upload</param-name>
-        <param-value>/home/eduardo/Área de Trabalho</param-value>
+        <param-value>/home/eddunic/Área de Trabalho</param-value>
     </context-param>
     <servlet-mapping>
         <servlet-name>JDoodleServlet</servlet-name>
         <url-pattern>/JDoodleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuestaoServlet</servlet-name>
+        <url-pattern>/QuestaoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
