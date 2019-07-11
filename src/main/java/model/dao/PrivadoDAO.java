@@ -11,9 +11,8 @@ import util.ConnectionFactory;
  */
 public class PrivadoDAO {
 
-    private static EntityManager manager = ConnectionFactory.getEntityManager();
-
     public Long login(String usuario, String senha) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
 	Query query;
 	Privado p;
 	try {
