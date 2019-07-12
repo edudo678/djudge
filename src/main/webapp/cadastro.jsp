@@ -18,13 +18,7 @@
         <div class="row justify-content-center" style="margin-top: 10%; margin-bottom: 5%">
             <div class="col-md-4 card text-black">
                 <form><br>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail">
-                        <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
-                    </div>
-
-                    <div class="row form-group">
+					<div class="row form-group">
                         <div class="col-md-6">
                             <label for="email">Nome</label>
                             <input type="email" class="form-control" name="email" placeholder="Primeiro nome">
@@ -48,12 +42,13 @@
                             </a>
                         </li>
                     </ul>
+					<br>
 
                     <div class="tab-content">
                         <div class="tab-pane fade in show active" id="aluno" role="tabpanel">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="senha">Matricula</label>
+                                    <label for="senha">Matrícula</label>
                                     <input type="text" class="form-control" name="matricula" placeholder="Insira sua matrícula">
                                 </div>
 
@@ -66,7 +61,7 @@
                                         <option>Turma 3</option>
                                         <option>Turma 4</option>
                                         <option>Turma 5</option>
-                                        
+
                                     </select>
                                 </div>
                             </div>
@@ -75,9 +70,15 @@
                         <div class="tab-pane fade" id="avaliador" role="tabpanel">
                             <div class="form-group">
                                 <label for="senha">SIAPE</label>
-                                <input type="text" class="form-control" name="siape" placeholder="Insira seu siape">
+                                <input type="text" class="form-control" name="siape" placeholder="Insira sua matrícula SIAPE">
                             </div>
                         </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail">
+                        <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
                     </div>
 
                     <div class="form-group">
@@ -101,5 +102,6 @@
         </div>
 
         <jsp:include page="footer.jsp"/>
+		<script src="js/cadastro.js"></script>
     </body>
 </html>
