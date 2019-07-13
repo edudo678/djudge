@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.dao;
 
 import javax.persistence.EntityManager;
@@ -35,16 +30,28 @@ public class GenericDAO<T extends BaseEntity> {
         }
     }
 
-    public void remove(Class<T> clazz, Long id) {
-        EntityManager manager = ConnectionFactory.getEntityManager();
-        T t = findById(clazz, id);
-        try {
-            manager.getTransaction().begin();
-            manager.remove(t);
-            manager.getTransaction().commit();
-        } catch (Exception e) {
-            manager.getTransaction().rollback();
-        }
+    private final static EntityManager manager = ConnectionFactory.getEntityManager();
+
+    public T findById2(Class<T> clazz, Long id) {
+        manager.getTransaction().begin();
+        return manager.find(clazz, id);
     }
 
+    public void remove(T t) {
+        manager.merge(t);
+        manager.remove(t);
+        manager.getTransaction().commit();
+    }
+
+//    public void remove(Class<T> clazz, Long id) {
+//        EntityManager manager = ConnectionFactory.getEntityManager();
+//        T t = findById(clazz, id);
+//        try {
+//            manager.getTransaction().begin();
+//            manager.remove(t);
+//            manager.getTransaction().commit();
+//        } catch (Exception e) {
+//            manager.getTransaction().rollback();
+//        }
+//    }
 }
