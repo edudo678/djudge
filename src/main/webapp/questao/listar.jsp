@@ -43,7 +43,7 @@
             <div class="col-12 row justify-content-center">
                 <div class="card col-11 text-black">
                     <br>
-                    <h4 class="border-bottom border-dark">Questões adicinadas</h4>
+                    <h4 class="border-bottom border-dark">Questões adicionadas</h4>
                     <table class="table table-hover">
                         <thead>
                             <tr>

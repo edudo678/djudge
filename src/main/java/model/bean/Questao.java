@@ -31,9 +31,9 @@ public class Questao implements Serializable, BaseEntity {
     
     private float tempoExec;
     
-//    private String siapeAv;
-//    
-//    private int idQuestio;
+    private String entrada;
+    
+    private String saida;
     
     @ManyToOne
     private Avaliador avaliador;
@@ -46,7 +46,7 @@ public class Questao implements Serializable, BaseEntity {
     }
 
     public Questao(Long id, String titulo, String enunciado, int nivel, String publico, String codigoFonteGabarito,
-	    int peso, String saidaEsperada, float tempoExec, String siapeAv, int idQuestio) {
+	    int peso, String saidaEsperada, float tempoExec, String entrada, String saida) {
 	this.id = id;
 	this.titulo = titulo;
 	this.enunciado = enunciado;
@@ -56,8 +56,8 @@ public class Questao implements Serializable, BaseEntity {
 	this.peso = peso;
 	this.saidaEsperada = saidaEsperada;
 	this.tempoExec = tempoExec;
-//	this.siapeAv = siapeAv;
-//	this.idQuestio = idQuestio;
+        this.entrada = entrada;
+        this.saida = saida;
     }
 
     @Override
@@ -125,14 +125,6 @@ public class Questao implements Serializable, BaseEntity {
 	this.tempoExec = tempoExec;
     }
 
-//    public String getSiapeAv() {
-//	return siapeAv;
-//    }
-//
-//    public void setSiapeAv(String siapeAv) {
-//	this.siapeAv = siapeAv;
-//    }
-
     public int getPeso() {
 	return peso;
     }
@@ -141,14 +133,22 @@ public class Questao implements Serializable, BaseEntity {
 	this.peso = peso;
     }
 
-//    public int getIdQuestio() {
-//	return idQuestio;
-//    }
-//
-//    public void setIdQuestio(int idQuestio) {
-//	this.idQuestio = idQuestio;
-//    }
-    
+    public String getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(String entrada) {
+        this.entrada = entrada;
+    }
+
+    public String getSaida() {
+        return saida;
+    }
+
+    public void setSaida(String saida) {
+        this.saida = saida;
+    }
+
     public Avaliador getAvaliador() {
 	return avaliador;
     }

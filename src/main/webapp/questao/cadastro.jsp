@@ -50,7 +50,8 @@
 
                                 <div class="form-row justify-content-center">
                                     <div class="col-md-8">
-                                        <input  type="titulo" class="form-control text-center" id="titulo" placeholder="Título da questão">
+                                        <label for="titulo"><strong>Título da questão</strong></label>
+                                        <input type="titulo" class="form-control text-center" id="titulo" placeholder="Título da questão">
                                     </div>
                                 </div>
 
@@ -61,8 +62,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="anexo"><strong>Inserir anexo</strong></label>
-                                        <input type="file" class="form-control-file" id="anexo">
+                                        <label for="imagem"><strong>Inserir imagem</strong></label>
+                                        <input type="file" class="form-control-file" id="imagem">
                                     </div>
 
                                     <div class="form-group">
@@ -73,6 +74,16 @@
                                     <div class="form-group">
                                         <label for="saida"><strong>Saída</strong></label>
                                         <textarea class="form-control" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="restricao"><strong>Restrições</strong></label>
+                                        <textarea class="form-control" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exemplo"><strong>Exemplos</strong></label>
+                                        <textarea class="form-control" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-row justify-content-center">
@@ -105,13 +116,19 @@
 
                 <p class="card-text text-justify" id="modalEnunciado"></p>
 
-               
+
 
                 <h5 class=""><strong>Entrada</strong></h5>
                 <p class="card-text text-justify" id="modalEntrada"></p>
 
                 <h5><strong>Saída</strong></h5>
-                <p class="card-text text-justify" id="modalSaida"></p>    
+                <p class="card-text text-justify" id="modalSaida"></p>  
+
+                <h5><strong>Restrições</strong></h5>
+                <p class="card-text text-justify" id="modalRestricao"></p>  
+
+                <h5><strong>Exemplos</strong></h5>
+                <p class="card-text text-justify" id="modalExemplo"></p>  
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Editar</button>
@@ -124,7 +141,6 @@
 <script>
     function visualizarQuestao() {
 
-
         var titulo = document.getElementById("titulo");
         $('#modalTitulo').text(titulo.value);
 
@@ -136,6 +152,13 @@
 
         var saida = document.getElementById("saida");
         $('#modalSaida').text(saida.value);
+
+        var restricao = document.getElementById("restricao");
+        $('#modalRestricao').text(restricao.value);
+
+        var exemplo = document.getElementById("exemplo");
+        $('#modalExemplo').text(exemplo.value);
+
     }
 </script>
 
