@@ -21,38 +21,43 @@
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="nome">Nome</label>
-                            <input type="nome" class="form-control" name="nome" placeholder="Primeiro nome">
+                            <input type="nome" class="form-control" name="nome" placeholder="Primeiro nome" autocomplete="off">
 
                         </div>
                         <div class="col-md-6">
                             <label for="sobrenome">Sobrenome</label>
-                            <input type="sobrenome" class="form-control" name="sobrenome" placeholder="Último nome">
+                            <input type="sobrenome" class="form-control" name="sobrenome" placeholder="Último nome" autocomplete="off">
                         </div>
                     </div>
 
-                    <ul class="nav nav-tabs nav-justified" role="tablist">
-                        <li class="nav-item active col-md-4">
-                            <a href="#aluno" class="nav-link active" data-toggle="tab" role="tab">
-                                Aluno
-                            </a>
-                        </li>
-                        <li class="nav-item col-md-4">
-                            <a href="#avaliador" class="nav-link" data-toggle="tab" role="tab">
-                                Avaliador   
-                            </a>
-                        </li>
-                    </ul>
+                    <center>
+
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li class="nav-item active">
+                                <a href="#aluno" class="nav-link active" data-toggle="tab" role="tab">
+                                    Aluno
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#avaliador" class="nav-link" data-toggle="tab" role="tab">
+                                    Avaliador   
+                                </a>
+                            </li>
+                        </ul>
+
+                    </center>
+
                     <br>
 
                     <div class="tab-content">
                         <div class="tab-pane fade in show active" id="aluno" role="tabpanel">
                             <div class="row">
-                                <div class="form-group col-md-6">
+                                <div class="form-groupp col-md-6">
                                     <label for="senha">Matrícula</label>
-                                    <input type="text" class="form-control" name="matricula" placeholder="Insira sua matrícula">
+                                    <input type="text" class="form-control" name="matricula" placeholder="Insira sua matrícula" autocomplete="off">
                                 </div>
 
-                                <div class="select-group col-md-6">
+                                <div class="form-groupp col-md-6">
                                     <label for="turma">Turma</label>
                                     <select class="form-control" id="turma" name="turma">
                                         <option></option>
@@ -68,16 +73,16 @@
                         </div>
 
                         <div class="tab-pane fade" id="avaliador" role="tabpanel">
-                            <div class="form-group">
+                            <div class="form-groupp">
                                 <label for="siape">SIAPE</label>
-                                <input type="text" class="form-control" name="siape" placeholder="Insira sua matrícula SIAPE">
+                                <input type="text" class="form-control" name="siape" placeholder="Insira sua matrícula SIAPE" autocomplete="off">
                             </div>
                         </div>
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail">
+                        <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail" autocomplete="off">
                         <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
                     </div>
 
@@ -102,5 +107,6 @@
         </div>
 
         <jsp:include page="footer.jsp"/>
+        <script src="js/cadastro.js"></script>
     </body>
 </html>
