@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
         <div class="logo">
-            <a class="navbar-brand" href="home.jsp"><img alt="logo Djudge" src="img/djudge_logo.png"></a>
+            <a class="navbar-brand" href="index.jsp"><img alt="logo Djudge" src="img/djudge_logo.png"></a>
         </div>
 
 

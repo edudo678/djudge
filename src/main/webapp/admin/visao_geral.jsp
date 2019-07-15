@@ -46,7 +46,7 @@
             </div>
         </div>
         <script>$(function () {
-                $("#header").load("../header_logado.html");
+                $("#header").load("header_logado.html");
             });</script>
     </body>
 </html>

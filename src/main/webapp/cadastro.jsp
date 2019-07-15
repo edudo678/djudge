@@ -17,16 +17,16 @@
 
         <div class="row justify-content-center" style="margin-top: 10%; margin-bottom: 5%">
             <div class="col-md-4 card text-black">
-                <form><br>
-					<div class="row form-group">
+                <form action="/djudge/PrivadoServlet" method="POST"><br>
+                    <div class="row form-group">
                         <div class="col-md-6">
-                            <label for="email">Nome</label>
-                            <input type="email" class="form-control" name="email" placeholder="Primeiro nome">
+                            <label for="nome">Nome</label>
+                            <input type="nome" class="form-control" name="nome" placeholder="Primeiro nome">
 
                         </div>
                         <div class="col-md-6">
-                            <label for="email">Sobrenome</label>
-                            <input type="email" class="form-control" name="email" placeholder="Último nome">
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="sobrenome" class="form-control" name="sobrenome" placeholder="Último nome">
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                     </ul>
-					<br>
+                    <br>
 
                     <div class="tab-content">
                         <div class="tab-pane fade in show active" id="aluno" role="tabpanel">
@@ -54,14 +54,14 @@
 
                                 <div class="select-group col-md-6">
                                     <label for="turma">Turma</label>
-                                    <select class="form-control" id="turma">
-                                        <option>Selecione sua turma</option>
-                                        <option>Turma 1</option>
-                                        <option>Turma 2</option>
-                                        <option>Turma 3</option>
-                                        <option>Turma 4</option>
-                                        <option>Turma 5</option>
-
+                                    <select class="form-control" id="turma" name="turma">
+                                        <option></option>
+                                        <option value="IINF11A">IINF11A</option>
+                                        <option value="IINF11B">IINF11B</option>
+                                        <option value="IINF21A">IINF21A</option>
+                                        <option value="IINF21B">IINF21B</option>
+                                        <option value="IINF31A">IINF31A</option>
+                                        <option value="IINF31B">IINF31B</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,13 +69,13 @@
 
                         <div class="tab-pane fade" id="avaliador" role="tabpanel">
                             <div class="form-group">
-                                <label for="senha">SIAPE</label>
+                                <label for="siape">SIAPE</label>
                                 <input type="text" class="form-control" name="siape" placeholder="Insira sua matrícula SIAPE">
                             </div>
                         </div>
                     </div>
-					
-					<div class="form-group">
+
+                    <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail">
                         <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
@@ -87,8 +87,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="senha">Confirmar senha</label>
-                        <input type="password" class="form-control" name="senha" placeholder="Senha">
+                        <label for="confirmSenha">Confirmar senha</label>
+                        <input type="password" class="form-control" name="confirmSenha" placeholder="Confirme sua senha">
                     </div>
 
                     <div class="form-group form-check">
@@ -96,12 +96,11 @@
                         <label class="form-check-label" for="checkbox">Li e concordo com os termos de uso</label>
                     </div>
 
-                    <br><button type="submit" class="btn-lg btn-block bg-black text-light">Cadastrar-se</button><br>
+                    <br><button type="submit" name="acao" value="cadastrar" class="btn-lg btn-block bg-black text-light">Cadastrar-se</button><br>
                 </form>
             </div>
         </div>
 
         <jsp:include page="footer.jsp"/>
-		<script src="js/cadastro.js"></script>
     </body>
 </html>

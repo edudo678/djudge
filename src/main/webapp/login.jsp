@@ -16,10 +16,10 @@
 
         <div class="row justify-content-center margin-login">
             <div class="col-md-4 card text-black">
-                <form action="usuario/index.jsp"><br>
+                <form action="/djudge/PrivadoServlet" method="POST"><br>
                     <div class="form-group">
-                        <label for="email">Nome de usuário ou e-mail</label>
-                        <input type="email" class="form-control" name="email" placeholder="Usuário ou e-mail">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="E-mail">
                         <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
                     </div>
                     <div class="form-group">
@@ -27,7 +27,7 @@
                         <input type="password" class="form-control" name="senha" placeholder="Senha">
                     </div>
 
-                    <br><button type="submit" class="btn-lg btn-block bg-black text-light">Entrar</button><br>
+                    <br><button type="submit" name="acao" value="entrar" class="btn-lg btn-block bg-black text-light">Entrar</button><br>
                 </form>
             </div>
         </div>

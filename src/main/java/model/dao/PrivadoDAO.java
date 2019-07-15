@@ -11,15 +11,15 @@ import util.ConnectionFactory;
  */
 public class PrivadoDAO {
 
-    public Long login(String usuario, String senha) {
+    public Long login(String email, String senha) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         Query query;
         Privado p;
         try {
             manager.getTransaction().begin();
             //Criptografia c = new Criptografia();
-            query = (Query) manager.createQuery("from Privado p where p.email =:usuario or p.nome =:usuario")
-                    .setParameter("usuario", usuario);
+            query = (Query) manager.createQuery("from Privado p where p.email =:email")
+                    .setParameter("email", email);
             p = (Privado) query.getSingleResult();
             manager.getTransaction().commit();
             p.setSenha(p.getSenha());

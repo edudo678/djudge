@@ -115,8 +115,8 @@
                 <h4 class="card-title text-center" id="modalTitulo"><strong></strong></h4>
 
                 <p class="card-text text-justify" id="modalEnunciado"></p>
-
-
+                
+                
 
                 <h5 class=""><strong>Entrada</strong></h5>
                 <p class="card-text text-justify" id="modalEntrada"></p>

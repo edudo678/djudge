@@ -44,20 +44,20 @@
                 <div class="card col-10 text-black">
                     <div class="card-body">
                         <h4>Seja bem-vindo(a)</h4> <br> 
-                            <div class="row">
-                                <div class="col-6">
-                                    <jsp:include page="../carousel/principal.jsp"/>
-                                </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <jsp:include page="../carousel/principal.jsp"/>
+                            </div>
 
-                                <div class="col-6">
-                                    <div class="card-body text-center">
-                                        <h3>Fique por dentro das próximas maratonas 
-                                            do IFAM-CMC. Vamos praticar!</h3> <br>
+                            <div class="col-6">
+                                <div class="card-body text-center">
+                                    <h3>Fique por dentro das próximas maratonas 
+                                        do IFAM-CMC. Vamos praticar!</h3> <br>
 
-                                        <button type="button" class="btn btn-outline-dark btn-block">Praticar</button>
-                                    </div>
+                                    <button type="button" class="btn btn-outline-dark btn-block">Praticar</button>
                                 </div>
                             </div>
+                        </div>
 
                         <br>
                         <h3 class="border-bottom border-dark">Últimas notícias</h3>
@@ -89,5 +89,6 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="../footer.jsp"/>
     </body>
 </html>
