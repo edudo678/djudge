@@ -21,7 +21,6 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
     @Id
     @ManyToOne
     private Questao questao;
-    
 
     public QuestaoEntrada(Long id, String entrada) {
         this.id = id;

@@ -27,8 +27,6 @@ public class Questao implements Serializable, BaseEntity {
     
     private int peso;
     
-    private String saidaEsperada;
-    
     private float tempoExec;
     
     private String entrada;
@@ -41,12 +39,11 @@ public class Questao implements Serializable, BaseEntity {
     @ManyToOne
     private Questionario questionario;
     
-
     public Questao() {
     }
 
     public Questao(Long id, String titulo, String enunciado, int nivel, String publico, String codigoFonteGabarito,
-	    int peso, String saidaEsperada, float tempoExec, String entrada, String saida) {
+	    int peso, float tempoExec, String entrada, String saida) {
 	this.id = id;
 	this.titulo = titulo;
 	this.enunciado = enunciado;
@@ -54,7 +51,6 @@ public class Questao implements Serializable, BaseEntity {
 	this.publico = publico;
 	this.codigoFonteGabarito = codigoFonteGabarito;
 	this.peso = peso;
-	this.saidaEsperada = saidaEsperada;
 	this.tempoExec = tempoExec;
         this.entrada = entrada;
         this.saida = saida;
@@ -107,14 +103,6 @@ public class Questao implements Serializable, BaseEntity {
 
     public void setCodigoFonteGabarito(String codigoFonteGabarito) {
 	this.codigoFonteGabarito = codigoFonteGabarito;
-    }
-
-    public String getSaidaEsperada() {
-	return saidaEsperada;
-    }
-
-    public void setSaidaEsperada(String saidaEsperada) {
-	this.saidaEsperada = saidaEsperada;
     }
 
     public float getTempoExec() {

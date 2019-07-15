@@ -14,7 +14,6 @@ public class Administrador extends Privado {
     
     private String emailAdminCria;
    
-
     public Administrador() {
     }
 

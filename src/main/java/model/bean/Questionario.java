@@ -15,8 +15,6 @@ public class Questionario implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-//    private String siapeAv;
-    
     @ManyToOne
     private Avaliador avaliador;
     
@@ -24,9 +22,8 @@ public class Questionario implements Serializable, BaseEntity {
     public Questionario() {
     }
 
-    public Questionario(Long id, String siapeAv) {
+    public Questionario(Long id) {
         this.id = id;
-//        this.siapeAv = siapeAv;
     }
 
     @Override
@@ -37,14 +34,6 @@ public class Questionario implements Serializable, BaseEntity {
     public void setId(Long id) {
 	this.id = id;
     }
-
-//    public String getSiapeAv() {
-//        return siapeAv;
-//    }
-//
-//    public void setSiapeAv(String siapeAv) {
-//        this.siapeAv = siapeAv;
-//    }
 
     public Avaliador getAvaliador() {
 	return avaliador;

@@ -108,6 +108,35 @@
                                         <textarea class="form-control" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
                                     </div>
 
+                                    <br>
+                                    <h5 class="border-bottom border-dark"></h5>
+                                    <br>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="nivel">Nível</label>
+                                        <select class="form-control" id="nivel" name="nivel">
+                                            <option></option>
+                                            <option value="1">1 - fácil</option>
+                                            <option value="2">2 - médio</option>
+                                            <option value="3">3 - difícil</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="peso">Peso</label>
+                                        <select class="form-control" id="peso" name="peso">
+                                            <option></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group col-md-6">
+                                        <label>Código-fonte gabarito</label>
+                                        <input type="file" name="source" class="form-control-file" id="source" value=""> 
+                                    </div>
+                                    <br>
                                     <div class="form-row justify-content-center">
                                         <div class="col-md-6">
                                             <button type="button" class="btn btn-secondary btn-block bg-dark"  onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao">Confirmar</button>

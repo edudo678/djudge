@@ -13,7 +13,6 @@ public class Avaliador extends Privado {
     private Long id; 
     
     private String siape;
-    
 
     public Avaliador() {
     }

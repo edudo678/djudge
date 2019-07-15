@@ -8,26 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import model.dao.BaseEntity;
 
+/**
+ *
+ * @author eddunic
+ */
 @Entity
-public class QuestaoImagem implements Serializable, BaseEntity {
+public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-    
+    private Long id;
+
     @Id
-    private String imagem;
-    
+    private String saidaEsperada;
+
     @Id
     @ManyToOne
     private Questao questao;
 
-    public QuestaoImagem() {
+    public QuestaoSaidaEsperada() {
     }
 
-    public QuestaoImagem(Long id, String imagem) {
+    public QuestaoSaidaEsperada(Long id, String saidaEsperada) {
         this.id = id;
-        this.imagem = imagem;
+        this.saidaEsperada = saidaEsperada;
     }
 
     @Override
@@ -39,21 +43,20 @@ public class QuestaoImagem implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getSaidaEsperada() {
+        return saidaEsperada;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setSaidaEsperada(String saidaEsperada) {
+        this.saidaEsperada = saidaEsperada;
     }
 
     public Questao getQuestao() {
-	return questao;
+        return questao;
     }
 
     public void setQuestao(Questao questao) {
-	this.questao = questao;
+        this.questao = questao;
     }
-    
-}
 
+}

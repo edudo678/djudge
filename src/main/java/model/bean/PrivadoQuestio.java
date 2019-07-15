@@ -12,19 +12,12 @@ import model.dao.BaseEntity;
  *
  * @author Mauro Roger
  */
-
 @Entity
 public class PrivadoQuestio implements Serializable, BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-//    private String emailPriv;
-//    
-//    private int idPriv;
-    
-//    private int idQuestio;
     
     private String saida;
     
@@ -44,12 +37,8 @@ public class PrivadoQuestio implements Serializable, BaseEntity {
     public PrivadoQuestio() {
     }
 
-    public PrivadoQuestio(Long id, String emailPriv, int idPriv, int idQuestio, String saida, int pontuacaoManual,
-	    int pontuacaoAuto, float media) {
+    public PrivadoQuestio(Long id, String saida, int pontuacaoManual, int pontuacaoAuto, float media) {
 	this.id = id;
-//	this.emailPriv = emailPriv;
-//	this.idPriv = idPriv;
-//	this.idQuestio = idQuestio;
 	this.saida = saida;
 	this.pontuacaoManual = pontuacaoManual;
 	this.pontuacaoAuto = pontuacaoAuto;
@@ -64,30 +53,6 @@ public class PrivadoQuestio implements Serializable, BaseEntity {
     public void setId(Long id) {
 	this.id = id;
     }
-
-//    public String getEmailPriv() {
-//	return emailPriv;
-//    }
-//
-//    public void setEmailPriv(String emailPriv) {
-//	this.emailPriv = emailPriv;
-//    }
-//
-//    public int getIdPriv() {
-//	return idPriv;
-//    }
-//
-//    public void setIdPriv(int idPriv) {
-//	this.idPriv = idPriv;
-//    }
-//
-//    public int getIdQuestio() {
-//	return idQuestio;
-//    }
-//
-//    public void setIdQuestio(int idQuestio) {
-//	this.idQuestio = idQuestio;
-//    }
 
     public String getSaida() {
 	return saida;
