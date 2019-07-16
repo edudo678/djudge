@@ -15,6 +15,7 @@
     <class>model.bean.QuestaoEntrada</class>
     <class>model.bean.QuestaoImagem</class>
     <class>model.bean.QuestaoRestricao</class>
+    <class>model.bean.QuestaoSaidaEsperada</class>
     <class>model.bean.Questionario</class>
     <properties>
       <!-- Propriedades JDBC -->
