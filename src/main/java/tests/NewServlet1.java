@@ -27,11 +27,11 @@ public class NewServlet1 extends HttpServlet {
 //	GenericDAO<model.bean.Privado> daoP = new GenericDAO<>();
 //	p.setNome("Jucibs");
 //	daoP.saveOrUpdate(p);
-//        model.bean.Aluno a = new model.bean.Aluno();
-//        GenericDAO<model.bean.Aluno> daoA = new GenericDAO<>();
-//        a.setNome("Eduardo");
-//        a.setSenha("123");
-//        daoA.saveOrUpdate(a);
+        model.bean.Aluno a = new model.bean.Aluno();
+        GenericDAO<model.bean.Aluno> daoA = new GenericDAO<>();
+        a.setNome("Eduardo");
+        a.setSenha("123");
+        daoA.saveOrUpdate(a);
 //	Avaliador prof = new Avaliador();
 //	prof.setId(1L);
 //	Questao q = new Questao();
@@ -61,9 +61,9 @@ public class NewServlet1 extends HttpServlet {
 //        AlunoDAO dao = new AlunoDAO();
 //        Aluno a = dao.findById(Aluno.class, 2L);
 //        dao.remove(a);     
-        GenericDAO<Privado> dao = new GenericDAO();
-        Privado p = dao.findById2(Privado.class, 1L);
-        dao.remove(p);
+//        GenericDAO<Privado> dao = new GenericDAO();
+//        Privado p = dao.findById2(Privado.class, 1L);
+//        dao.remove(p);
 
     }
 
