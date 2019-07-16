@@ -19,7 +19,6 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     private String saidaEsperada;
 
     @Id

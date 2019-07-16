@@ -15,7 +15,6 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     private String restricao;
 
     @Id

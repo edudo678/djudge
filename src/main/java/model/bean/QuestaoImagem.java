@@ -15,7 +15,6 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
     
-    @Id
     private String imagem;
     
     @Id

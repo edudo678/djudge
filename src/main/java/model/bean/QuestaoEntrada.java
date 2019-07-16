@@ -15,7 +15,6 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     private String entrada;
 
     @Id
