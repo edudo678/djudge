@@ -1,10 +1,12 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import model.dao.BaseEntity;
 
@@ -15,7 +17,9 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
     
-    private String imagem;
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] imagem;
     
     @Id
     @ManyToOne
@@ -24,7 +28,7 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     public QuestaoImagem() {
     }
 
-    public QuestaoImagem(Long id, String imagem) {
+    public QuestaoImagem(Long id, byte[] imagem) {
         this.id = id;
         this.imagem = imagem;
     }
@@ -38,11 +42,11 @@ public class QuestaoImagem implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 

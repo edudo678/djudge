@@ -35,7 +35,7 @@ public class QuestaoServlet extends HttpServlet {
             QuestaoImagem qi = new QuestaoImagem();
             GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
 
-            qi.setImagem(request.getParameter("imagem"));
+          //  qi.setImagem(request.getParameter("imagem"));
 
             QuestaoRestricao qr = new QuestaoRestricao();
             GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
