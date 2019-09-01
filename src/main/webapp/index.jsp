@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang = "pt-br">
+<html lang="pt-br">
     <head>
-        <meta charset = "utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Djudge - Corretor de Questões</title>
         <link rel="stylesheet" href="css/fontawesome-all.css">
@@ -21,8 +21,8 @@
         <div class="submeter">
             <p class="text"><b>A Ferramenta da Maratona de Programação do IFAM</b></p>
 
-            <a href="" class="btn btn-primary"><i class="fas fa-file-alt fa"></i>Saiba mais</a>
-            <small>ou</small>
+<!--            <a href="" class="btn btn-primary"><i class="fas fa-file-alt fa"></i>Saiba mais</a>
+            <small>ou</small>-->
             <a href="" class="btn btn-outline-light"><i class="fas fa-file-code fa"></i>Submeta seu código-fonte</a>
         </div>
 

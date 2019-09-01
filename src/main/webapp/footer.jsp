@@ -14,7 +14,7 @@
 
                     <!-- Content -->
                     <h5 class="font-weight-bold text-uppercase mb-4">Djudge</h5>
-                    <p style="text-align: justify;">Djudge é um juiz online criado para auxiliar a coodernação nas maratonas de programação do IFAM.</p>
+                    <p style="text-align: justify;">Djudge é um juiz online criado para auxiliar a coordenação nas maratonas de programação do IFAM.</p>
 
 
                 </div>
@@ -54,7 +54,7 @@
                         </li>
                         <li>
                             <p>
-                                <i class="fas fa-envelope mr-3"></i> equipe.djudge@ifam.edu.br</p>
+                                <i class="fas fa-envelope mr-3"></i> eddunic@gmail.com</p>
                         </li>
                         <li>
                             <p>

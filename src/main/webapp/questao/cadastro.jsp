@@ -35,7 +35,7 @@
     <body class="background">
         <jsp:include page="header.jsp"/>
 
-        <div class="container-fluid home">
+        <div class="container-fluid home" style="margin-bottom: 40px">
 
             <div class="row">
                 <div class="col-10 row justify-content-end">
@@ -47,65 +47,63 @@
                                 <div class="form-row justify-content-center">
                                     <div class="col-md-8">
                                         <label for="titulo"><strong>Título da questão</strong></label>
-                                        <input type="titulo" class="form-control text-center" id="titulo" placeholder="Título da questão">
+                                        <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
                                     </div>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="enunciado"><strong>Enunciado</strong></label>
-                                        <textarea class="form-control" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
+                                        <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
 
                                         <label for="imagem"><strong>Inserir imagem</strong></label>
                                         <div class="form-panel">
-                                            <form action="#" class="form-horizontal style-form">
-
-                                                <div class="form-group last">
-                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                        <div class="fileupload-new thumbnail" >
-                                                            <img src="../img/default_question.png" alt="Nenhuma imagem foi enviada"/>
-                                                        </div>
-
-                                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 550px; max-height: 300px;"></div>
-                                                        <div>
-                                                            <span class="btn btn-theme02 btn-file">
-                                                                <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selecione uma imagem</span>
-                                                                <span class="fileupload-exists"><i class="fa fa-undo"></i> Trocar</span>
-                                                                <input type="file" id="imagem" class="default" name="image" onchange="previewImage(this, 'modalPreviewImg');" accept="image/png, image/jpg"  multiple/>
-                                                            </span>
-                                                            <a href="" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload">
-                                                                <i class="fas fa-trash-alt"></i> Apagar</a>
-                                                        </div>
-                                                        <small class="form-text text-muted">Envie arquivos de um desses dois tipos (JPG ou PNG).</small>
-
+                                            <div class="form-group last">
+                                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                    <div class="fileupload-new thumbnail" >
+                                                        <img src="../img/default_question.png" alt="Nenhuma imagem foi enviada"/>
                                                     </div>
 
+                                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 550px; max-height: 300px;"></div>
+                                                    <div>
+                                                        <span class="btn btn-theme02 btn-file">
+                                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selecione uma imagem</span>
+                                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Trocar</span>
+                                                            <input type="file" id="imagem" class="default" name="imagem" onchange="previewImage(this, 'modalPreviewImg');" accept="image/png, image/jpg"  multiple/>
+                                                        </span>
+                                                        <a href="" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload">
+                                                            <i class="fas fa-trash-alt"></i> Apagar</a>
+                                                    </div>
+                                                    <small class="form-text text-muted">Envie arquivos de um desses dois tipos (JPG ou PNG).</small>
+
                                                 </div>
-                                            </form>
+
+                                            </div>
+
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="entrada"><strong>Entrada</strong></label>
-                                        <textarea class="form-control" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
+                                        <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="saida"><strong>Saída</strong></label>
-                                        <textarea class="form-control" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
+                                        <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="restricao"><strong>Restrições</strong></label>
-                                        <textarea class="form-control" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
+                                        <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exemplo"><strong>Exemplos</strong></label>
-                                        <textarea class="form-control" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
+                                        <textarea class="form-control" name="exemplo" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
                                     </div>
 
                                     <br>
@@ -139,7 +137,7 @@
                                     <br>
                                     <div class="form-row justify-content-center">
                                         <div class="col-md-6">
-                                            <button type="button" class="btn btn-secondary btn-block bg-dark"  onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao">Confirmar</button>
+                                            <button type="submit" name="acao" value="cadastrar" class="btn btn-secondary btn-block bg-dark"  onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao">Confirmar</button>
                                         </div>
                                     </div>
                                 </div>

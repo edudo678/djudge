@@ -33,7 +33,7 @@
                     <div class="col-10">
                         <div class="card text-black">
 
-                            <div class="card-body">
+                            <div class="card-body">                                
                                 <h4 class="card-title text-center"><strong>Hello World</strong></h4>
                                 <p class="card-text text-justify">
                                     Imprima "hello world".
@@ -41,7 +41,7 @@
 
                                 <h5 class=""><strong>Saída</strong></h5>
                                 <p class="card-text text-justify">
-                                    Seu programa deve produzir uma linha na saída contendo a saída esperada.</p>
+                                    Seu programa deve produzir uma linha contendo a saída esperada.</p>
 
                                 <h5 class=""><strong>Exemplo</strong></h5>
 
@@ -55,24 +55,12 @@
                                 </table>
 
                                 <div class="list-group list-group-flush card-body ">
-                                    <table class="table">
-                                        <strong>Submissão</strong>
-                                        <tr>
-                                            <td>
-                                                <form action="/djudge/JDoodleServlet" enctype="multipart/form-data" method="POST">
-                                                    <!--<div class="dropdown">                                                    
-                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-                                                      Selecione a linguagem
-                                                  </button>
-                                                      <div class="dropdown-menu" name="compilerId">
-                                                              <a class="dropdown-item" value="c" href="#">C</a>
-                                                              <a class="dropdown-item" href="#">C++</a>
-                                                              <a class="dropdown-item" href="#">Java</a>
-                                                               <a class="dropdown-item" href="#">Python 2</a>
-                                                             <a class="dropdown-item" href="#">Python 3</a>
-                                                               <a class="dropdown-item" href="#"></a>
-                                                          </div>
-                                                   </div>-->
+                                    <form action="/djudge/JDoodleServlet?id=1" enctype="multipart/form-data" method="POST">
+                                        <input class="form-control" type="hidden" id="id" name="id" value="1" readonly>
+                                        <table class="table">
+                                            <strong>Submissão</strong>
+                                            <tr> 
+                                                <td> 
                                                     <div>
                                                         <select name="compilerId">
                                                             <option>Selecione a linguagem</option>
@@ -83,17 +71,16 @@
                                                             <option value="python3">Python 3</option> 
                                                         </select>
                                                     </div>
-                                            </td>
-                                            <td>
-
-                                                <div class="form-group">
-                                                    <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary btn-block">Submeter</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-block">Submeter</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
                                 </div>                                
                             </div>
                         </div>

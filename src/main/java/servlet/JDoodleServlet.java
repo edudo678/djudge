@@ -16,6 +16,8 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Questao;
+import model.dao.GenericDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -205,8 +207,18 @@ public class JDoodleServlet extends HttpServlet {
 
             jdof = new JDoodleOutputFormat(concat, language); //formata a saída
 
-            System.out.println(jdof.getCodeOutput());
             out.println(jdof.getCodeOutput());
+
+            GenericDAO<Questao> dao = new GenericDAO<>();
+            Questao q = dao.findById(Questao.class, Long.parseLong(request.getParameter("id")));
+
+            System.out.println(jdof.getCodeOutput());
+
+            if (jdof.getCodeOutput().equals(q.getSaida())) {
+                System.out.println("código com saída certa");
+            } else {
+                System.out.println("código com saída errada");
+            }
 
             connection.disconnect();
 
@@ -217,4 +229,5 @@ public class JDoodleServlet extends HttpServlet {
         }
 
     }
+
 }

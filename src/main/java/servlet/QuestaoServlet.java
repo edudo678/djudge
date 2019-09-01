@@ -25,26 +25,22 @@ public class QuestaoServlet extends HttpServlet {
         if (acao.equals("cadastrar")) {
 
             Questao q = new Questao();
-            GenericDAO<Questao> gq = new GenericDAO<>();
-
+            
             q.setTitulo(request.getParameter("titulo"));
             q.setEnunciado(request.getParameter("enunciado"));
             q.setEntrada(request.getParameter("entrada"));
             q.setSaida(request.getParameter("saida"));
-
-            QuestaoImagem qi = new QuestaoImagem();
-            GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
-
-          //  qi.setImagem(request.getParameter("imagem"));
-
-            QuestaoRestricao qr = new QuestaoRestricao();
-            GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
-
-            qr.setRestricao(request.getParameter("restricao"));
-
+            
+            GenericDAO<Questao> gq = new GenericDAO<>();
             gq.saveOrUpdate(q);
+
+            QuestaoImagem qi = new QuestaoImagem();            
+
+            qi.setImagem(request.getParameter("imagem").getBytes());
+            qi.setQuestao(q);
+            
+            GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
             gqi.saveOrUpdate(qi);
-            gqr.saveOrUpdate(qr);
 
         }
 

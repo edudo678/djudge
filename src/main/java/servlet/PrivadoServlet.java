@@ -43,7 +43,7 @@ public class PrivadoServlet extends HttpServlet {
 
                     dao.saveOrUpdate(a);
 
-                    response.sendRedirect("../djudge/cadastro.jsp");
+                    response.sendRedirect("../djudge/login.jsp");
 
                 } else {
 
@@ -59,7 +59,7 @@ public class PrivadoServlet extends HttpServlet {
 
                         dao.saveOrUpdate(a);
 
-                        response.sendRedirect("../djudge/cadastro.jsp");
+                        response.sendRedirect("../djudge/login.jsp");
 
                     }
 
@@ -91,8 +91,13 @@ public class PrivadoServlet extends HttpServlet {
                         GenericDAO<Privado> pDAO2 = new GenericDAO<>();
                         p = pDAO2.findById(Privado.class, idPrivado);
                         if (p != null) {
+                            GenericDAO<Aluno> aDAO = new GenericDAO<>();
+                            if (aDAO.findById(Aluno.class, idPrivado) == null) {
+                                response.sendRedirect("/djudge/avaliador/index.jsp");
+                            } else {
+                                response.sendRedirect("/djudge/usuario/index.jsp");
+                            }
                             request.getSession().setAttribute("usuario", p);
-                            response.sendRedirect("/djudge/usuario/index.jsp");
                         } else {
                             out.println("ERRO");
                         }
