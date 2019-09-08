@@ -73,8 +73,8 @@ public class JDoodle extends HttpServlet {
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
-        
-        JDoodleOutputFormat jdof = null; //classe para formatar a saída do JDoodle
+
+        JDoodleOutputFormat jdof; //classe para formatar a saída do JDoodle
         JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
         String value = null; //Compiler value
 
@@ -174,45 +174,43 @@ public class JDoodle extends HttpServlet {
             }
         }
 
-        try {
-            URL url = new URL("https://api.jdoodle.com/v1/execute");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
+        URL url = new URL("https://api.jdoodle.com/v1/execute");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
 
-            String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
-                    + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
+        String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
+                + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
 
-            System.out.println(input);
+        System.out.println(input);
 
-            OutputStream outputStream = connection.getOutputStream();
-            outputStream.write(input.getBytes());
-            outputStream.flush();
+        OutputStream outputStream = connection.getOutputStream();
+        outputStream.write(input.getBytes());
+        outputStream.flush();
 
-            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
-            }
+        if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+            throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
+        }
 
-            BufferedReader bufferedReader;
-            bufferedReader = new BufferedReader(new InputStreamReader(
-                    (connection.getInputStream())));
+        BufferedReader bufferedReader;
+        bufferedReader = new BufferedReader(new InputStreamReader(
+                (connection.getInputStream())));
 
-            System.out.println("Output from JDoodle .... \n");
+        System.out.println("Output from JDoodle .... \n");
 
-            String saidaJDoodle, concat = "";
-            while ((saidaJDoodle = bufferedReader.readLine()) != null) {
-                concat += saidaJDoodle;
-            }
+        String saidaJDoodle, concat = "";
+        while ((saidaJDoodle = bufferedReader.readLine()) != null) {
+            concat += saidaJDoodle;
+        }
 
-            jdof = new JDoodleOutputFormat(concat, language); //formata a saída
+        jdof = new JDoodleOutputFormat(concat, language); //formata a saída
 
 //            out.println(jdof.getCodeOutput());
 //
 //            GenericDAO<Questao> dao = new GenericDAO<>();
 //            Questao q = dao.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-
-            System.out.println(jdof.getCodeOutput());
+        System.out.println(jdof.getCodeOutput());
 //
 //            if (jdof.getCodeOutput().equals(q.getSaida())) {
 //                System.out.println("código com saída certa");
@@ -220,17 +218,9 @@ public class JDoodle extends HttpServlet {
 //                System.out.println("código com saída errada");
 //            }
 
-            connection.disconnect();
-            return jdof.getCodeOutput();
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return jdof.getCodeOutput();
+        connection.disconnect();
         
+        return jdof.getCodeOutput();
     }
 
 }

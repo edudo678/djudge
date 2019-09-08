@@ -26,19 +26,19 @@ public class JDoodleCodeFormat {
     private void scriptFormat() {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(codeFile));
-            while (br.ready()) {
-                if (language.equals("c") || (language.equals("cpp")) || language.equals("java")) {
-                    //lê arquivo usando trim, do contrário a submissão
-                    //não é possível
-                    script += br.readLine().trim() + "\\n";
-                } else if (language.equals("python2") || language.equals("python3")) {
-                    //para respeitar a identação obrigatória de códigos 
-                    //em python, não se usa trim
-                    script += br.readLine() + "\\n";
+            try (BufferedReader br = new BufferedReader(new FileReader(codeFile))) {
+                while (br.ready()) {
+                    if (language.equals("c") || (language.equals("cpp")) || language.equals("java")) {
+                        //lê arquivo usando trim, do contrário a submissão
+                        //não é possível
+                        script += br.readLine().trim() + "\\n";
+                    } else if (language.equals("python2") || language.equals("python3")) {
+                        //para respeitar a identação obrigatória de códigos
+                        //em python, não se usa trim
+                        script += br.readLine() + "\\n";
+                    }
                 }
             }
-            br.close();
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado!" + e.getMessage());
         } catch (IOException e) {
