@@ -55,7 +55,7 @@
                                 </table>
 
                                 <div class="list-group list-group-flush card-body ">
-                                    <form action="/djudge/JDoodleServlet?id=1" enctype="multipart/form-data" method="POST">
+                                    <form action="/djudge/SubmissaoServlet?id=1" enctype="multipart/form-data" method="POST">
                                         <input class="form-control" type="hidden" id="id" name="id" value="1" readonly>
                                         <table class="table">
                                             <strong>Submissão</strong>

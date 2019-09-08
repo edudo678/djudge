@@ -1,4 +1,5 @@
-package servlet;
+//salva localmente arquivo submetido, compila e retorna a saida
+package util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -60,22 +61,21 @@ enum Client {
 }
 
 @MultipartConfig
-public class JDoodleServlet extends HttpServlet {
+public class JDoodle extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public String post(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        JDoodleOutputFormat jdof; //classe para formatar a saída do JDoodle
-        JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
         PrintWriter out = response.getWriter();
-
+        
+        JDoodleOutputFormat jdof = null; //classe para formatar a saída do JDoodle
+        JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
         String value = null; //Compiler value
 
         //Read archive
@@ -207,20 +207,21 @@ public class JDoodleServlet extends HttpServlet {
 
             jdof = new JDoodleOutputFormat(concat, language); //formata a saída
 
-            out.println(jdof.getCodeOutput());
-
-            GenericDAO<Questao> dao = new GenericDAO<>();
-            Questao q = dao.findById(Questao.class, Long.parseLong(request.getParameter("id")));
+//            out.println(jdof.getCodeOutput());
+//
+//            GenericDAO<Questao> dao = new GenericDAO<>();
+//            Questao q = dao.findById(Questao.class, Long.parseLong(request.getParameter("id")));
 
             System.out.println(jdof.getCodeOutput());
-
-            if (jdof.getCodeOutput().equals(q.getSaida())) {
-                System.out.println("código com saída certa");
-            } else {
-                System.out.println("código com saída errada");
-            }
+//
+//            if (jdof.getCodeOutput().equals(q.getSaida())) {
+//                System.out.println("código com saída certa");
+//            } else {
+//                System.out.println("código com saída errada");
+//            }
 
             connection.disconnect();
+            return jdof.getCodeOutput();
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -228,6 +229,8 @@ public class JDoodleServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        return jdof.getCodeOutput();
+        
     }
 
 }

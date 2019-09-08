@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>JDoodleServlet</servlet-name>
-        <servlet-class>servlet.JDoodleServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>QuestaoServlet</servlet-name>
         <servlet-class>servlet.QuestaoServlet</servlet-class>
     </servlet>
@@ -25,10 +21,10 @@
         <param-name>file-upload</param-name>
         <param-value>/home/eddunic/Área de Trabalho</param-value>
     </context-param>
-    <servlet-mapping>
-        <servlet-name>JDoodleServlet</servlet-name>
-        <url-pattern>/JDoodleServlet</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>SubmissaoServlet</servlet-name>
+        <servlet-class>servlet.SubmissaoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>QuestaoServlet</servlet-name>
         <url-pattern>/QuestaoServlet</url-pattern>
@@ -44,6 +40,10 @@
     <servlet-mapping>
         <servlet-name>PrivadoServlet</servlet-name>
         <url-pattern>/PrivadoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmissaoServlet</servlet-name>
+        <url-pattern>/SubmissaoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -13,6 +13,7 @@
     <class>model.bean.PrivadoQuestio</class>
     <class>model.bean.Questao</class>
     <class>model.bean.QuestaoEntrada</class>
+    <class>model.bean.QuestaoExemplo</class>
     <class>model.bean.QuestaoImagem</class>
     <class>model.bean.QuestaoRestricao</class>
     <class>model.bean.QuestaoSaidaEsperada</class>
