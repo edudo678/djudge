@@ -25,8 +25,7 @@ public class QuestaoServlet extends HttpServlet {
 
         String acao = request.getParameter("acao");
 
-//        if (acao.equals("cadastrar")) {
-
+//        if (acao.equals("continuar")) {
             //questao
             Questao q = new Questao();
 
@@ -48,7 +47,6 @@ public class QuestaoServlet extends HttpServlet {
 //
 //            GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
 //            gqi.saveOrUpdate(qi);
-            
             //restricao
 //            QuestaoRestricao qr = new QuestaoRestricao();
 //            
@@ -57,7 +55,6 @@ public class QuestaoServlet extends HttpServlet {
 //            
 //            GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
 //            gqr.saveOrUpdate(qr);
-            
             //exemplo
 //            QuestaoExemplo qe = new QuestaoExemplo();
 //            
@@ -66,24 +63,22 @@ public class QuestaoServlet extends HttpServlet {
 //            
 //            GenericDAO<QuestaoExemplo> gqe = new GenericDAO<>();
 //            gqe.saveOrUpdate(qe);
-           
             //gera e guarda saida esperada
-            JDoodle j = new JDoodle();
+//            JDoodle j = new JDoodle();
+//            
+            response.sendRedirect("../djudge/questao/cadastro2.jsp?id=" + q.getId());
 
-            System.out.println("saida professor -> " + j.post(request, response));
-            
-            String saidaEsperada = j.post(request, response);
-            
-            QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-            
-            qs.setSaidaEsperada(saidaEsperada);
-            qs.setQuestao(q);
-            
-            GenericDAO<QuestaoSaidaEsperada> gqs = new GenericDAO<>();
-            gqs.saveOrUpdate(qs);
-
-        }
+//            System.out.println("saida professor -> " + j.post(request, response));
+//            
+//            QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
+//            
+//            qs.setSaidaEsperada(j.post(request, response));
+//            qs.setQuestao(q);
+//            
+//            GenericDAO<QuestaoSaidaEsperada> gqs = new GenericDAO<>();
+//            gqs.saveOrUpdate(qs);
+//        } 
 
     }
 
-//}
+}

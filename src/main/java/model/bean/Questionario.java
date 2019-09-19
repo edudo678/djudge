@@ -18,7 +18,6 @@ public class Questionario implements Serializable, BaseEntity {
     @ManyToOne
     private Avaliador avaliador;
     
-
     public Questionario() {
     }
 

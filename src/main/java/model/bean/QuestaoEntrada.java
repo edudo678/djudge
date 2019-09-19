@@ -17,7 +17,6 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
 
     private String entrada;
 
-    @Id
     @ManyToOne
     private Questao questao;
 

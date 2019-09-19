@@ -21,7 +21,6 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     @Column(columnDefinition = "longblob")
     private byte[] imagem;
     
-    @Id
     @ManyToOne
     private Questao questao;
 

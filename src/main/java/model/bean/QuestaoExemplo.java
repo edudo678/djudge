@@ -21,7 +21,6 @@ public class QuestaoExemplo implements Serializable, BaseEntity {
 
     private String exemplo;
 
-    @Id
     @ManyToOne
     private Questao questao;
 

@@ -17,7 +17,6 @@ public class PrivQuestioCodFonte implements Serializable, BaseEntity {
     
     private String codigoFonte;
     
-    @Id
     @ManyToOne
     private PrivadoQuestio privadoQuestio;
     

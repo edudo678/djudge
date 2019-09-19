@@ -42,124 +42,125 @@
 
                     <div class="col-10">
                         <div class="card text-black">
-                            <!--                            <form action="/djudge/QuestaoServlet" enctype="multipart/form-data" method="POST">-->
-                            <br>
-                            <div class="form-row justify-content-center">
-                                <div class="col-md-8">
-                                    <label for="titulo"><strong>Título da questão</strong></label>
-                                    <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="enunciado"><strong>Enunciado</strong></label>
-                                    <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
+                            <form action="/djudge/QuestaoServlet" method="POST">
+                                <br>
+                                <div class="form-row justify-content-center">
+                                    <div class="col-md-8">
+                                        <label for="titulo"><strong>Título da questão</strong></label>
+                                        <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="enunciado"><strong>Enunciado</strong></label>
+                                        <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
+                                    </div>
 
-                                    <label for="imagem"><strong>Inserir imagem</strong></label>
-                                    <div class="form-panel">
-                                        <div class="form-group last">
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <div class="fileupload-new thumbnail" >
-                                                    <img src="../img/default_question.png" alt="Nenhuma imagem foi enviada"/>
-                                                </div>
+                                    <div class="form-group">
 
-                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 550px; max-height: 300px;"></div>
-                                                <div>
-                                                    <span class="btn btn-theme02 btn-file">
-                                                        <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selecione uma imagem</span>
-                                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Trocar</span>
-                                                        <input type="file" id="imagem" class="default" name="imagem" onchange="previewImage(this, 'modalPreviewImg');" accept="image/png, image/jpg"  multiple/>
-                                                    </span>
-                                                    <a href="" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload">
-                                                        <i class="fas fa-trash-alt"></i> Apagar</a>
+                                        <label for="imagem"><strong>Inserir imagem</strong></label>
+                                        <div class="form-panel">
+                                            <div class="form-group last">
+                                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                    <div class="fileupload-new thumbnail" >
+                                                        <img src="../img/default_question.png" alt="Nenhuma imagem foi enviada"/>
+                                                    </div>
+
+                                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 550px; max-height: 300px;"></div>
+                                                    <div>
+                                                        <span class="btn btn-theme02 btn-file">
+                                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selecione uma imagem</span>
+                                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Trocar</span>
+                                                            <input type="file" id="imagem" class="default" name="imagem" onchange="previewImage(this, 'modalPreviewImg');" accept="image/png, image/jpg"  multiple/>
+                                                        </span>
+                                                        <a href="" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload">
+                                                            <i class="fas fa-trash-alt"></i> Apagar</a>
+                                                    </div>
+                                                    <small class="form-text text-muted">Envie arquivos de um desses dois tipos (JPG ou PNG).</small>
+
                                                 </div>
-                                                <small class="form-text text-muted">Envie arquivos de um desses dois tipos (JPG ou PNG).</small>
 
                                             </div>
 
                                         </div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label for="entrada"><strong>Entrada</strong></label>
+                                        <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="saida"><strong>Saída</strong></label>
+                                        <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="restricao"><strong>Restrições</strong></label>
+                                        <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exemplo"><strong>Exemplos</strong></label>
+                                        <textarea class="form-control" name="exemplo" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
+                                    </div>
+
+                                    <br>
+                                    <h5 class="border-bottom border-dark"></h5>
+                                    <br>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="nivel">Nível</label>
+                                        <select class="form-control" id="nivel" name="nivel">
+                                            <option></option>
+                                            <option value="1">1 - fácil</option>
+                                            <option value="2">2 - médio</option>
+                                            <option value="3">3 - difícil</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="peso">Peso</label>
+                                        <select class="form-control" id="peso" name="peso">
+                                            <option></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                    <br>                                    
+<!--                                    <div class="form-group col-md-6">
+                                        <label>Código-fonte gabarito</label>
+                                        <input type="file" name="source" class="form-control-file" id="source"> 
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <select name="compilerId">
+                                            <option>Selecione a linguagem</option>
+                                            <option  value="c">C</option>   
+                                            <option  value="cpp">C++</option>                  
+                                            <option value="java">Java</option> 
+                                            <option value="python2">Python 2</option> 
+                                            <option value="python3">Python 3</option> 
+                                        </select>                                                
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Entrada</label>
+                                        <input type="entrada" class="form-control text-center" name="entradaCod" id="entradaCod" placeholder="Digite a entrada">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Saída Esperada</label>
+                                        <input type="saidaEsperada" class="form-control text-center" name="saidaEsperada" id="saidaEsperada" readonly>
+                                    </div>
+                                    <br>-->
+                                    <div class="form-row justify-content-center">
+                                        <div class="col-md-6">
+                                            <button type="submit" name="acao" value="continuar" class="btn btn-secondary btn-block bg-dark">Continuar</button>
+                                             <!--onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao"-->
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="entrada"><strong>Entrada</strong></label>
-                                    <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="saida"><strong>Saída</strong></label>
-                                    <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="restricao"><strong>Restrições</strong></label>
-                                    <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exemplo"><strong>Exemplos</strong></label>
-                                    <textarea class="form-control" name="exemplo" id="exemplo" rows="3" placeholder="Descreva os exemplos da questão aqui"></textarea>
-                                </div>
-
-                                <br>
-                                <h5 class="border-bottom border-dark"></h5>
-                                <br>
-
-                                <div class="form-group col-md-6">
-                                    <label for="nivel">Nível</label>
-                                    <select class="form-control" id="nivel" name="nivel">
-                                        <option></option>
-                                        <option value="1">1 - fácil</option>
-                                        <option value="2">2 - médio</option>
-                                        <option value="3">3 - difícil</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="peso">Peso</label>
-                                    <select class="form-control" id="peso" name="peso">
-                                        <option></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <br>                                    
-                                <!--                                <div class="form-group col-md-6">
-                                                                    <label>Código-fonte gabarito</label>
-                                                                    <input type="file" name="source" class="form-control-file" id="source"> 
-                                                                </div>
-                                                                <div class="form-group col-md-6">
-                                                                    <select name="compilerId">
-                                                                        <option>Selecione a linguagem</option>
-                                                                        <option  value="c">C</option>   
-                                                                        <option  value="cpp">C++</option>                  
-                                                                        <option value="java">Java</option> 
-                                                                        <option value="python2">Python 2</option> 
-                                                                        <option value="python3">Python 3</option> 
-                                                                    </select>                                                
-                                                                </div>
-                                                                <div class="form-group col-md-6">
-                                                                    <label>Entrada</label>
-                                                                    <input type="entrada" class="form-control text-center" name="entradaCod" id="entradaCod" placeholder="Digite a entrada">
-                                                                </div>
-                                                                <div class="form-group col-md-6">
-                                                                    <label>Saída Esperada</label>
-                                                                    <input type="saidaEsperada" class="form-control text-center" name="saidaEsperada" id="saidaEsperada" readonly>
-                                                                </div>-->
-                                <!--<br>-->
-                                <div class="form-row justify-content-center">
-                                    <div class="col-md-6">
-                                        <button type="submit" name="acao" value="cadastrar" class="btn btn-secondary btn-block bg-dark"  onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao">Confirmar</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--</form>-->
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -225,7 +226,6 @@
             </form>
         </div>
     </div>
-</div>
 </div>
 
 <script>

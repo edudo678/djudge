@@ -1,6 +1,7 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,14 +20,17 @@ public class Questao implements Serializable, BaseEntity {
     
     private String enunciado;
     
+    @Column(nullable = true)
     private int nivel;
     
     private String publico;
     
     private String codigoFonteGabarito;
     
+    @Column(nullable = true)
     private int peso;
     
+    @Column(nullable = true)
     private float tempoExec;
     
     private String entrada;
