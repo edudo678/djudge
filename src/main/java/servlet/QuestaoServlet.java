@@ -9,9 +9,7 @@ import model.bean.Questao;
 import model.bean.QuestaoExemplo;
 import model.bean.QuestaoImagem;
 import model.bean.QuestaoRestricao;
-import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
-import util.JDoodle;
 
 /**
  *
@@ -23,61 +21,45 @@ public class QuestaoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String acao = request.getParameter("acao");
+        //questao
+        Questao q = new Questao();
 
-//        if (acao.equals("continuar")) {
-            //questao
-            Questao q = new Questao();
+        q.setTitulo(request.getParameter("titulo"));
+        q.setEnunciado(request.getParameter("enunciado"));
+        q.setEntrada(request.getParameter("entrada"));
+        q.setSaida(request.getParameter("saida"));
+        q.setNivel(Integer.parseInt(request.getParameter("nivel")));
+        q.setPeso(Integer.parseInt(request.getParameter("peso")));
 
-            q.setTitulo(request.getParameter("titulo"));
-//            q.setEnunciado(request.getParameter("enunciado"));
-//            q.setEntrada(request.getParameter("entrada"));
-//            q.setSaida(request.getParameter("saida"));
-//            q.setNivel(Integer.parseInt(request.getParameter("nivel")));
-//            q.setPeso(Integer.parseInt(request.getParameter("peso")));
+        GenericDAO<Questao> gq = new GenericDAO<>();
+        gq.saveOrUpdate(q);
 
-            GenericDAO<Questao> gq = new GenericDAO<>();
-            gq.saveOrUpdate(q);
+        //imagem
+        QuestaoImagem qi = new QuestaoImagem();
 
-            //imagem
-//            QuestaoImagem qi = new QuestaoImagem();
-//
-//            qi.setImagem(request.getParameter("imagem").getBytes());
-//            qi.setQuestao(q);
-//
-//            GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
-//            gqi.saveOrUpdate(qi);
-            //restricao
-//            QuestaoRestricao qr = new QuestaoRestricao();
-//            
-//            qr.setRestricao(request.getParameter("restricao"));
-//            qr.setQuestao(q);
-//            
-//            GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
-//            gqr.saveOrUpdate(qr);
-            //exemplo
-//            QuestaoExemplo qe = new QuestaoExemplo();
-//            
-//            qe.setExemplo(request.getParameter("exemplo"));
-//            qe.setQuestao(q);
-//            
-//            GenericDAO<QuestaoExemplo> gqe = new GenericDAO<>();
-//            gqe.saveOrUpdate(qe);
-            //gera e guarda saida esperada
-//            JDoodle j = new JDoodle();
-//            
-            response.sendRedirect("../djudge/questao/cadastro2.jsp?id=" + q.getId());
+        qi.setImagem(request.getParameter("imagem").getBytes());
+        qi.setQuestao(q);
 
-//            System.out.println("saida professor -> " + j.post(request, response));
-//            
-//            QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-//            
-//            qs.setSaidaEsperada(j.post(request, response));
-//            qs.setQuestao(q);
-//            
-//            GenericDAO<QuestaoSaidaEsperada> gqs = new GenericDAO<>();
-//            gqs.saveOrUpdate(qs);
-//        } 
+        GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
+        gqi.saveOrUpdate(qi);
+        //restricao
+        QuestaoRestricao qr = new QuestaoRestricao();
+
+        qr.setRestricao(request.getParameter("restricao"));
+        qr.setQuestao(q);
+
+        GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
+        gqr.saveOrUpdate(qr);
+        //exemplo
+        QuestaoExemplo qe = new QuestaoExemplo();
+
+        qe.setExemplo(request.getParameter("exemplo"));
+        qe.setQuestao(q);
+
+        GenericDAO<QuestaoExemplo> gqe = new GenericDAO<>();
+        gqe.saveOrUpdate(qe);
+
+        response.sendRedirect("../djudge/questao/cadastro2.jsp?id=" + q.getId());
 
     }
 

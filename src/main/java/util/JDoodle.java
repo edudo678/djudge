@@ -13,8 +13,7 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.annotation.MultipartConfig;;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Questao;
@@ -61,13 +60,7 @@ enum Client {
 }
 
 @MultipartConfig
-public class JDoodle extends HttpServlet {
-
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
+public class JDoodle {
 
     public String post(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

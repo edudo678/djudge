@@ -2,9 +2,16 @@
 <%@page import="model.dao.QuestaoDAO"%>
 <%@page import="model.bean.Questao"%>
 <div class="modal fade" id="modalVisualizarQuestao" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+
+    <%
+        Questao q = new Questao();
+        GenericDAO<Questao> gqDAO = new GenericDAO();
+
+        q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
+    %>
     <div class="modal-dialog modal-dialog-centered modal-lg text-black" role="document">
         <div class="modal-content">
-            <form action="/djudge/SubmissaoAvaliadorServlet" enctype="multipart/form-data" method="POST">
+            <form action="/djudge/SubmissaoAvaliadorServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">
                 <div class="modal-header">
 
                     <h5 class="modal-title" id="TituloModalCentralizado">Visualização da questão</h5>
@@ -12,16 +19,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <%
-                        Questao q = new Questao();
-                        GenericDAO<Questao> gqDAO= new GenericDAO();
-                        
-                        q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-                    %>
-
                 </div>
                 <div class="modal-body text-black">
-                    
+
                     <input name="id" id="id" value="<%= q.getId()%>" readonly/> 
 
                     <div class="form-group col-md-6">
