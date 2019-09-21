@@ -31,7 +31,7 @@ public class Questao implements Serializable, BaseEntity {
     private int peso;
     
     @Column(nullable = true)
-    private float tempoExec;
+    private Double tempoExec;
     
     private String entrada;
     
@@ -47,7 +47,7 @@ public class Questao implements Serializable, BaseEntity {
     }
 
     public Questao(Long id, String titulo, String enunciado, int nivel, String publico, String codigoFonteGabarito,
-	    int peso, float tempoExec, String entrada, String saida) {
+	    int peso, Double tempoExec, String entrada, String saida) {
 	this.id = id;
 	this.titulo = titulo;
 	this.enunciado = enunciado;
@@ -109,11 +109,11 @@ public class Questao implements Serializable, BaseEntity {
 	this.codigoFonteGabarito = codigoFonteGabarito;
     }
 
-    public float getTempoExec() {
+    public Double getTempoExec() {
 	return tempoExec;
     }
 
-    public void setTempoExec(float tempoExec) {
+    public void setTempoExec(Double tempoExec) {
 	this.tempoExec = tempoExec;
     }
 

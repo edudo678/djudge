@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" class="form-control" name="email" placeholder="Insira seu e-mail" autocomplete="off">
-                        <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
+                        <!--<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>-->
                     </div>
 
                     <div class="form-group">
@@ -96,10 +96,10 @@
                         <input type="password" class="form-control" name="confirmSenha" placeholder="Confirme sua senha">
                     </div>
 
-                    <div class="form-group form-check">
+<!--                    <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="checkbox">
                         <label class="form-check-label" for="checkbox">Li e concordo com os termos de uso</label>
-                    </div>
+                    </div>-->
 
                     <br><button type="submit" name="acao" value="cadastrar" class="btn-lg btn-block bg-black text-light">Cadastrar-se</button><br>
                 </form>

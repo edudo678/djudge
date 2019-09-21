@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Questao;
-import model.bean.QuestaoExemplo;
+import model.bean.QuestaoEntrada;
 import model.bean.QuestaoImagem;
 import model.bean.QuestaoRestricao;
+import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
 
 /**
@@ -38,6 +39,7 @@ public class QuestaoServlet extends HttpServlet {
         QuestaoImagem qi = new QuestaoImagem();
 
         qi.setImagem(request.getParameter("imagem").getBytes());
+        qi.setIdQuestao(String.valueOf(q.getId()));
         qi.setQuestao(q);
 
         GenericDAO<QuestaoImagem> gqi = new GenericDAO<>();
@@ -46,17 +48,19 @@ public class QuestaoServlet extends HttpServlet {
         QuestaoRestricao qr = new QuestaoRestricao();
 
         qr.setRestricao(request.getParameter("restricao"));
+        qr.setIdQuestao(String.valueOf(q.getId()));
         qr.setQuestao(q);
 
         GenericDAO<QuestaoRestricao> gqr = new GenericDAO<>();
         gqr.saveOrUpdate(qr);
-        //exemplo
-        QuestaoExemplo qe = new QuestaoExemplo();
+        //entradaexemplo
+        QuestaoEntrada qe = new QuestaoEntrada();
 
-        qe.setExemplo(request.getParameter("exemplo"));
+        qe.setEntrada(request.getParameter("entradaExemplo"));
+        qe.setIdQuestao(String.valueOf(q.getId()));
         qe.setQuestao(q);
 
-        GenericDAO<QuestaoExemplo> gqe = new GenericDAO<>();
+        GenericDAO<QuestaoEntrada> gqe = new GenericDAO<>();
         gqe.saveOrUpdate(qe);
 
         response.sendRedirect("../djudge/questao/cadastro2.jsp?id=" + q.getId());

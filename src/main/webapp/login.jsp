@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" class="form-control" name="email" placeholder="E-mail">
-                        <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>
+                        <!--<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu e-mail com ninguém.</small>-->
                     </div>
                     <div class="form-group">
                         <label for="senha">Senha</label>

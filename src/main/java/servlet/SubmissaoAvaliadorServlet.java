@@ -34,6 +34,7 @@ public class SubmissaoAvaliadorServlet extends HttpServlet {
 
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
         qs.setSaidaEsperada(j.post(request, response));
+        qs.setIdQuestao(String.valueOf(q.getId()));
         qs.setQuestao(q);
 
         GenericDAO<QuestaoSaidaEsperada> gqs = new GenericDAO<>();

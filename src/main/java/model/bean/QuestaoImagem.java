@@ -21,15 +21,18 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     @Column(columnDefinition = "longblob")
     private byte[] imagem;
     
+    private String id_questao;
+    
     @ManyToOne
     private Questao questao;
 
     public QuestaoImagem() {
     }
 
-    public QuestaoImagem(Long id, byte[] imagem) {
+    public QuestaoImagem(Long id, byte[] imagem, String id_questao) {
         this.id = id;
         this.imagem = imagem;
+        this.id_questao = id_questao;
     }
 
     @Override
@@ -55,6 +58,14 @@ public class QuestaoImagem implements Serializable, BaseEntity {
 
     public void setQuestao(Questao questao) {
 	this.questao = questao;
+    }
+    
+     public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
     }
     
 }

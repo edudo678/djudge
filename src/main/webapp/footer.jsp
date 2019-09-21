@@ -23,9 +23,9 @@
                 <hr class="clearfix w-100 d-md-none">
 
                 <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+<!--                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 
-                    <!-- Links -->
+                     Links 
                     <h5 class="font-weight-bold text-uppercase mb-4">Sobre</h5>
                     
                     <ul class="list-unstyled">
@@ -36,7 +36,7 @@
                         </li>
                     </ul>
 
-                </div>
+                </div>-->
                 <!-- Grid column -->
 
                 <hr class="clearfix w-100 d-md-none">
@@ -66,17 +66,17 @@
                 <!-- Grid column -->
 
                 <hr class="clearfix w-100 d-md-none">
-
-                <!-- Grid column -->
+<!--
+                 Grid column 
                 <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
 
-                    <!-- Social buttons -->
+                     Social buttons 
                     <h5 class="font-weight-bold text-uppercase mb-4">Siga-nos</h5>
 
                     <i class="fab fa-facebook-f"></i>
 
                 </div>
-                <!-- Grid column -->
+                 Grid column -->
 
             </div>
             <!-- Grid row -->

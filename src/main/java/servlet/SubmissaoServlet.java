@@ -26,7 +26,7 @@ public class SubmissaoServlet extends HttpServlet {
         
         JDoodle j = new JDoodle();
         
-        System.out.println("oficial -> " + j.post(request, response));
+        System.out.println("saída do usuário -> " + j.post(request, response));
         
     }
 

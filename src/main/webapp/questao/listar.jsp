@@ -4,14 +4,16 @@
     Author     : Junior
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="model.dao.QuestaoDAO"%>
+<%@page import="model.bean.Questao"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Djudge - Corretor de Quest√µes</title>
+        <title>Djudge - Corretor de Questıes</title>
 
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -30,6 +32,8 @@
     <body class="background">
         <jsp:include page="header.jsp"/>
 
+
+
         <div class="container-fluid home">
 
             <div class="row">
@@ -43,29 +47,44 @@
             <div class="col-12 row justify-content-center">
                 <div class="card col-11 text-black">
                     <br>
-                    <h4 class="border-bottom border-dark">Quest√µes adicionadas</h4>
+                    <h4 class="border-bottom border-dark">Questıes adicionadas</h4>
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">T√≠tulo</th>
+                                <th scope="col">TÌtulo</th>
+                                <th scope="col">Enunciado</th>
+                                <th scope="col">Entrada</th>
+                                <th scope="col">SaÌda</th>
+                                <th scope="col">Dificuldade</th>
+                                <th scope="col">Tempo de execuÁ„o</th>
                                 <th scope="col">Avaliador</th>
-                                <th scope="col">Modificado em</th>
-                                <th scope="col">Submiss√µes</th>
+                                <th scope="col">Submiss„o</th>
+                                <!--<th scope="col">Submissıes</th>-->
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                QuestaoDAO qDAO = new QuestaoDAO();
+                                List<Questao> questoes = qDAO.getList();
+                                for (Questao q : questoes) {
+                            %>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>C√¢mara de Compensa√ß√£o</td>
-                                <td>Paulo Victor</td>
-                                <td>12/06/2018</td>
-                                <td><span class="badge badge-primary badge-pill">14</span></td>
+                                <td><%=q.getTitulo()%></td>
+                                <td><%=q.getEnunciado()%></td>
+                                <td><%=q.getEntrada()%></td>
+                                <td><%=q.getSaida()%></td>
+                                 <td><%=q.getNivel()%></td>
+                                <td><%=q.getTempoExec()%></td>
+                                <td><%=q.getAvaliador()%></td>
+                                <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Submeter</a></td>
+                                <!--<td><span class="badge badge-primary badge-pill">14</span></td>-->
                             </tr>
+                            <% }%>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
     </body>
 </html>

@@ -17,15 +17,18 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
 
     private String entrada;
 
+    private String id_questao;
+
     @ManyToOne
     private Questao questao;
 
     public QuestaoEntrada() {
     }
 
-    public QuestaoEntrada(Long id, String entrada) {
+    public QuestaoEntrada(Long id, String entrada, String id_questao) {
         this.id = id;
         this.entrada = entrada;
+        this.id_questao = id_questao;
     }
 
     @Override
@@ -53,4 +56,12 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
         this.questao = questao;
     }
 
+    public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
+    }
+    
 }

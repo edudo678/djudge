@@ -4,7 +4,6 @@
     Author     : Junior
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +11,7 @@
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Djudge - Corretor de QuestÃµes</title>
+        <title>Djudge - Corretor de Questões</title>
 
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -46,15 +45,15 @@
                                 <br>
                                 <div class="form-row justify-content-center">
                                     <div class="col-md-8">
-                                        <label for="titulo"><strong>TÃ­tulo da questÃ£o</strong></label>
-                                        <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="TÃ­tulo da questÃ£o">
+                                        <label for="titulo"><strong>Título da questão</strong></label>
+                                        <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
                                     </div>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="enunciado"><strong>Enunciado</strong></label>
-                                        <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questÃ£o aqui"></textarea>
+                                        <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -88,22 +87,25 @@
 
                                     <div class="form-group">
                                         <label for="entrada"><strong>Entrada</strong></label>
-                                        <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questÃ£o aqui"></textarea>
+                                        <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="saida"><strong>SaÃ­da</strong></label>
-                                        <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saÃ­da da questÃ£o aqui"></textarea>
+                                        <label for="saida"><strong>Saída</strong></label>
+                                        <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="restricao"><strong>RestriÃ§Ãµes</strong></label>
-                                        <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restriÃ§Ãµes da questÃ£o aqui"></textarea>
+                                        <label for="restricao"><strong>Restrições</strong></label>
+                                        <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exemplo"><strong>Exemplos</strong></label>
-                                        <textarea class="form-control" name="exemplo" id="exemplo" rows="3" placeholder="Descreva os exemplos da questÃ£o aqui"></textarea>
+                                        <label for="exemplo"><strong>Exemplos</strong></label><br>
+                                        <label>Entrada</label>
+                                        <textarea class="form-control" name="entradaExemplo" id="entradaExemplo" rows="3" placeholder="Escreva um exemplo de entrada da questão aqui"></textarea>
+<!--                                        <br><label>Saída</label>
+                                        <textarea class="form-control" name="saidaExemplo" id="saidaExemplo" rows="3" placeholder="Escreva um exemplo de saída da questão aqui"></textarea>-->
                                     </div>
 
                                     <br>
@@ -111,12 +113,12 @@
                                     <br>
 
                                     <div class="form-group col-md-6">
-                                        <label for="nivel">NÃ­vel</label>
+                                        <label for="nivel">Nível</label>
                                         <select class="form-control" id="nivel" name="nivel">
                                             <option></option>
-                                            <option value="1">1 - fÃ¡cil</option>
-                                            <option value="2">2 - mÃ©dio</option>
-                                            <option value="3">3 - difÃ­cil</option>
+                                            <option value="1">1 - fácil</option>
+                                            <option value="2">2 - médio</option>
+                                            <option value="3">3 - difícil</option>
                                         </select>
                                     </div>
 
@@ -130,33 +132,33 @@
                                         </select>
                                     </div>
                                     <br>                                    
-<!--                                    <div class="form-group col-md-6">
-                                        <label>CÃ³digo-fonte gabarito</label>
-                                        <input type="file" name="source" class="form-control-file" id="source"> 
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <select name="compilerId">
-                                            <option>Selecione a linguagem</option>
-                                            <option  value="c">C</option>   
-                                            <option  value="cpp">C++</option>                  
-                                            <option value="java">Java</option> 
-                                            <option value="python2">Python 2</option> 
-                                            <option value="python3">Python 3</option> 
-                                        </select>                                                
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Entrada</label>
-                                        <input type="entrada" class="form-control text-center" name="entradaCod" id="entradaCod" placeholder="Digite a entrada">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>SaÃ­da Esperada</label>
-                                        <input type="saidaEsperada" class="form-control text-center" name="saidaEsperada" id="saidaEsperada" readonly>
-                                    </div>
-                                    <br>-->
+                                    <!--                                    <div class="form-group col-md-6">
+                                                                            <label>Código-fonte gabarito</label>
+                                                                            <input type="file" name="source" class="form-control-file" id="source"> 
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <select name="compilerId">
+                                                                                <option>Selecione a linguagem</option>
+                                                                                <option  value="c">C</option>   
+                                                                                <option  value="cpp">C++</option>                  
+                                                                                <option value="java">Java</option> 
+                                                                                <option value="python2">Python 2</option> 
+                                                                                <option value="python3">Python 3</option> 
+                                                                            </select>                                                
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label>Entrada</label>
+                                                                            <input type="entrada" class="form-control text-center" name="entradaCod" id="entradaCod" placeholder="Digite a entrada">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label>Saída Esperada</label>
+                                                                            <input type="saidaEsperada" class="form-control text-center" name="saidaEsperada" id="saidaEsperada" readonly>
+                                                                        </div>
+                                                                        <br>-->
                                     <div class="form-row justify-content-center">
                                         <div class="col-md-6">
                                             <button type="submit" name="acao" value="continuar" class="btn btn-secondary btn-block bg-dark">Continuar</button>
-                                             <!--onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao"-->
+                                            <!--onclick="visualizarQuestao()" data-toggle="modal" data-target="#modalVisualizarQuestao"-->
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +178,7 @@
             <form action="/djudge/QuestaoServlet" enctype="multipart/form-data" method="POST">
                 <div class="modal-header">
 
-                    <h5 class="modal-title" id="TituloModalCentralizado">VisualizaÃ§Ã£o da questÃ£o</h5>
+                    <h5 class="modal-title" id="TituloModalCentralizado">Visualização da questão</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -185,7 +187,7 @@
                 <div class="modal-body text-black">
 
                     <div class="form-group col-md-6">
-                        <label>CÃ³digo-fonte gabarito</label>
+                        <label>Código-fonte gabarito</label>
                         <input type="file" name="source" class="form-control-file" id="source"> 
                     </div>
                     <div class="form-group col-md-6">
@@ -210,14 +212,17 @@
                     <h5 class=""><strong>Entrada</strong></h5>
                     <p class="card-text text-justify" id="modalEntrada"></p>
 
-                    <h5><strong>SaÃ­da</strong></h5>
+                    <h5><strong>Saída</strong></h5>
                     <p class="card-text text-justify" id="modalSaida"></p>  
 
-                    <h5><strong>RestriÃ§Ãµes</strong></h5>
+                    <h5><strong>Restrições</strong></h5>
                     <p class="card-text text-justify" id="modalRestricao"></p>  
 
-                    <h5><strong>Exemplos</strong></h5>
-                    <p class="card-text text-justify" id="modalExemplo"></p>  
+                    <h5><strong>Exemplos</strong></h5><br>
+                    <h3>Entrada</h3>
+                    <p class="card-text text-justify" id="modalEntradaExemplo"></p><br> 
+<!--                    <h3>Saída</h3>
+                    <p class="card-text text-justify" id="modalSaídaExemplo"></p>-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Editar</button>
@@ -246,8 +251,11 @@
         var restricao = document.getElementById("restricao");
         $('#modalRestricao').text(restricao.value);
 
-        var exemplo = document.getElementById("exemplo");
-        $('#modalExemplo').text(exemplo.value);
+        var exemplo = document.getElementById("entradaExemplo");
+        $('#modalEntradaExemplo').text(entradaExemplo.value);
+        
+//        var exemplo = document.getElementById("saidaExemplo");
+//        $('#modalSaidaExemplo').text(saidaExemplo.value);
 
     }
 

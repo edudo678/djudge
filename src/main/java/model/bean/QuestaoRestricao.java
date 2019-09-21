@@ -16,6 +16,8 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
     private Long id;
 
     private String restricao;
+    
+    private String id_questao;
 
     @ManyToOne
     private Questao questao;
@@ -23,9 +25,10 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
     public QuestaoRestricao() {
     }
 
-    public QuestaoRestricao(Long id, String restricao) {
+    public QuestaoRestricao(Long id, String restricao, String id_questao) {
         this.id = id;
         this.restricao = restricao;
+        this.id_questao = id_questao;
     }
 
     @Override
@@ -51,6 +54,14 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
 
     public void setQuestao(Questao questao) {
         this.questao = questao;
+    }
+    
+    public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
     }
 
 }
