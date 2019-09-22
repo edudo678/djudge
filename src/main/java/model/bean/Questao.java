@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import model.dao.BaseEntity;
 
@@ -25,7 +26,9 @@ public class Questao implements Serializable, BaseEntity {
     
     private String publico;
     
-    private String codigoFonteGabarito;
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] codigoFonteGabarito;
     
     @Column(nullable = true)
     private int peso;
@@ -46,7 +49,7 @@ public class Questao implements Serializable, BaseEntity {
     public Questao() {
     }
 
-    public Questao(Long id, String titulo, String enunciado, int nivel, String publico, String codigoFonteGabarito,
+    public Questao(Long id, String titulo, String enunciado, int nivel, String publico, byte[] codigoFonteGabarito,
 	    int peso, Double tempoExec, String entrada, String saida) {
 	this.id = id;
 	this.titulo = titulo;
@@ -101,11 +104,11 @@ public class Questao implements Serializable, BaseEntity {
 	this.publico = publico;
     }
 
-    public String getCodigoFonteGabarito() {
+    public byte[] getCodigoFonteGabarito() {
 	return codigoFonteGabarito;
     }
 
-    public void setCodigoFonteGabarito(String codigoFonteGabarito) {
+    public void setCodigoFonteGabarito(byte[] codigoFonteGabarito) {
 	this.codigoFonteGabarito = codigoFonteGabarito;
     }
 

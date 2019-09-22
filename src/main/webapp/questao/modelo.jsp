@@ -69,7 +69,7 @@
                         <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">                         
 
                             <div class="card-body">
-                                <h4 class="card-title text-center"><strong><%=q.getTitulo()%></strong></h4>
+                                <h4 class="card-title text-center"><strong><%=q.getTitulo()%></strong></h4>                                
                                 <p class="card-text text-justify">
                                     <%=q.getEnunciado()%>
                                 </p>
@@ -146,6 +146,7 @@
                                                     <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary btn-block">Submeter</button>
+                                                <br><a href="gabarito.jsp?id=<%=q.getId()%>">Acesse o código-gabarito</a>
                                             </td>
                                         </tr>
                                     </table>

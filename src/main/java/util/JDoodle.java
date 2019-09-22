@@ -10,24 +10,16 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Questao;
-import model.dao.GenericDAO;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author eddunic, Felipe, Ronaldo
  */
+
 enum Client {
 
     //Cliente("ID", "Secret")
@@ -62,57 +54,13 @@ enum Client {
 @MultipartConfig
 public class JDoodle {
 
-    public String post(HttpServletRequest request, HttpServletResponse response)
+    public String post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value)
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
 
         JDoodleOutputFormat jdof; //classe para formatar a saída do JDoodle
         JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
-        String value = null; //Compiler value
-
-        //Read archive
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
-        File uploadedFile = null;
-
-        if (isMultipart) {
-            FileItemFactory factory = new DiskFileItemFactory();
-            ServletFileUpload upload = new ServletFileUpload(factory);
-
-            try {
-                List items = upload.parseRequest(request);
-                Iterator iterator = items.iterator();
-                while (iterator.hasNext()) {
-                    FileItem item = (FileItem) iterator.next();
-
-                    if (!item.isFormField()) {
-                        String fileName = item.getName();
-
-                        File path = new File("/home/eddunic/NetBeansProjects/djudge/");
-                        if (!path.exists()) {
-                            boolean status = path.mkdirs();
-                        }
-
-                        uploadedFile = new File(path + "/" + fileName);
-                        System.out.println(uploadedFile.getAbsolutePath());
-                        item.write(uploadedFile);
-                    } else {
-                        String name = item.getFieldName();
-                        value = item.getString();
-
-                        // **************************************************
-                        // Process your name and value pairs here! *****
-                        // **************************************************
-                        System.out.println("Found field " + name + " and value " + value);
-                    }
-                }
-            } catch (FileUploadException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
 
         jdcf = new JDoodleCodeFormat(uploadedFile, value); //formata o uploadFile
 
@@ -199,20 +147,10 @@ public class JDoodle {
 
         jdof = new JDoodleOutputFormat(concat, language); //formata a saída
 
-//            out.println(jdof.getCodeOutput());
-//
-//            GenericDAO<Questao> dao = new GenericDAO<>();
-//            Questao q = dao.findById(Questao.class, Long.parseLong(request.getParameter("id")));
         System.out.println(jdof.getCodeOutput());
-//
-//            if (jdof.getCodeOutput().equals(q.getSaida())) {
-//                System.out.println("código com saída certa");
-//            } else {
-//                System.out.println("código com saída errada");
-//            }
 
         connection.disconnect();
-        
+
         return jdof.getCodeOutput();
     }
 
