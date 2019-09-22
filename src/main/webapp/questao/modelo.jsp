@@ -4,6 +4,10 @@
     Author     : Junior
 --%>
 
+<%@page import="java.nio.charset.StandardCharsets"%>
+<%@page import="java.util.Base64"%>
+<%@page import="model.dao.QuestaoImagemDAO"%>
+<%@page import="org.apache.commons.io.IOUtils"%>
 <%@page import="model.dao.QuestaoSaidaEsperadaDAO"%>
 <%@page import="model.dao.QuestaoEntradaDAO"%>
 <%@page import="java.util.List"%>
@@ -64,6 +68,14 @@
                             QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
                             GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO<>();
                             qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
+                            
+//                            QuestaoImagemDAO qDAO = new QuestaoImagemDAO();
+//                            List<QuestaoImagem> imagens;
+//                            imagens = qDAO.getImagemByQuestao(request.getParameter("id"));
+//                            
+//                            for (QuestaoImagem img : imagens) {
+//                                img.getImagem();
+//                            }
                         %>
 
                         <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">                         
@@ -73,7 +85,7 @@
                                 <p class="card-text text-justify">
                                     <%=q.getEnunciado()%>
                                 </p>
-                                <img src="" width="100%" height="100%">
+                                <img src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
 
                                 <h5 class=""><strong>Entrada</strong></h5>
                                 <p class="card-text text-justify">
