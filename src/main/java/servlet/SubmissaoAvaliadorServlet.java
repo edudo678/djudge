@@ -33,7 +33,7 @@ public class SubmissaoAvaliadorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+       
         QuestaoDAO qDAO = new QuestaoDAO();
         List<Questao> questoes = qDAO.getList();
         Questao q;
@@ -98,6 +98,8 @@ public class SubmissaoAvaliadorServlet extends HttpServlet {
         q.setCodigoFonteGabarito(Files.readAllBytes(Paths.get(uploadedFile.getPath())));
         GenericDAO<Questao> gq = new GenericDAO<>();
         gq.saveOrUpdate(q);
+        
+        response.sendRedirect("../djudge/questao/listar.jsp");
     }
 
 }

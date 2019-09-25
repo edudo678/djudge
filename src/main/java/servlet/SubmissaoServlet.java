@@ -13,6 +13,11 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Questao;
+import model.bean.QuestaoSaidaEsperada;
+import model.dao.GenericDAO;
+import model.dao.QuestaoDAO;
+import model.dao.QuestaoSaidaEsperadaDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -38,6 +43,8 @@ public class SubmissaoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        PrintWriter out = response.getWriter();
 
         String value = null; //Compiler value
 
@@ -86,7 +93,29 @@ public class SubmissaoServlet extends HttpServlet {
 
         JDoodle j = new JDoodle();
 
-        System.out.println("saída do usuário -> " + j.post(request, response, uploadedFile, value));
+        QuestaoDAO qDAO = new QuestaoDAO();
+        List<Questao> questoes = qDAO.getList();
+        Questao q;
+        GenericDAO<Questao> gqDAO = new GenericDAO();
+        q = gqDAO.findById(Questao.class, questoes.get(questoes.size() - 1).getId());
+
+        QuestaoSaidaEsperadaDAO qsDAO = new QuestaoSaidaEsperadaDAO();
+        List<QuestaoSaidaEsperada> questoesSaidas = qsDAO.getList();
+        QuestaoSaidaEsperada qs;
+        GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO();
+        qs = gqsDAO.findById(QuestaoSaidaEsperada.class, questoesSaidas.get(questoesSaidas.size() - 1).getId());
+
+        String saidaUsuario = j.post(request, response, uploadedFile, value);
+        String saidaAvaliador = qs.getSaidaEsperada();
+
+        out.println("Saída do usuário -> " + saidaUsuario);
+        out.println("Saída do avaliador -> " + saidaAvaliador);
+
+        if (saidaUsuario.equals(saidaAvaliador)) {
+            out.println("Questão CORRETA!");
+        } else {
+            out.println("Questão ERRADA!");
+        }
 
         try {
             CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile);
@@ -95,6 +124,7 @@ public class SubmissaoServlet extends HttpServlet {
         } catch (MalformedURLException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
 }

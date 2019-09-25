@@ -11,8 +11,8 @@ import util.ConnectionFactory;
  */
 public class QuestaoDAO {
     
-     public List<Questao> getList() {
-	EntityManager manager = ConnectionFactory.getEntityManager();
+    public List<Questao> getList() {
+        EntityManager manager = ConnectionFactory.getEntityManager();
         List<Questao> questoes = null;
         try {
             questoes = manager.createQuery("FROM Questao q").getResultList();
