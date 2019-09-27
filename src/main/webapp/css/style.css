@@ -8,8 +8,17 @@ and open the template in the editor.
     Author     : Junior
 */
 
-.background{
-    background-image: url(../img/binary.jpg);
+.text-red{
+    color: #e60000
+}
+
+/* deixa o background fixado no fundo */
+body{
+  background: url(../img/binary.jpg) center center no-repeat fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .text-light{
@@ -31,6 +40,7 @@ and open the template in the editor.
 
 .home{
     margin-top: 2%;
+    margin-bottom: 2%
 }
 
 .btn-lg{

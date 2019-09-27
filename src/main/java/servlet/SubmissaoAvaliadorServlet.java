@@ -99,7 +99,7 @@ public class SubmissaoAvaliadorServlet extends HttpServlet {
         GenericDAO<Questao> gq = new GenericDAO<>();
         gq.saveOrUpdate(q);
         
-        response.sendRedirect("../djudge/questao/listar.jsp");
+        response.sendRedirect("../djudge/questao/sucess.jsp?id=" +q.getId());
     }
 
 }

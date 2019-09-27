@@ -1,6 +1,6 @@
 package tests;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+//import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -60,8 +60,8 @@ public class NewServlet extends HttpServlet {
         out.write(bytes, 0, read);
     }
     writer.println("New file " + fileName + " created at " + path);
-    LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", 
-                new Object[]{fileName, path});
+//    LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", 
+           //     new Object[]{fileName, path});
     if (out != null) {
         out.close();
     }
@@ -79,7 +79,7 @@ public class NewServlet extends HttpServlet {
     
     private String getFileName(final Part part) {
     final String partHeader = part.getHeader("content-disposition");
-    LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
+//    LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);
     for (String content : part.getHeader("content-disposition").split(";")) {
         if (content.trim().startsWith("filename")) {
             return content.substring(

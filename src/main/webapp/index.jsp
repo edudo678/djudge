@@ -15,7 +15,7 @@
         <jsp:include page="header.jsp"/>
         <div class="d-flex my-auto justify-content-center">
 
-            <h1 style="font-family: 'courier';">Djudge: Corretor de Questões</h1>
+            <h1 style="font-family: 'courier';">Djudge: Juiz Online</h1>
 
         </div>
         <div class="submeter">
