@@ -7,21 +7,21 @@
 
         <title>Djudge - Corretor de Questões</title>
 
-        <link rel="stylesheet" href="../css/fontawesome-all.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
+        <link rel="stylesheet" href="../../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/header.css">
+        <link rel="stylesheet" href="../../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
+        <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css"/>
 
-        <script src="../js/bootstrap/bootstrap.js"></script>
+        <script src="../../js/bootstrap/bootstrap.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
 
 
-        <script src="../js/jquery/jquery-3.4.1.min.js"></script>
+        <script src="../../js/jquery/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../../js/bootstrap/bootstrap.min.js"></script>
     </head>
     <body class="background">
         <jsp:include page="header.jsp"/>

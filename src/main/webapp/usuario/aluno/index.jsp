@@ -13,48 +13,37 @@
 
         <title>Djudge - Corretor de Questões</title>
 
-        <link rel="stylesheet" href="../css/fontawesome-all.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/header.css">
+        <link rel="stylesheet" href="../../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
+        <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css"/>
+        <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css"/>
 
-        <script src="../js/bootstrap/bootstrap.js"></script>
-        <script src="../js/jquery/jquery-3.4.1.min.js"></script>
+        <script src="../../js/bootstrap/bootstrap.js"></script>
+        <script src="../../js/jquery/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../../js/bootstrap/bootstrap.min.js"></script>
 
     </head>
-    <body class="background">
+    <body>
         <jsp:include page="header.jsp"/>
-
-        <div class="container-fluid home">
-
-            <div class="row">
-                <div class="col-12">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
+        <div class="container-fluid form-row">
             <div class="col-8 row justify-content-center">
                 <div class="card col-10 text-black">
                     <div class="card-body">
                         <h4>Seja bem-vindo(a)</h4> <br> 
                         <div class="row">
                             <div class="col-6">
-                                <jsp:include page="../carousel/principal.jsp"/>
+                                <jsp:include page="../../carousel/principal.jsp"/>
                             </div>
 
                             <div class="col-6">
                                 <div class="card-body text-center">
                                     <h3>Fique por dentro das próximas maratonas 
                                         do IFAM-CMC. Vamos praticar!</h3> <br>
-
-                                    <button type="button" class="btn btn-outline-dark btn-block">Praticar</button>
+                                    <a href="praticar.jsp" class="btn btn-outline-dark btn-block">Praticar</a>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +78,6 @@
                 </div>
             </div>
         </div>
-        <jsp:include page="../footer.jsp"/>
+        <jsp:include page="../../footer.jsp"/>
     </body>
 </html>
