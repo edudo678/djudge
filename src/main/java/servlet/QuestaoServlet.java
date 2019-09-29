@@ -39,7 +39,7 @@ public class QuestaoServlet extends HttpServlet {
         gq.saveOrUpdate(q);
 
         //imagem
-        byte[] fileContent = FileUtils.readFileToByteArray(new File("/home/paulo/Downloads/" + request.getParameter("imagem")));
+        byte[] fileContent = FileUtils.readFileToByteArray(new File("C:\\Users\\eddun\\Downloads\\" + request.getParameter("imagem")));
         String encodedString = Base64.getEncoder().encodeToString(fileContent);
 
         String img = "data:image/jpg;base64," + encodedString;

@@ -49,7 +49,7 @@
                         </div>
 
                         <br>
-                        <h3 class="border-bottom border-dark">Últimas notícias</h3>
+                        <h3 class="border-bottom border-dark">Últimas Notícias</h3>
                         <a href="#">Histórico da maratona de programação</a>
 
                         <p>

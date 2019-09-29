@@ -44,7 +44,7 @@
                             <caption>Questões</caption>
                             <thead>
                                 <tr>
-                                    <th>Titulo<i class="fa fa-sort float-right"></i></th>
+                                    <th>Título<i class="fa fa-sort float-right"></i></th>
                                     <th>Nível<i class="fa fa-sort float-right"></i></th>
                                     <th>Selecione<i class="fa fa-sort float-right"></i></th>
                                 </tr>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <td><%=q.getTitulo()%></td>
                                     <td><%=q.getNivel()%></td>
-                                    <td class="text-center"><a class="btn btn-primary" id="background-blue" href="questao_selecionanda.jsp?id=<%=q.getId()%>">Ver mais</a></td>
+                                    <td class="text-center"><a class="btn btn-primary" id="background-blue" href="questao_selecionada.jsp?id=<%=q.getId()%>">Ver mais</a></td>
                                     <!--<td><span class="badge badge-primary badge-pill">14</span></td>-->
                                 </tr>
                                 <% }%>

@@ -132,7 +132,7 @@
                                 <%}%>
                             </table>
                         </div>
-                        <h5>Submita sua solução</h5>
+                        <h5>Submeta sua solução</h5>
 
                         <div class="border form-row">
                             <div class="form-group col-md-4">

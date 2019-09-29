@@ -13,9 +13,11 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Privado;
 import model.bean.Questao;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
+import model.dao.PrivadoDAO;
 import model.dao.QuestaoDAO;
 import model.dao.QuestaoSaidaEsperadaDAO;
 import org.apache.commons.fileupload.FileItem;
@@ -117,8 +119,15 @@ public class SubmissaoServlet extends HttpServlet {
             out.println("Questão ERRADA!");
         }
 
+        Privado p = new Privado();
+        p = (Privado) request.getSession().getAttribute("usuario");
+
+        PrivadoDAO pDAO = new PrivadoDAO();
+        String turma = pDAO.getTurmaById((p.getId()));
+        String matricula = pDAO.getMatriculaById((p.getId()));
+
         try {
-            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile);
+            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, q.getTitulo());
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {

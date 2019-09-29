@@ -19,6 +19,13 @@ import model.dao.PrivadoDAO;
 public class PrivadoServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getSession().setAttribute("usuario", null);
+        response.sendRedirect("/djudge/");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -95,7 +102,7 @@ public class PrivadoServlet extends HttpServlet {
                             if (aDAO.findById(Aluno.class, idPrivado) == null) {
                                 response.sendRedirect("/djudge/avaliador/index.jsp");
                             } else {
-                                response.sendRedirect("/djudge/usuario/index.jsp");
+                                response.sendRedirect("/djudge/usuario/aluno/index.jsp");
                             }
                             request.getSession().setAttribute("usuario", p);
                         } else {
