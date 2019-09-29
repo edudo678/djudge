@@ -13,21 +13,21 @@
 
         <title>Djudge - Corretor de Questões</title>
 
-        <link rel="stylesheet" href="../css/fontawesome-all.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
+        <link rel="stylesheet" href="../../css/fontawesome-all.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/header.css">
+        <link rel="stylesheet" href="../../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
+        <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css"/>
 
-        <script src="../js/bootstrap/bootstrap.js"></script>
+        <script src="../../js/bootstrap/bootstrap.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
 
 
-        <script src="../js/jquery/jquery-3.4.1.min.js"></script>
+        <script src="../../js/jquery/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../../js/bootstrap/bootstrap.min.js"></script>
     </head>
     <body class="background">
         <jsp:include page="header.jsp"/>
@@ -49,7 +49,7 @@
                                     sua vez emitiu um cheque de 1 dinheiro para a pessoa D. A situação mostrada no item (a) da Figura abaixo é descrita através de uma lista de cheques, com quatro triplas da forma (X,V,Y), para indicar que X emitiu um cheque de V dinheiros para Y. Na mesma Figura, no item (b), 
                                     a situação é descrita com uma lista de apenas três cheques.
                                 </p>
-                                <img src="../img/questao.png" width="100%" height="100%">
+                                <img src="../../img/questao.png" width="100%" height="100%">
 
                                 <h5 class=""><strong>Entrada</strong></h5>
                                 <p class="card-text text-justify">
