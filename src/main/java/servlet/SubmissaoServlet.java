@@ -95,17 +95,13 @@ public class SubmissaoServlet extends HttpServlet {
 
         JDoodle j = new JDoodle();
 
-        QuestaoDAO qDAO = new QuestaoDAO();
-        List<Questao> questoes = qDAO.getList();
         Questao q;
         GenericDAO<Questao> gqDAO = new GenericDAO();
-        q = gqDAO.findById(Questao.class, questoes.get(questoes.size() - 1).getId());
+        q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
 
-        QuestaoSaidaEsperadaDAO qsDAO = new QuestaoSaidaEsperadaDAO();
-        List<QuestaoSaidaEsperada> questoesSaidas = qsDAO.getList();
         QuestaoSaidaEsperada qs;
         GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO();
-        qs = gqsDAO.findById(QuestaoSaidaEsperada.class, questoesSaidas.get(questoesSaidas.size() - 1).getId());
+        qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
 
         String saidaUsuario = j.post(request, response, uploadedFile, value);
         String saidaAvaliador = qs.getSaidaEsperada();
