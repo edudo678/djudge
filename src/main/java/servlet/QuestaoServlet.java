@@ -127,10 +127,10 @@ public class QuestaoServlet extends HttpServlet {
         //questao
         Questao q = new Questao();
 
-        q.setTitulo(titulo);
-        q.setEnunciado(enunciado);
-        q.setEntrada(entrada);
-        q.setSaida(saida);
+        q.setTitulo(titulo.getBytes());
+        q.setEnunciado(enunciado.getBytes());
+        q.setEntrada(entrada.getBytes());
+        q.setSaida(saida.getBytes());
         q.setNivel(Integer.parseInt(nivel));
         q.setPeso(Integer.parseInt(peso));
 
@@ -161,7 +161,7 @@ public class QuestaoServlet extends HttpServlet {
         //restricao
         QuestaoRestricao qr = new QuestaoRestricao();
 
-        qr.setRestricao(restricao);
+        qr.setRestricao(restricao.getBytes());
         qr.setIdQuestao(String.valueOf(q.getId()));
         qr.setQuestao(q);
 
@@ -170,7 +170,7 @@ public class QuestaoServlet extends HttpServlet {
         //entradaexemplo
         QuestaoEntrada qe = new QuestaoEntrada();
 
-        qe.setEntrada(entradaExemplo);
+        qe.setEntrada(entradaExemplo.getBytes());
         qe.setIdQuestao(String.valueOf(q.getId()));
         qe.setQuestao(q);
 
@@ -180,7 +180,7 @@ public class QuestaoServlet extends HttpServlet {
         JDoodle j = new JDoodle();
 
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-        qs.setSaidaEsperada(j.post(request, response, uploadedFile, compilerId));
+        qs.setSaidaEsperada(j.post(request, response, uploadedFile, compilerId).getBytes());
         qs.setIdQuestao(String.valueOf(q.getId()));
         qs.setQuestao(q);
 

@@ -4,6 +4,7 @@
     Author     : Junior
 --%>
 
+<%@page import="org.apache.commons.io.IOUtils"%>
 <%@page import="java.util.List"%>
 <%@page import="model.dao.QuestaoDAO"%>
 <%@page import="model.bean.Questao"%>
@@ -69,11 +70,11 @@
                                 for (Questao q : questoes) {
                             %>
                             <tr>
-                                <td><%=q.getTitulo()%></td>
-                                <td><%=q.getEnunciado()%></td>
-                                <td><%=q.getEntrada()%></td>
-                                <td><%=q.getSaida()%></td>
-                                 <td><%=q.getNivel()%></td>
+                                <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%></td>
+                                <td><%=q.getNivel()%></td>
                                 <td><%=q.getTempoExec()%></td>
                                 <td><%=q.getAvaliador()%></td>
                                 <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Submeter</a></td>

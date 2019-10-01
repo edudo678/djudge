@@ -17,7 +17,7 @@
             Questao q = new Questao();
             GenericDAO<Questao> gqDAO = new GenericDAO();
             q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-            String codeDecode  = new String(q.getCodigoFonteGabarito(), "UTF-8");
+            String codeDecode  = new String(q.getCodigoFonteGabarito(), "ISO-8859-1");
         %>
         <%=codeDecode%>
     </body>

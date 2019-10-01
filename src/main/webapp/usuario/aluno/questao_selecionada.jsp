@@ -66,7 +66,7 @@
                         GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO<>();
                         qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
 
-                        String codeDecode = new String(q.getCodigoFonteGabarito(), "UTF-8");
+                        String codeDecode = new String(q.getCodigoFonteGabarito(), "ISO-8859-1");
                     %>
 
                     <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">   
@@ -76,10 +76,10 @@
                             <small> Deslize para baixo para ver a questão por completo</small>
                             <br><br>
 
-                            <h4 class="text-center"><%=q.getTitulo()%></h4>
+                            <h4 class="text-center"><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></h4>
 
                             <p class="text-justify">
-                                <%=q.getEnunciado()%>
+                                <%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%>
                             </p>
 
                             <div class="col-lg-12">
@@ -88,12 +88,12 @@
 
                             <h5>Entrada</h5>
                             <p class="text-justify px-3">
-                                <%=q.getEntrada()%>
+                                <%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%>
                             </p>
 
                             <h5>Saída</h5>
                             <p class="text-justify px-3">
-                                <%=q.getSaida()%>
+                                <%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%>
                             </p>   
 
                             <h5>Restrições</h5>
@@ -103,7 +103,7 @@
                                     List<QuestaoRestricao> restricoes = qDAO.getRestricaoByQuestao(request.getParameter("id"));
                                     for (QuestaoRestricao r : restricoes) {
                                 %>
-                                * <%=r.getRestricao()%>  <br>                            
+                                *  <%=IOUtils.toString(r.getRestricao(), "ISO-8859-1")%>  <br>                            
                                 <%}%>
                             </p>
 
@@ -125,8 +125,8 @@
                                     for (QuestaoSaidaEsperada s : saidas) {
                                 %>     
                                 <tr>       
-                                    <td><%=e.getEntrada()%></td>
-                                    <td><%=s.getSaidaEsperada()%></td>
+                                    <td><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></td>
+                                    <td><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
                                 </tr>
                                 <%}%>
                                 <%}%>
@@ -135,7 +135,7 @@
                         <h5>Submeta sua solução</h5>
 
                         <div class="border form-row">
-                            
+
                             <div class="form-group col-md-4">
                                 <label for="inputState">Selecione a linguagem</label><br>
                                 <select class="form-control" name="compilerId">

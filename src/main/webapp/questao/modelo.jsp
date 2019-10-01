@@ -81,20 +81,20 @@
                         <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">                         
 
                             <div class="card-body">
-                                <h4 class="card-title text-center"><strong><%=q.getTitulo()%></strong></h4>                                
+                                <h4 class="card-title text-center"><strong><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></strong></h4>                                
                                 <p class="card-text text-justify">
-                                    <%=q.getEnunciado()%>
+                                    <%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%>
                                 </p>
                                 <img src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
 
                                 <h5 class=""><strong>Entrada</strong></h5>
                                 <p class="card-text text-justify">
-                                    <%=q.getEntrada()%>
+                                     <%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%>
                                 </p>
 
                                 <h5 class=""><strong>Saída</strong></h5>
                                 <p class="card-text text-justify">
-                                    <%=q.getSaida()%>
+                                     <%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%>
                                 </p>   
 
                                 <h5 class=""><strong>Restrições</strong></h5>
@@ -104,7 +104,7 @@
                                         List<QuestaoRestricao> restricoes = qDAO.getRestricaoByQuestao(request.getParameter("id"));
                                         for (QuestaoRestricao r : restricoes) {
                                     %>
-                                    * <%=r.getRestricao()%>  <br>                            
+                                    *  <%=IOUtils.toString(r.getRestricao(), "ISO-8859-1")%>  <br>                            
                                     <%}%>
                                 </p>
 
@@ -127,10 +127,10 @@
                                     %>     
                                     <tr>       
 
-                                        <td><%=e.getEntrada()%></td>
+                                        <td><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></td>
 
 
-                                        <td><%=s.getSaidaEsperada()%></td>
+                                        <td> <%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
 
                                     </tr>
                                     <%}%>

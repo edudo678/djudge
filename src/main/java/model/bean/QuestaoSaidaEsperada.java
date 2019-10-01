@@ -1,6 +1,7 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,9 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String saidaEsperada;
-    
+    @Column(length = 255, columnDefinition = "longblob")
+    private byte[] saidaEsperada;
+
     private String id_questao;
 
     @ManyToOne
@@ -29,7 +31,7 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
     public QuestaoSaidaEsperada() {
     }
 
-    public QuestaoSaidaEsperada(Long id, String saidaEsperada, String id_questao) {
+    public QuestaoSaidaEsperada(Long id, byte[] saidaEsperada, String id_questao) {
         this.id = id;
         this.saidaEsperada = saidaEsperada;
         this.id_questao = id_questao;
@@ -44,11 +46,11 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getSaidaEsperada() {
+    public byte[] getSaidaEsperada() {
         return saidaEsperada;
     }
 
-    public void setSaidaEsperada(String saidaEsperada) {
+    public void setSaidaEsperada(byte[] saidaEsperada) {
         this.saidaEsperada = saidaEsperada;
     }
 
@@ -59,7 +61,7 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
     public void setQuestao(Questao questao) {
         this.questao = questao;
     }
-    
+
     public String getIdQuestao() {
         return id_questao;
     }

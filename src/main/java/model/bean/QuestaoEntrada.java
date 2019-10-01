@@ -1,6 +1,7 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,8 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String entrada;
+    @Column(length = 255, columnDefinition = "longblob")
+    private byte[] entrada;
 
     private String id_questao;
 
@@ -25,7 +27,7 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
     public QuestaoEntrada() {
     }
 
-    public QuestaoEntrada(Long id, String entrada, String id_questao) {
+    public QuestaoEntrada(Long id, byte[] entrada, String id_questao) {
         this.id = id;
         this.entrada = entrada;
         this.id_questao = id_questao;
@@ -40,11 +42,11 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getEntrada() {
+    public byte[] getEntrada() {
         return entrada;
     }
 
-    public void setEntrada(String entrada) {
+    public void setEntrada(byte[] entrada) {
         this.entrada = entrada;
     }
 

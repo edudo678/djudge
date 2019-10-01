@@ -105,12 +105,13 @@ public class SubmissaoServlet extends HttpServlet {
         qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
 
         String saidaUsuario = j.post(request, response, uploadedFile, value);
-        String saidaAvaliador = qs.getSaidaEsperada();
+        byte[] saidaAvaliador = qs.getSaidaEsperada();
+        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
 
         out.println("Saída do usuário -> " + saidaUsuario);
-        out.println("Saída do avaliador -> " + saidaAvaliador);
+        out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
 
-        if (saidaUsuario.equals(saidaAvaliador)) {
+        if (saidaUsuario.equals(saidaAvaliadorDecode)) {
             out.println("Questão CORRETA!");
         } else {
             out.println("Questão ERRADA!");
@@ -122,8 +123,11 @@ public class SubmissaoServlet extends HttpServlet {
         PrivadoDAO pDAO = new PrivadoDAO();
         String turma = pDAO.getTurmaById((p.getId()));
         String matricula = pDAO.getMatriculaById((p.getId()));
+        
+        String tituloDecode  = new String(q.getTitulo(), "ISO-8859-1");       
+        
         try {
-            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, q.getTitulo());
+            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode);
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {

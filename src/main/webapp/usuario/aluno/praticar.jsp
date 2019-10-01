@@ -4,6 +4,7 @@
     Author     : Junior
 --%>
 
+<%@page import="org.apache.commons.io.IOUtils"%>
 <%@page import="java.util.List"%>
 <%@page import="model.dao.QuestaoDAO"%>
 <%@page import="model.bean.Questao"%>
@@ -56,7 +57,7 @@
                                     for (Questao q : questoes) {
                                 %>
                                 <tr>
-                                    <td><%=q.getTitulo()%></td>
+                                    <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
                                     <td><%=q.getNivel()%></td>
                                     <td class="text-center"><a class="btn btn-primary" id="background-blue" href="questao_selecionada.jsp?id=<%=q.getId()%>">Ver mais</a></td>
                                     <!--<td><span class="badge badge-primary badge-pill">14</span></td>-->
