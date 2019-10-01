@@ -11,7 +11,7 @@
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Djudge - Corretor de Questões</title>
+        <title>Djudge - Juiz Online</title>
 
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -37,10 +37,10 @@
         <div class="container-fluid">
             <div class="form-row justify-content-center">
                 <div class="card col-lg-11 px-4 py-4 text-black">
-                    <h4>Cadastro de questão</h4>
-                    <small class="form-text text-muted">Preencha os campos abaixo para efetuar a primeira etapa do cadastro.</small>
+                    <h4>Cadastro de Questão</h4>
+                    <small class="form-text text-muted">Preencha os campos abaixo para efetuar o cadastro.</small>
 
-                    <form action="/djudge/QuestaoServlet" method="POST">
+                    <form action="/djudge/QuestaoServlet" enctype="multipart/form-data" method="POST">
                         <div class="form-row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <label for="titulo">Título da questão</label>
@@ -127,6 +127,24 @@
                                 </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputState">Selecione a linguagem</label><br>
+                                    <select class="form-control" name="compilerId">
+                                        <option>Selecione a linguagem</option>
+                                        <option  value="c">C</option>   
+                                        <option  value="cpp">C++</option>                  
+                                        <option value="java">Java</option> 
+                                        <option value="python2">Python 2</option> 
+                                        <option value="python3">Python 3</option> 
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Código-fonte gabarito</label>
+                                    <input type="file" name="source" class="form-control-file" id="source"> 
+                                </div>
+                            </div>
 
                             <div class="form-row justify-content-end">
                                 <a href=""  class="btn btn-secondary"> Cancelar </a>

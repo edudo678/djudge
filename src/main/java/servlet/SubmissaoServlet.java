@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -121,7 +122,6 @@ public class SubmissaoServlet extends HttpServlet {
         PrivadoDAO pDAO = new PrivadoDAO();
         String turma = pDAO.getTurmaById((p.getId()));
         String matricula = pDAO.getMatriculaById((p.getId()));
-
         try {
             CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, q.getTitulo());
         } catch (EmailException ex) {

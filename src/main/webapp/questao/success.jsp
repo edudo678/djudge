@@ -14,7 +14,7 @@
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Djudge - Corretor de Questões</title>
+        <title>Djudge - Juiz Online</title>
 
         <link rel="stylesheet" href="../css/fontawesome-all.css">
         <link rel="stylesheet" href="../css/style.css">
@@ -133,7 +133,7 @@
 
     <script>
         document.getElementById('imprimir').onclick = function () {
-            var conteudo = document.getElementById('oculto').innerHTML,
+            var conteudo = document.getElementById('oculto').innerHTML;
                     tela_impressao = window.open('about:blank');
 
             tela_impressao.document.write(conteudo);

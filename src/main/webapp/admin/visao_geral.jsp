@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- <link rel="shortcut icon" href="img/djudge-favicon.ico" type="image/x-icon"/> -->
         <link href="../img/djudge_favicon.png" rel="icon" type="image/x-icon">
-        <title>Djudge - Corretor de Questões</title>
+        <title>Djudge - Juiz Online</title>
         <!--Importações-->
         <script src="../js/jquery/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">

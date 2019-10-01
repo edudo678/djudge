@@ -11,18 +11,10 @@
     <filter-mapping>
         <filter-name>AuthenFilter</filter-name>
         <url-pattern>/usuario/*</url-pattern>
-    </filter-mapping>   
+    </filter-mapping>
     <servlet>
         <servlet-name>QuestaoServlet</servlet-name>
         <servlet-class>servlet.QuestaoServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>tests.NewServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NewServlet1</servlet-name>
-        <servlet-class>tests.NewServlet1</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PrivadoServlet</servlet-name>
@@ -37,21 +29,9 @@
         <servlet-name>SubmissaoServlet</servlet-name>
         <servlet-class>servlet.SubmissaoServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>SubmissaoAvaliadorServlet</servlet-name>
-        <servlet-class>servlet.SubmissaoAvaliadorServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>QuestaoServlet</servlet-name>
         <url-pattern>/QuestaoServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NewServlet1</servlet-name>
-        <url-pattern>/NewServlet1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PrivadoServlet</servlet-name>
@@ -60,10 +40,6 @@
     <servlet-mapping>
         <servlet-name>SubmissaoServlet</servlet-name>
         <url-pattern>/SubmissaoServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SubmissaoAvaliadorServlet</servlet-name>
-        <url-pattern>/SubmissaoAvaliadorServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
