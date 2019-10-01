@@ -76,7 +76,7 @@
                                 <td><%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%></td>
                                 <td><%=q.getNivel()%></td>
                                 <td><%=q.getTempoExec()%></td>
-                                <td><%=q.getAvaliador()%></td>
+                                <td><%=q.getIdAvaliador()%></td>
                                 <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Submeter</a></td>
                                 <!--<td><span class="badge badge-primary badge-pill">14</span></td>-->
                             </tr>

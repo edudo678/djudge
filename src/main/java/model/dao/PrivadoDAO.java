@@ -45,11 +45,21 @@ public class PrivadoDAO {
         return (String) query.getSingleResult();
     }
     
-     public String getMatriculaById(Long id) {
+    public String getMatriculaById(Long id) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         Query query;
         manager.getTransaction().begin();
         query = (Query) manager.createQuery("select matricula from " + Privado.class.getName() + " r where r.id =:id")
+                .setParameter("id", id);
+        manager.getTransaction().commit();
+        return (String) query.getSingleResult();
+    }
+    
+     public String getSiapeById(Long id) {
+        EntityManager manager = ConnectionFactory.getEntityManager();
+        Query query;
+        manager.getTransaction().begin();
+        query = (Query) manager.createQuery("select siape from " + Privado.class.getName() + " r where r.id =:id")
                 .setParameter("id", id);
         manager.getTransaction().commit();
         return (String) query.getSingleResult();

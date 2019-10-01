@@ -43,6 +43,8 @@ public class Questao implements Serializable, BaseEntity {
 
     @Column(length = 255, columnDefinition = "longblob")
     private byte[] saida;
+    
+    private Long idAvaliador;
 
     @ManyToOne
     private Avaliador avaliador;
@@ -54,7 +56,7 @@ public class Questao implements Serializable, BaseEntity {
     }
 
     public Questao(Long id, byte[] titulo, byte[] enunciado, int nivel, String publico, byte[] codigoFonteGabarito,
-            int peso, Double tempoExec,  byte[] entrada,  byte[] saida) {
+            int peso, Double tempoExec,  byte[] entrada,  byte[] saida, Long idAvaliador) {
         this.id = id;
         this.titulo = titulo;
         this.enunciado = enunciado;
@@ -65,6 +67,7 @@ public class Questao implements Serializable, BaseEntity {
         this.tempoExec = tempoExec;
         this.entrada = entrada;
         this.saida = saida;
+        this.idAvaliador = idAvaliador;
     }
 
     @Override
@@ -164,4 +167,12 @@ public class Questao implements Serializable, BaseEntity {
         this.questionario = questionario;
     }
 
+    public Long getIdAvaliador() {
+        return idAvaliador;
+    }
+
+    public void setIdAvaliador(Long idAvaliador) {
+        this.idAvaliador = idAvaliador;
+    }
+    
 }

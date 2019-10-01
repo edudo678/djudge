@@ -54,7 +54,7 @@ enum Client {
 @MultipartConfig
 public class JDoodle {
 
-    public String post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value)
+    public JDoodleOutputFormat post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value)
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
@@ -151,7 +151,7 @@ public class JDoodle {
 
         connection.disconnect();
 
-        return jdof.getCodeOutput();
+        return jdof;
     }
 
 }

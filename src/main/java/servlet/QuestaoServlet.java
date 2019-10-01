@@ -11,12 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Avaliador;
+import model.bean.Privado;
 import model.bean.Questao;
 import model.bean.QuestaoEntrada;
 import model.bean.QuestaoImagem;
 import model.bean.QuestaoRestricao;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
+import model.dao.PrivadoDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -24,6 +27,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 import util.JDoodle;
+import util.JDoodleOutputFormat;
 
 /**
  *
@@ -134,6 +138,15 @@ public class QuestaoServlet extends HttpServlet {
         q.setNivel(Integer.parseInt(nivel));
         q.setPeso(Integer.parseInt(peso));
 
+        Privado p = (Privado) request.getSession().getAttribute("usuario");
+
+        PrivadoDAO pDAO = new PrivadoDAO(); 
+        String siape = pDAO.getSiapeById(p.getId());
+        
+        q.setAvaliador((Avaliador) p);
+        
+        q.setIdAvaliador(q.getAvaliador().getId());
+
         GenericDAO<Questao> gq = new GenericDAO<>();
         gq.saveOrUpdate(q);
         //imagem
@@ -148,7 +161,7 @@ public class QuestaoServlet extends HttpServlet {
         }
 
         String img = "data:image/" + extensao + ";base64," + encodedString;
-        
+
         System.out.println(img);
         QuestaoImagem qi = new QuestaoImagem();
 
@@ -179,8 +192,10 @@ public class QuestaoServlet extends HttpServlet {
 
         JDoodle j = new JDoodle();
 
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId);
+
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-        qs.setSaidaEsperada(j.post(request, response, uploadedFile, compilerId).getBytes());
+        qs.setSaidaEsperada(output.getCodeOutput().getBytes());
         qs.setIdQuestao(String.valueOf(q.getId()));
         qs.setQuestao(q);
 
@@ -188,6 +203,7 @@ public class QuestaoServlet extends HttpServlet {
         gqs.saveOrUpdate(qs);
 
         q.setCodigoFonteGabarito(Files.readAllBytes(Paths.get(uploadedFile.getPath())));
+        q.setTempoExec(Double.parseDouble(output.getCpuTime()));
         gq.saveOrUpdate(q);
 
         response.sendRedirect("../djudge/questao/success.jsp?id=" + q.getId());

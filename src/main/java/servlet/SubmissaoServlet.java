@@ -29,6 +29,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.mail.EmailException;
 import util.CommonsMail;
 import util.JDoodle;
+import util.JDoodleOutputFormat;
 
 /**
  *
@@ -104,7 +105,9 @@ public class SubmissaoServlet extends HttpServlet {
         GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO();
         qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
 
-        String saidaUsuario = j.post(request, response, uploadedFile, value);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value);
+        
+        String saidaUsuario = output.getCodeOutput();
         byte[] saidaAvaliador = qs.getSaidaEsperada();
         String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
 

@@ -16,8 +16,8 @@ import util.ConnectionFactory;
  * @author eddunic
  */
 public class QuestaoEntradaDAO {
-    
-     public List<QuestaoEntrada> getEntradaByQuestao(String id) {
+
+    public List<QuestaoEntrada> getEntradaByQuestao(String id) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         Query query;
         manager.getTransaction().begin();
@@ -26,5 +26,5 @@ public class QuestaoEntradaDAO {
         manager.getTransaction().commit();
         return query.getResultList();
     }
-    
+
 }

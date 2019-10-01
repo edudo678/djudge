@@ -11,8 +11,8 @@ import util.ConnectionFactory;
  * @author eddunic
  */
 public class QuestaoImagemDAO {
-    
-     public List<QuestaoImagem> getImagemByQuestao(String id) {
+
+    public List<QuestaoImagem> getImagemByQuestao(String id) {
         EntityManager manager = ConnectionFactory.getEntityManager();
         Query query;
         manager.getTransaction().begin();
@@ -21,5 +21,5 @@ public class QuestaoImagemDAO {
         manager.getTransaction().commit();
         return query.getResultList();
     }
-    
+
 }
