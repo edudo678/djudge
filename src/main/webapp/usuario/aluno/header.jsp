@@ -12,9 +12,17 @@
         <ul class="navbar-nav mr-auto">
         </ul>
 
-<!--        <a class="nav-link text-light" href="#"><i class="fas fa-question fa-lg"></i> Ajuda</a>
-        <a class="nav-link text-light" href="#"><i class="fas fa-info-circle fa-lg"></i> Sobre</a>-->
-        <a class="nav-link text-light" href="#"><i class="fas fa-user fa-lg"></i> Meus dados</a>
-        <a class="nav-link text-light" href="/djudge/PrivadoServlet"><i class="fas fa-sign-out-alt fa-lg"></i> Encerrar sessão</a>
+        <form method="get" action="/djudge/PrivadoServlet">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button type="submit" name="acao" value="dados" class="nav-link btn btn-login"><i class="fas fa-user fa-lg"></i> Meus dados</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="submit" name="acao" value="sair" class="nav-link btn btn-login"><i class="fas fa-sign-out-alt fa-lg"></i> Sair</button>
+                    </li>
+                </ul>
+            </div>            
+        </form>
     </div>
 </nav>

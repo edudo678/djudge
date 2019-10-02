@@ -13,16 +13,17 @@
         <a class="navbar-toggler btn-dark" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <div class="animated-icon1"><span></span><span></span><span></span><span></span></div>
         </a>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link btn btn-login" href="login.jsp">Entrar<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-cadastro" href="cadastro.jsp">Cadastrar-se</a>
-                </li>
-            </ul>
-        </div>
+        <form method="get" action="/djudge/PrivadoServlet">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button type="submit" name="acao" value="entrar" class="nav-link btn btn-login">Entrar</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="submit" name="acao" value="cadastrar" class="nav-link btn btn-login">Cadastrar</button>
+                    </li>
+                </ul>
+            </div>
+        </form>
     </div>
 </nav>

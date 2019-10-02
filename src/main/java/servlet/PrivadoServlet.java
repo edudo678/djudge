@@ -21,8 +21,31 @@ public class PrivadoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().setAttribute("usuario", null);
-        response.sendRedirect("/djudge/");
+        String acao = request.getParameter("acao");
+        if (acao.equals("entrar")) {
+            if (request.getSession().getAttribute("usuario") != null) {
+                Privado p = new Privado();
+                p = (Privado) request.getSession().getAttribute("usuario");
+                PrivadoDAO pDAO = new PrivadoDAO();
+                String turma = pDAO.getTurmaById((p.getId()));
+                if (turma != null) {
+                    response.sendRedirect("usuario/aluno/index.jsp");
+                } else {
+                    response.sendRedirect("avaliador/index.jsp");
+                }
+            } else {
+                response.sendRedirect("/djudge/login.jsp");
+            }
+        } else {
+            if (acao.equals("cadastrar")) {
+                response.sendRedirect("/djudge/cadastro.jsp");
+            } else {
+                if (acao.equals("sair")) {
+                    request.getSession().setAttribute("usuario", null);
+                    response.sendRedirect("/djudge/");
+                }
+            }
+        }
     }
 
     @Override
@@ -96,10 +119,14 @@ public class PrivadoServlet extends HttpServlet {
                 } else {
                     try {
                         GenericDAO<Privado> pDAO2 = new GenericDAO<>();
-                        p = pDAO2.findById(Privado.class, idPrivado);
+                        p
+                                = pDAO2.findById(Privado.class,
+                                        idPrivado);
                         if (p != null) {
                             GenericDAO<Aluno> aDAO = new GenericDAO<>();
-                            if (aDAO.findById(Aluno.class, idPrivado) == null) {
+
+                            if (aDAO.findById(Aluno.class,
+                                    idPrivado) == null) {
                                 response.sendRedirect("/djudge/avaliador/index.jsp");
                             } else {
                                 response.sendRedirect("/djudge/usuario/aluno/index.jsp");
