@@ -1,5 +1,5 @@
 {
-    "sEmptyTable": "Nenhum questão encontrada",
+    "sEmptyTable": "Nenhuma questão encontrada",
     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
     "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
     "sInfoFiltered": "(Filtrados de _MAX_ registros)",
@@ -8,7 +8,7 @@
     "sLengthMenu": "Mostrando _MENU_ resultados por página",
     "sLoadingRecords": "Carregando...",
     "sProcessing": "Processando...",
-    "sZeroRecords": "Nenhum registro encontrado",
+    "sZeroRecords": "Nenhuma questão encontrada",
     "sSearch": "Pesquisar",
     "oPaginate": {
         "sNext": "Próximo",

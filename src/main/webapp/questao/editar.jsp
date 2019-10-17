@@ -1,9 +1,8 @@
 <%-- 
-    Document   : index
-    Created on : 02/07/2019, 14:59:43
-    Author     : Junior
+    Document   : editar
+    Created on : 17/10/2019, 15:13:03
+    Author     : paulo
 --%>
-
 <!DOCTYPE html>
 
 <html>
@@ -40,7 +39,7 @@
                     <div class="mt-4 mx-4">
                         <div class="form-row">
                             <div class="col-lg-6">
-                                <a class="font-weight-bold h4">Cadastro de Questão</a>
+                                <a class="font-weight-bold h4"> Editar Questão</a>
                                 <small class="form-text text-muted">Preencha os campos abaixo para efetuar o cadastro.</small>
                             </div>
                             <div class="col-lg-6">
@@ -155,10 +154,8 @@
                                 </div>
 
                                 <div class="form-row justify-content-end">
-                                    <a href="../usuario/professor/index.jsp"  class="btn btn-dark"><i class="fas fa-window-close"></i> Cancelar </a>
-                                   
-                                    <button type="submit" name="acao" value="continuar" class="btn btn-success ml-1"><i class="fas fa-save"></i> Salvar </button>
-                                   
+                                    <a href="../usuario/professor/index.jsp"  class="btn btn-dark"><i class="fas fa-window-close "></i> Cancelar </a>
+                                    <button type="submit" name="acao" value="continuar" class="btn btn-success ml-1"><i class="fas fa-edit"></i> Confirmar alterações </button>
                                 </div>
                             </div>
                         </form>
@@ -169,7 +166,4 @@
         <jsp:include page="../footer.jsp"/>
     </body>
 </html>
-
-
-
 
