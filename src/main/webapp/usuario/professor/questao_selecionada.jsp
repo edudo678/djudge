@@ -72,8 +72,51 @@
 
                         <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">  
                             <div id="oculto">
-                                <a class="font-weight-bold h4">Questão</a><br>
-                                <small> Deslize para baixo para ver a questão por completo</small>
+                                <div class="form-row">
+                                    <div class="col-lg-6">
+                                        <a class="font-weight-bold h4">Questão</a><br>
+                                        <small> Deslize para baixo para ver a questão por completo</small>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <ul class="nav justify-content-end">
+                                            <div class="dropdown dropup">
+                                                <a class="w-25 p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="../../questao/cadastro.jsp"><i class="fas fa-plus-circle"></i> Novo</a>
+                                                    <a class="dropdown-item" href="../../questao/editar.jsp"><i class="fas fa-edit"></i> Editar</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir"><i class="fas fa-trash"></i> Excluir</a>
+                                                    <a class="dropdown-item" href="index.jsp"><i class="fas fa-home"></i> Início</a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="excluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Você deseja realmente excluir esta questão?
+                                                <br>
+                                                <b><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></b>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Sim, excluir</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-window-close fa-lg"></i> Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <br><br>
 
                                 <h4 class="text-center"><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></h4>
@@ -133,42 +176,7 @@
                                 </table>
                             </div>
                             <br>
-                            <h5>Submeta sua solução</h5>
 
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Selecione a linguagem</th>
-                                        <th scope="col">Código-fonte gabarito</th>
-                                        <th scope="col">Submeter</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <select class="form-control" name="compilerId">
-                                                    <option>Selecione a linguagem</option>
-                                                    <option  value="c">C</option>   
-                                                    <option  value="cpp">C++</option>                  
-                                                    <option value="java">Java</option> 
-                                                    <option value="python2">Python 2</option> 
-                                                    <option value="python3">Python 3</option> 
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
-                                        </td>
-                                        <td>
-                                            <div class="float-lg-left">
-                                                <button type="submit" class="btn btn-primary"><i class="fas fa-play fa-sm"></i> Submeter</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br>
                             <div class="col-12 text-center">
                                 <a href="#" id="imprimir">Imprimir questão</a>
                             </div>

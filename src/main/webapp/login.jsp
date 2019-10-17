@@ -19,7 +19,7 @@
             <div class="row justify-content-center margin-login">
                 <div class="col-md-4 card text-black py-4 px-4">
 
-                    <h4>Acessar</h4>
+                    <a class="font-weight-bold  h4">Acessar</a>
                     <small>Preencha os campos abaixo para realizar o login</small>
 
                     <form action="/djudge/PrivadoServlet" method="POST"><br>

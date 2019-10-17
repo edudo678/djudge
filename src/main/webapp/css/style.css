@@ -13,6 +13,10 @@ and open the template in the editor.
     margin-bottom: 2%;
 }
 
+.text-white{
+    color: white
+}
+
 .text-red{
     color: #e60000
 }
