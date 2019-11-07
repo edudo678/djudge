@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <button type="submit" name="acao" value="dados" class="nav-link btn btn-login"><i class="fas fa-user fa-lg"></i> Meus dados</button>
+                        <a href="meus_dados.jsp" class="nav-link btn btn-login"><i class="fas fa-user fa-lg"></i> Meus dados</a>
                     </li>
                     <li class="nav-item">
                         <a  class="nav-link btn btn-login" data-toggle="modal" data-target="#sair"><i class="fas fa-sign-out-alt fa-lg"></i> Sair</a>
