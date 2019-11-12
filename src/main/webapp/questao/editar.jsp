@@ -43,7 +43,7 @@
                                 <small class="form-text text-muted">Preencha os campos abaixo para efetuar o cadastro.</small>
                             </div>
                             <div class="col-lg-6">
-                                <a class=" float-lg-right text-black" href="../usuario/professor/index.jsp"><i class="fas fa-window-close fa-2x"></i></a>
+                                <a class=" float-lg-right text-black" href="../usuario/avaliador/index.jsp"><i class="fas fa-window-close fa-2x"></i></a>
                             </div>
                         </div>
 
@@ -154,7 +154,7 @@
                                 </div>
 
                                 <div class="form-row justify-content-end">
-                                    <a href="../usuario/professor/index.jsp"  class="btn btn-dark"><i class="fas fa-window-close "></i> Cancelar </a>
+                                    <a href="../usuario/avaliador/index.jsp"  class="btn btn-dark"><i class="fas fa-window-close "></i> Cancelar </a>
                                     <button type="submit" name="acao" value="continuar" class="btn btn-success ml-1"><i class="fas fa-edit"></i> Confirmar alterações </button>
                                 </div>
                             </div>

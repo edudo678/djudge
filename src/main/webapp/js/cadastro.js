@@ -1,6 +1,6 @@
 /*tab-pane fade in show active
  aluno
- professor*/
+ avaliador*/
 
 
 /*$(".nav li.active a").click(function () {

@@ -29,6 +29,10 @@
         <servlet-name>SubmissaoServlet</servlet-name>
         <servlet-class>servlet.SubmissaoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Questao2Servlet</servlet-name>
+        <servlet-class>servlet.Questao2Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>QuestaoServlet</servlet-name>
         <url-pattern>/QuestaoServlet</url-pattern>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>SubmissaoServlet</servlet-name>
         <url-pattern>/SubmissaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Questao2Servlet</servlet-name>
+        <url-pattern>/Questao2Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

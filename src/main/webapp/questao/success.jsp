@@ -53,7 +53,7 @@
 
                         <div class="row justify-content-end">
                             <a href="#" id="imprimir" class="btn btn-secondary mr-1"><i class="fas fa-print fa-lg"></i> Imprimir questão</a>
-                            <a href="../usuario/professor/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
+                            <a href="../usuario/avaliador/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
                         </div>
 
                         <%

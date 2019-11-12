@@ -19,7 +19,6 @@ import model.bean.QuestaoImagem;
 import model.bean.QuestaoRestricao;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
-import model.dao.PrivadoDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -70,7 +69,7 @@ public class QuestaoServlet extends HttpServlet {
 
                     if (!item.isFormField()) {
                         String fileName = item.getName();
-                        File path = new File("/home/paulo/Área de trabalho/projetos/djudge/");
+                        File path = new File("D:\\home\\eddunic\\NetBeansProjects\\djudge");
                         if (!path.exists()) {
                             boolean status = path.mkdirs();
                         }
@@ -140,11 +139,8 @@ public class QuestaoServlet extends HttpServlet {
 
         Privado p = (Privado) request.getSession().getAttribute("usuario");
 
-        PrivadoDAO pDAO = new PrivadoDAO(); 
-        String siape = pDAO.getSiapeById(p.getId());
-        
         q.setAvaliador((Avaliador) p);
-        
+
         q.setIdAvaliador(q.getAvaliador().getId());
 
         GenericDAO<Questao> gq = new GenericDAO<>();
@@ -207,6 +203,7 @@ public class QuestaoServlet extends HttpServlet {
         gq.saveOrUpdate(q);
 
         response.sendRedirect("../djudge/questao/success.jsp?id=" + q.getId());
+
     }
 
 }
