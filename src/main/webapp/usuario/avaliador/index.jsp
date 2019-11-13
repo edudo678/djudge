@@ -81,7 +81,7 @@
                                                                     <i class="fas fa-ellipsis-v"></i>
                                                                 </a>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                                    <a class="dropdown-item" href="../../questao/editar.jsp"><i class="fas fa-edit"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="../../questao/editar.jsp?id=<%=q.getId()%>"><i class="fas fa-edit"></i> Editar</a>
 <!--                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir" ><i class="fas fa-trash"></i> Excluir</a>-->
                                                                     <a class="dropdown-item" href="/djudge/Questao2Servlet?id=<%=q.getId()%>" name="acao" value="excluir"><i class="fas fa-trash"></i> Excluir</a>
                                                                     <a class="dropdown-item" href="questao_selecionada.jsp?id=<%=q.getId()%>"><i class="fas fa-arrows-alt"></i> Visualizar</a>

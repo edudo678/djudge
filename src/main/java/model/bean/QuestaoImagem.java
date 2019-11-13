@@ -24,7 +24,7 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     
     private String id_questao;
     
-    @ManyToOne
+    @ManyToOne(cascade={ CascadeType.REMOVE })
     private Questao questao;
 
     public QuestaoImagem() {
