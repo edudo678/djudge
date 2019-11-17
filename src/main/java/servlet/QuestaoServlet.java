@@ -186,9 +186,10 @@ public class QuestaoServlet extends HttpServlet {
         GenericDAO<QuestaoEntrada> gqe = new GenericDAO<>();
         gqe.saveOrUpdate(qe);
 
+        //
         JDoodle j = new JDoodle();
 
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId, entradaExemplo);
 
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
         qs.setSaidaEsperada(output.getCodeOutput().getBytes());

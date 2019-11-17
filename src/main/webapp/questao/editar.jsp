@@ -178,6 +178,15 @@
                                             <option value="3">3</option>
                                         </select>
                                     </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="publico">Tornar a questão pública?</label>
+                                        <select class="form-control" id="publico" name="publico">
+                                            <option></option>
+                                            <option value="n">Não</option>
+                                            <option value="s">Sim</option>
+                                        </select>
+                                    </div>
                                 </div>
                               
                                 <div class="form-row justify-content-end">

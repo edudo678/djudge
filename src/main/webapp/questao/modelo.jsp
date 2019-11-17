@@ -38,16 +38,14 @@
         <script src="../js/jquery/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="../js/bootstrap/bootstrap.min.js"></script>
+
     </head>
-    <body class="background">
+    <body>
         <jsp:include page="header.jsp"/>
-
-        <div class="container-fluid home">
-
-            <!--<div class="row">-->
-            <div class="col-10 row justify-content-end">
-                <div class="col-10">
-                    <div class="card text-black">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="card col-lg-9 text-black">
+                    <div class="mt-4 mx-4 mb-4">
                         <%
                             Questao q = new Questao();
                             GenericDAO<Questao> gqDAO = new GenericDAO();
@@ -68,37 +66,38 @@
                             QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
                             GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO<>();
                             qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
-                            
-//                            QuestaoImagemDAO qDAO = new QuestaoImagemDAO();
-//                            List<QuestaoImagem> imagens;
-//                            imagens = qDAO.getImagemByQuestao(request.getParameter("id"));
-//                            
-//                            for (QuestaoImagem img : imagens) {
-//                                img.getImagem();
-//                            }
+
+                            String codeDecode = new String(q.getCodigoFonteGabarito(), "ISO-8859-1");
                         %>
 
-                        <form action="/djudge/SubmissaoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">                         
+                        <form action="/djudge/SubmissaoPublicoServlet?id=<%=q.getId()%>" enctype="multipart/form-data" method="POST">  
+                            <div id="oculto">
+                                <a class="font-weight-bold h4">Questão</a><br>
+                                <small> Deslize para baixo para ver a questão por completo</small>
+                                <br><br>
 
-                            <div class="card-body">
-                                <h4 class="card-title text-center"><strong><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></strong></h4>                                
-                                <p class="card-text text-justify">
+                                <h4 class="text-center"><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></h4>
+
+                                <p class="text-justify">
                                     <%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%>
                                 </p>
-                                <img src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
 
-                                <h5 class=""><strong>Entrada</strong></h5>
-                                <p class="card-text text-justify">
-                                     <%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%>
+                                <div>
+                                    <img class="w-auto p-3" src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
+                                </div>
+
+                                <h5>Entrada</h5>
+                                <p class="text-justify px-3">
+                                    <%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%>
                                 </p>
 
-                                <h5 class=""><strong>Saída</strong></h5>
-                                <p class="card-text text-justify">
-                                     <%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%>
+                                <h5>Saída</h5>
+                                <p class="text-justify px-3">
+                                    <%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%>
                                 </p>   
 
-                                <h5 class=""><strong>Restrições</strong></h5>
-                                <p class="card-text text-justify">
+                                <h5>Restrições</h5>
+                                <p class="text-justify px-3">
                                     <%
                                         QuestaoRestricaoDAO qDAO = new QuestaoRestricaoDAO();
                                         List<QuestaoRestricao> restricoes = qDAO.getRestricaoByQuestao(request.getParameter("id"));
@@ -108,9 +107,9 @@
                                     <%}%>
                                 </p>
 
-                                <h5 class=""><strong>Exemplos</strong></h5>
+                                <h5>Exemplos</h5>
 
-                                <table class="table table-borderless">
+                                <table class="table table-bordered">
                                     <tr>
                                         <td><strong>Entrada</strong></td>
                                         <td><strong>Saída</strong></td>
@@ -126,64 +125,71 @@
                                         for (QuestaoSaidaEsperada s : saidas) {
                                     %>     
                                     <tr>       
-
                                         <td><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></td>
-
-
-                                        <td> <%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
-
+                                        <td><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
                                     </tr>
                                     <%}%>
                                     <%}%>
                                 </table>
+                            </div>
+                            <br>
+                            <h5>Submeta sua solução</h5>
 
-                                <div class="list-group list-group-flush card-body ">
-                                    <table class="table">
-                                        <strong>Submissão</strong>
-                                        <tr> 
-                                            <td> 
-                                                <div>
-                                                    <select name="compilerId">
-                                                        <option>Selecione a linguagem</option>
-                                                        <option  value="c">C</option>   
-                                                        <option  value="cpp">C++</option>                  
-                                                        <option value="java">Java</option> 
-                                                        <option value="python2">Python 2</option> 
-                                                        <option value="python3">Python 3</option> 
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary btn-block">Submeter</button>
-                                                <br><a href="gabarito.jsp?id=<%=q.getId()%>">Acesse o código-gabarito</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>                                
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Selecione a linguagem</th>
+                                        <th scope="col">Código-fonte gabarito</th>
+                                        <th scope="col">Submeter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <select class="form-control" name="compilerId">
+                                                    <option>Selecione a linguagem</option>
+                                                    <option  value="c">C</option>   
+                                                    <option  value="cpp">C++</option>                  
+                                                    <option value="java">Java</option> 
+                                                    <option value="python2">Python 2</option> 
+                                                    <option value="python3">Python 3</option> 
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="file" name="source" class="form-control-file" id="exampleFormControlFile1">
+                                        </td>
+                                        <td>
+                                            <div class="float-lg-left">
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-play fa-sm"></i> Submeter</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <div class="col-12 text-center">
+                                <a href="#" id="imprimir">Imprimir questão</a>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <a href="gabarito.jsp?id=<%=q.getId()%>">Acesse o código-gabarito</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <!--                <div class="col-4">
-                                <div class="row justify-content-start">
-                                    <div class="card text-black col-md-5">
-                                        <div class="card-header text-center">
-                                            Menu
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><a href="#" class="text-black">Histórico</a></li>
-                                            <li class="list-group-item"><a href="#" class="text-black">Maratonas</a></li>
-                                            <li class="list-group-item"><a href="#" class="text-black">Resultados</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>-->
-            <!--</div>-->
         </div>
+        <jsp:include page="../footer.jsp"/>
     </body>
+
+    <script>
+        document.getElementById('imprimir').onclick = function () {
+            var conteudo = document.getElementById('oculto').innerHTML,
+                    tela_impressao = window.open('Questão');
+
+            tela_impressao.document.write(conteudo);
+            tela_impressao.window.print();
+            tela_impressao.window.close();
+        };
+    </script>
 </html>

@@ -170,7 +170,7 @@
                             </table>
                             <br>
                             <div class="col-12 text-center">
-                                <a href="#" id="imprimir">Imprimir questão</a>
+                                <a href="#" id="imprimir">Imprimir questão</a>                                
                             </div>
 
                         </form>

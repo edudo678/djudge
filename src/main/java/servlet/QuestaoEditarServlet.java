@@ -33,6 +33,7 @@ public class QuestaoEditarServlet extends HttpServlet {
         q.setEnunciado(request.getParameter("enunciado").getBytes());
         q.setEntrada(request.getParameter("entrada").getBytes());
         q.setSaida(request.getParameter("saida").getBytes());
+        q.setPublico(request.getParameter("publico"));
 //        q.setNivel(Integer.parseInt(nivel));
 //        q.setPeso(Integer.parseInt(peso));
 

@@ -3,29 +3,22 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.Privado;
 import model.bean.Questao;
 import model.bean.QuestaoEntrada;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
-import model.dao.PrivadoDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.mail.EmailException;
-import util.CommonsMail;
 import util.JDoodle;
 import util.JDoodleOutputFormat;
 
@@ -34,7 +27,7 @@ import util.JDoodleOutputFormat;
  * @author eddunic
  */
 @MultipartConfig
-public class SubmissaoServlet extends HttpServlet {
+public class SubmissaoPublicoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -122,23 +115,6 @@ public class SubmissaoServlet extends HttpServlet {
             out.println("Questão CORRETA!");
         } else {
             out.println("Questão ERRADA!");
-        }
-
-        Privado p = new Privado();
-        p = (Privado) request.getSession().getAttribute("usuario");
-
-        PrivadoDAO pDAO = new PrivadoDAO();
-        String turma = pDAO.getTurmaById((p.getId()));
-        String matricula = pDAO.getMatriculaById((p.getId()));
-
-        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");
-
-        try {
-            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode);
-        } catch (EmailException ex) {
-            Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

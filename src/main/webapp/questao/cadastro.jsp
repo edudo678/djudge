@@ -109,7 +109,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exemplo">Exemplos</label>
+                                    <label for="entrada">Entrada exemplo</label>
                                     <textarea class="form-control" name="entradaExemplo" id="entradaExemplo" rows="3" placeholder="Escreva um exemplo de entrada da questão aqui"></textarea>
                                 </div>                                  
 
