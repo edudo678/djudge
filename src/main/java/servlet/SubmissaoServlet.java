@@ -117,11 +117,14 @@ public class SubmissaoServlet extends HttpServlet {
 
         out.println("Saída do usuário -> " + saidaUsuario);
         out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
-
+        
+        String resp = null;
         if (saidaUsuario.equals(saidaAvaliadorDecode)) {
             out.println("Questão CORRETA!");
+            resp = "Código CORRETO!";
         } else {
             out.println("Questão ERRADA!");
+            resp = "Código ERRADO!";
         }
 
         Privado p = new Privado();
@@ -134,7 +137,8 @@ public class SubmissaoServlet extends HttpServlet {
         String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");
 
         try {
-            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode);
+            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode, 
+                    saidaUsuario, saidaAvaliadorDecode, resp);
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
