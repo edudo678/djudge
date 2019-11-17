@@ -134,10 +134,10 @@ public class SubmissaoServlet extends HttpServlet {
         String turma = pDAO.getTurmaById((p.getId()));
         String matricula = pDAO.getMatriculaById((p.getId()));
 
-        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");
-
+        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");       
+        
         try {
-            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode, 
+            CommonsMail.enviarEmail(q.getAvaliador().getEmail(), uploadedFile, p.getNome(), turma, matricula, tituloDecode, 
                     saidaUsuario, saidaAvaliadorDecode, resp);
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);

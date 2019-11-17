@@ -33,7 +33,7 @@ public class PreencheBanco extends HttpServlet {
 
         av.setSiape("6402939");
         av.setNome("Professor1");
-        av.setEmail("av@g.com");
+        av.setEmail("eduardo.bitencourt007@gmail.com");
         av.setSenha("1");
 
         daov.saveOrUpdate(av);

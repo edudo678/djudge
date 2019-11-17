@@ -119,9 +119,7 @@ public class PrivadoServlet extends HttpServlet {
                 } else {
                     try {
                         GenericDAO<Privado> pDAO2 = new GenericDAO<>();
-                        p
-                                = pDAO2.findById(Privado.class,
-                                        idPrivado);
+                        p = pDAO2.findById(Privado.class, idPrivado);
                         if (p != null) {
                             GenericDAO<Aluno> aDAO = new GenericDAO<>();
 
