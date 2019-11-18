@@ -67,7 +67,7 @@ public class SubmissaoServlet extends HttpServlet {
                     if (!item.isFormField()) {
                         String fileName = item.getName();
 
-                        File path = new File("C:\\Users\\Paulo Ribeiro\\Desktop\\projetos\\djudge");
+                        File path = new File("/home/paulo/Área de trabalho/projetos/djudge");
                         if (!path.exists()) {
                             boolean status = path.mkdirs();
                         }

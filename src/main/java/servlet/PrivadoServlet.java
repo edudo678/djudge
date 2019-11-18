@@ -113,9 +113,9 @@ public class PrivadoServlet extends HttpServlet {
                 Privado p;
 
                 if (idPrivado == null) {
-                    out.println("NULL");
+                    response.sendRedirect("/djudge/login.jsp?status=erro");
                 } else if (idPrivado == -1) {
-                    out.println("-1");
+                    response.sendRedirect("/djudge/login.jsp?status=erro");
                 } else {
                     try {
                         GenericDAO<Privado> pDAO2 = new GenericDAO<>();

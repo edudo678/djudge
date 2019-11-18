@@ -23,6 +23,13 @@
                     <small>Preencha os campos abaixo para realizar o login</small>
 
                     <form action="/djudge/PrivadoServlet" method="POST"><br>
+                        <% if (request.getQueryString() != null) { //verifica se tem valor na url%>
+                        <%if (request.getParameter("status").equals("erro")) {%>
+                        <div class="alert alert-dark" role="alert">
+                            Usuário ou senha inválidos
+                        </div>
+                        <%}%>
+                        <%}%>
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input type="email" class="form-control" name="email" placeholder="E-mail">

@@ -50,10 +50,13 @@
 
                         <br>
                         <div class="form-row form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <label for="nome">Nome</label>
                                 <input type="nome" class="form-control" value="${usuario.nome}" name="nome" placeholder="Primeiro nome" autocomplete="off">
-
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nome">Turma</label>
+                                <input type="turma" class="form-control" value="${usuario.turma}" name="nome" placeholder="turma" autocomplete="off">
                             </div>
                         </div>
 
@@ -63,8 +66,8 @@
                                 <input type="email" class="form-control" value="${usuario.email}" name="email" placeholder="Insira seu e-mail" autocomplete="off">
                             </div>
                             <div class="form-group col-md-2">
-                                <label for="siape">SIAPE</label>
-                                <input type="text" class="form-control" value="${usuario.siape}" name="siape" placeholder="Insira sua matrícula SIAPE" autocomplete="off">
+                                <label for="siape">Matrícula</label>
+                                <input type="text" class="form-control" value="${usuario.matricula}" name="siape" placeholder="Insira sua matrícula SIAPE" autocomplete="off">
                             </div>
                         </div>
 

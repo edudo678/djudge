@@ -28,51 +28,58 @@
 
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
-        <div class="container-fluid form-row">
-            <div class="col-8 row justify-content-center">
-                <div class="card col-10 text-black">
-                    <div class="card-body">
-                        <h4>Seja bem-vindo(a)</h4> <br> 
-                        <div class="row">
-                            <div class="col-6">
-                                <jsp:include page="../../carousel/principal.jsp"/>
-                            </div>
 
-                            <div class="col-6">
-                                <div class="card-body text-center">
-                                    <h3>Fique por dentro das próximas maratonas 
-                                        do IFAM-CMC. Vamos praticar!</h3> <br>
-                                    <a href="praticar.jsp" class="btn btn-outline-dark btn-block">Praticar</a>
+        <jsp:include page="header.jsp"/>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="form-row col-lg-10">
+                    <div class="col-lg-8 card text-black mb-4">
+                        <div class="mt-4 mx-4 mb-2">
+                            <div class="mb-3">
+                                <a class="font-weight-bold h4">Bem vindo(a) ${usuario.nome}</a><br>
+                                <small>Deslize para baixo para ver mais</small>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                  <jsp:include page="../../carousel/principal.jsp"/>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="card-body text-center">
+                                        <h3>Fique por dentro das próximas maratonas 
+                                            do IFAM-CMC. Vamos praticar!</h3> <br>
+                                        <a href="praticar.jsp" class="btn btn-outline-dark btn-block">Praticar</a>
+                                    </div>
                                 </div>
                             </div>
+
+                            <br>
+                            <h3 class="border-bottom border-dark">Últimas Notícias</h3>
+                            <a href="#">Histórico da maratona de programação</a>
+
+                            <p>
+                                Aguardando a data da maratona 2020. <br>
+                                Postado por Coordenação em 05 de Julho de 2019
+                            </p>
                         </div>
-
-                        <br>
-                        <h3 class="border-bottom border-dark">Últimas Notícias</h3>
-                        <a href="#">Histórico da maratona de programação</a>
-
-                        <p>
-                            Aguardando a data da maratona 2020. <br>
-                            Postado por Coordenação em 05 de Julho de 2019
-                        </p>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row justify-content-start">
-                    <div class="card col-10 text-black">
-                        <div class="card-body">
-                            <h6 class="card-title border-bottom border-dark">Modalidade</h6>
-                            <h6>Iniciante</h6>
-                            <a href="#">Nível 1</a> <br>
-                            <a href="#">Nível 2</a>
-
-                            <h6>Programação</h6>
-                            <a href="questao_junior.jsp">Nível de programação júnior</a> <br>
-                            <a href="questao.jsp">Nível de programação 1</a> <br>
-                            <a href="#">Nível de programação 2</a>
+                    <div class="col-lg-4">
+                        <div class="form-row justify-content-center">
+                            <div class="card text-black col-lg-10">
+                                <div class="mt-4 mx-4 mb-2">
+                                    <div class="mb-3">
+                                        <a class="font-weight-bold h4">Modalidade</a><br>
+                                        <small>Selecione uma modalidade para ver questões</small>
+                                    </div>
+                                    <h6>Iniciante</h6>
+                                    <a href="#">Nível 1</a> <br>
+                                    <a href="#">Nível 2</a>
+                                    <h6>Programação</h6>
+                                    <a href="questao_junior.jsp">Nível de programação júnior</a> <br>
+                                    <a href="questao.jsp">Nível de programação 1</a> <br>
+                                    <a href="#">Nível de programação 2</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -18,14 +18,9 @@
 
         <link rel="stylesheet" href="../../css/fontawesome-all.css">
         <link rel="stylesheet" href="../../css/style.css">
-        <link rel="stylesheet" href="../../css/header.css">
-        <link rel="stylesheet" href="../../css/bootstrap-4.3.1-dist/bootstrap-grid.css"/>
-        <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css"/>
         <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css"/>
 
 
-        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
         <script src="../../js/jquery/jquery-3.4.1.min.js"></script>
         <script src="../../js/popper.min.js"></script>
         <script src="../../js/bootstrap/bootstrap.min.js"></script>
@@ -43,11 +38,10 @@
                                 <a class="font-weight-bold h4">Questões cadastradas</a><br>
                                 <small>Deslize para baixo para ver mais questões cadastradas</small>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-md-6">
                                 <a class="btn btn-dark float-lg-right" href="../../questao/cadastro.jsp"><i class="fas fa-plus-circle"></i> NOVO</a>
                             </div>
                         </div>
-
                         <br>
                         <div class="table-responsive-lg">
                             <table class="table table-hover table-bordered" id="filtro">
