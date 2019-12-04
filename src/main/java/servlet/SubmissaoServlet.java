@@ -105,8 +105,6 @@ public class SubmissaoServlet extends HttpServlet {
         GenericDAO<QuestaoEntrada> gqeDAO = new GenericDAO();
         qe = gqeDAO.findById(QuestaoEntrada.class, Long.parseLong(request.getParameter("id")));
 
-        byte[] entradaAvaliador = qe.getEntrada();
-
         String entradaDecode = new String(qe.getEntrada(), "ISO-8859-1");
 
         String[] proSplit = entradaDecode.split("\n");

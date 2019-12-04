@@ -14,6 +14,7 @@ import model.bean.Questao;
 import model.bean.QuestaoEntrada;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
+import model.dao.QuestaoSaidaEsperadaDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -28,6 +29,9 @@ import util.JDoodleOutputFormat;
  */
 @MultipartConfig
 public class SubmissaoPublicoServlet extends HttpServlet {
+    
+    private String entradaFormat;
+    private String saidaUsuarioFormat;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -88,10 +92,6 @@ public class SubmissaoPublicoServlet extends HttpServlet {
 
         JDoodle j = new JDoodle();
 
-        Questao q;
-        GenericDAO<Questao> gqDAO = new GenericDAO();
-        q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-
         QuestaoSaidaEsperada qs;
         GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO();
         qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
@@ -99,19 +99,38 @@ public class SubmissaoPublicoServlet extends HttpServlet {
         QuestaoEntrada qe;
         GenericDAO<QuestaoEntrada> gqeDAO = new GenericDAO();
         qe = gqeDAO.findById(QuestaoEntrada.class, Long.parseLong(request.getParameter("id")));
+        
+        String entradaDecode = new String(qe.getEntrada(), "ISO-8859-1");
 
-        byte[] entradaAvaliador = qe.getEntrada();
+        String[] proSplit = entradaDecode.split("\n");
+        entradaFormat = "";
+        for (String str : proSplit) {
+            entradaFormat += str.trim() + "\\n";
+        }
 
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value, entradaAvaliador);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value, entradaFormat);
+        
+        QuestaoSaidaEsperadaDAO qesdao = new QuestaoSaidaEsperadaDAO();
 
-        byte[] saidaAvaliador = qs.getSaidaEsperada();
-        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
-        String saidaUsuario = output.getCodeOutput();
+        List<QuestaoSaidaEsperada> lista = qesdao.getSaidaByQuestao(request.getParameter("id"));
+        String saidaAvaliadorDecode = "";    
+        for (QuestaoSaidaEsperada qse : lista) {
+            saidaAvaliadorDecode = new String(qse.getSaidaEsperada(), "ISO-8859-1");
+        }
+        
+//        byte[] saidaAvaliador = qs.getSaidaEsperada();
+//        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
 
-        out.println("Saída do usuário -> " + saidaUsuario);
-        out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
+        String[] proSplit2 = output.getCodeOutput().split("\\\\n");
+        saidaUsuarioFormat = "";
+        for (String str2 : proSplit2) {
+            saidaUsuarioFormat += str2 + "\n";
+        }
 
-        if (saidaUsuario.equals(saidaAvaliadorDecode)) {
+        out.println("Saída do usuário ->\n" + saidaUsuarioFormat);
+        out.println("Saída do avaliador ->\n" + saidaAvaliadorDecode);
+
+        if (saidaUsuarioFormat.equals(saidaAvaliadorDecode)) {
             out.println("Questão CORRETA!");
         } else {
             out.println("Questão ERRADA!");

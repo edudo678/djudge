@@ -86,7 +86,7 @@
                                                 </a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="../../questao/cadastro.jsp"><i class="fas fa-plus-circle"></i> Novo</a>
-                                                    <a class="dropdown-item" href="../../questao/editar.jsp"><i class="fas fa-edit"></i> Editar</a>
+                                                    <a class="dropdown-item" href="../../questao/editar.jsp?id=<%=q.getId()%>"><i class="fas fa-edit"></i> Editar</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir"><i class="fas fa-trash"></i> Excluir</a>
                                                     <a class="dropdown-item" href="index.jsp"><i class="fas fa-home"></i> Início</a>
                                                 </div>

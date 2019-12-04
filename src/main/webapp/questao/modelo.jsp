@@ -125,8 +125,8 @@
                                         for (QuestaoSaidaEsperada s : saidas) {
                                     %>     
                                     <tr>       
-                                        <td><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></td>
-                                        <td><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
+                                        <td><textarea class="form-control" rows="5" readonly="true"><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></textarea></td>
+                                        <td><textarea class="form-control" rows="5" readonly="true"><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></textarea></td>
                                     </tr>
                                     <%}%>
                                     <%}%>
