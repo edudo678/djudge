@@ -29,7 +29,7 @@ public class CommonsMail {
           email.setFrom("adopets.foundation@gmail.com"); 
           email.setSubject("Submissão Djudge");  
           email.setMsg(questao + "\n" + "Nome: " + nome + "\n" + "Matrícula: " + matricula + "\n" + "Turma: " + turma
-          + "\n\n" + "Saída do usuário -> " + saidaUsuario + "\n" + "Saída do avaliador -> " + saidaAvaliador
+          + "\n\n" + "Saída do usuário ->\n" + saidaUsuario + "\n" + "Saída do avaliador ->\n" + saidaAvaliador
           + "\n\n" + resp);  
 
           email.attach(attachment);  

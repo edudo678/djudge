@@ -19,6 +19,7 @@ import model.bean.QuestaoEntrada;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
 import model.dao.PrivadoDAO;
+import model.dao.QuestaoSaidaEsperadaDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -36,11 +37,8 @@ import util.JDoodleOutputFormat;
 @MultipartConfig
 public class SubmissaoServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
+    private String entradaFormat;
+    private String saidaUsuarioFormat;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -109,17 +107,38 @@ public class SubmissaoServlet extends HttpServlet {
 
         byte[] entradaAvaliador = qe.getEntrada();
 
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value, entradaAvaliador);
+        String entradaDecode = new String(qe.getEntrada(), "ISO-8859-1");
 
-        byte[] saidaAvaliador = qs.getSaidaEsperada();
-        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
-        String saidaUsuario = output.getCodeOutput();
+        String[] proSplit = entradaDecode.split("\n");
+        entradaFormat = "";
+        for (String str : proSplit) {
+            entradaFormat += str.trim() + "\\n";
+        }
 
-        out.println("Saída do usuário -> " + saidaUsuario);
-        out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value, entradaFormat);
+
+        QuestaoSaidaEsperadaDAO qesdao = new QuestaoSaidaEsperadaDAO();
+
+        List<QuestaoSaidaEsperada> lista = qesdao.getSaidaByQuestao(request.getParameter("id"));
+        String saidaAvaliadorDecode = "";    
+        for (QuestaoSaidaEsperada qse : lista) {
+            saidaAvaliadorDecode = new String(qse.getSaidaEsperada(), "ISO-8859-1");
+        }
         
+//        byte[] saidaAvaliador = qs.getSaidaEsperada();
+//        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
+
+        String[] proSplit2 = output.getCodeOutput().split("\\\\n");
+        saidaUsuarioFormat = "";
+        for (String str2 : proSplit2) {
+            saidaUsuarioFormat += str2 + "\n";
+        }
+
+        out.println("Saída do usuário ->\n" + saidaUsuarioFormat);
+        out.println("Saída do avaliador ->\n" + saidaAvaliadorDecode);
+
         String resp = null;
-        if (saidaUsuario.equals(saidaAvaliadorDecode)) {
+        if (saidaUsuarioFormat.equals(saidaAvaliadorDecode)) {
             out.println("Questão CORRETA!");
             resp = "Código CORRETO!";
         } else {
@@ -134,11 +153,11 @@ public class SubmissaoServlet extends HttpServlet {
         String turma = pDAO.getTurmaById((p.getId()));
         String matricula = pDAO.getMatriculaById((p.getId()));
 
-        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");       
-        
+        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");
+
         try {
-            CommonsMail.enviarEmail(q.getAvaliador().getEmail(), uploadedFile, p.getNome(), turma, matricula, tituloDecode, 
-                    saidaUsuario, saidaAvaliadorDecode, resp);
+            CommonsMail.enviarEmail(q.getAvaliador().getEmail(), uploadedFile, p.getNome(), turma, matricula, tituloDecode,
+                    saidaUsuarioFormat, saidaAvaliadorDecode, resp);
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {

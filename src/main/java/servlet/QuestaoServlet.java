@@ -34,6 +34,9 @@ import util.JDoodleOutputFormat;
  */
 public class QuestaoServlet extends HttpServlet {
 
+    private String entradaFormat;
+    private String saidaFormat;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -179,7 +182,14 @@ public class QuestaoServlet extends HttpServlet {
         //entradaexemplo
         QuestaoEntrada qe = new QuestaoEntrada();
 
+        String[] proSplit = entradaExemplo.split("\n");
+        entradaFormat = "";
+        for (String str : proSplit) {
+            entradaFormat += str.trim() + "\\n";
+        }
+
         qe.setEntrada(entradaExemplo.getBytes());
+
         qe.setIdQuestao(String.valueOf(q.getId()));
         qe.setQuestao(q);
 
@@ -189,10 +199,19 @@ public class QuestaoServlet extends HttpServlet {
         //
         JDoodle j = new JDoodle();
 
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId, entradaExemplo);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId, entradaFormat);
 
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-        qs.setSaidaEsperada(output.getCodeOutput().getBytes());
+
+        System.out.println("convertendo:");
+        String[] proSplit2 = output.getCodeOutput().split("\\\\n");
+        saidaFormat = "";
+        for (String str2 : proSplit2) {
+            saidaFormat += str2 + "\n";
+        }
+        System.out.println(saidaFormat);
+
+        qs.setSaidaEsperada(saidaFormat.getBytes());
         qs.setIdQuestao(String.valueOf(q.getId()));
         qs.setQuestao(q);
 
