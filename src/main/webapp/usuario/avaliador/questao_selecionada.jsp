@@ -34,18 +34,16 @@
         <link rel="stylesheet" href="../../css/bootstrap/bootstrap.css"/>
         <script src="../../js/bootstrap/bootstrap.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
         <script src="../../js/jquery/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="../../js/popper.min.js"></script>
         <script src="../../js/bootstrap/bootstrap.min.js"></script>
-
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="card col-lg-9 text-black">
-                    <div class="mt-4 mx-4 mb-4">
+        <main>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="card col-lg-7 px-4 py-4 text-black">
                         <%
                             Questao q = new Questao();
                             GenericDAO<Questao> gqDAO = new GenericDAO();
@@ -125,8 +123,10 @@
                                     <%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%>
                                 </p>
 
-                                <div>
-                                    <img class="w-auto p-3" src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-md-4">
+                                        <img src="<%=IOUtils.toString(qi.getImagem(), "UTF-8")%>" width="100%" height="100%">
+                                    </div>
                                 </div>
 
                                 <h5>Entrada</h5>
@@ -185,7 +185,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../../footer.jsp"/>
     </body>
 

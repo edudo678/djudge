@@ -137,11 +137,12 @@ public class SubmissaoServlet extends HttpServlet {
 
         String resp = null;
         if (saidaUsuarioFormat.equals(saidaAvaliadorDecode)) {
-            out.println("Questão CORRETA!");
             resp = "Código CORRETO!";
+            response.sendRedirect("../djudge/feedback/subCerto.jsp?user=" + saidaUsuarioFormat + "&ava=" + saidaAvaliadorDecode);
         } else {
             out.println("Questão ERRADA!");
             resp = "Código ERRADO!";
+            response.sendRedirect("../djudge/feedback/subErro.jsp?user=" + saidaUsuarioFormat + "&ava=" + saidaAvaliadorDecode);
         }
 
         Privado p = new Privado();

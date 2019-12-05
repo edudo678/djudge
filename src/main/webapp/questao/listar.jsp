@@ -26,42 +26,43 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-
-        <div class="container-fluid">
-            <div class="col-12 row justify-content-center">
-                <div class="card col-11 text-black">
-                    <br>
-                    <h5 class="border-bottom border-dark">Vamos praticar!</h5>
-                    <br>
-
-                    <div class="table-responsive-lg">
-                        <table class="table table-hover" id="filtro">
-                            <caption>Questões</caption>
-                            <thead>
-                                <tr>
-                                    <th>Título<i class="fa fa-sort float-right"></i></th>
-                                    <th>Nível<i class="fa fa-sort float-right"></i></th>
-                                    <th>Selecione<i class="fa fa-sort float-right"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    QuestaoDAO qDAO = new QuestaoDAO();
-                                    List<Questao> questoes = qDAO.getListPublicas();
-                                    for (Questao q : questoes) {
-                                %>
-                                <tr>
-                                    <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
-                                    <td><%=q.getNivel()%></td>
-                                    <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Ver mais</a></td>
-                                </tr>
-                                <% }%>
-                            </tbody>
-                        </table>
+        <main>
+            <div class="container-fluid">
+                <div class="col-12 row justify-content-center">
+                    <div class="card col-7 py-4 px-4 text-black">
+                        <div class="mb-4">
+                            <a class="font-weight-bold h4">Questões</a><br>
+                            <small>Deslize para baixo para ver mais questões</small>
+                        </div>
+                        <div class="table-responsive-lg">
+                            <table class="table table-hover" id="filtro">
+                                <caption>Questões</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Título<i class="fa fa-sort float-right"></i></th>
+                                        <th>Nível<i class="fa fa-sort float-right"></i></th>
+                                        <th>Selecione<i class="fa fa-sort float-right"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        QuestaoDAO qDAO = new QuestaoDAO();
+                                        List<Questao> questoes = qDAO.getListPublicas();
+                                        for (Questao q : questoes) {
+                                    %>
+                                    <tr>
+                                        <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
+                                        <td><%=q.getNivel()%></td>
+                                        <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Ver mais</a></td>
+                                    </tr>
+                                    <% }%>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../footer.jsp"/>
         <!--Filtro generico-->
         <script src="../js/addons/datatables.min.js"></script>

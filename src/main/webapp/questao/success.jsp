@@ -25,11 +25,9 @@
         <script src="../js/bootstrap/bootstrap.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
-
 
         <script src="../js/jquery/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../css/bootstrap/bootstrap-file-upload.css">
         <script src="../js/bootstrap/bootstrap-file-upload.js"></script>
@@ -37,10 +35,10 @@
 
     <body>
         <jsp:include page="header.jsp"/>
-        <div class="container-fluid">
-            <div class="form-row justify-content-center">
-                <div class="card col-lg-9 text-black">
-                    <div class="mt-4 mx-4 mb-4">
+        <main>
+            <div class="container-fluid">
+                <div class="form-row justify-content-center">
+                    <div class="card col-lg-7 px-4 py-4 text-black">
 
                         <h4>Status da questão:</h4>
 
@@ -128,8 +126,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </main>
         <jsp:include page="../footer.jsp"/>
     </body>
 
