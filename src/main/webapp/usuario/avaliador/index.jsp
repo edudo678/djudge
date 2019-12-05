@@ -34,10 +34,10 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="card col-lg-9">
-                    <div class="mx-3 mt-3">
+        <main>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="card col-lg-7 px-4 py-4">
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <a class="font-weight-bold h4">Questões cadastradas</a><br>
@@ -60,7 +60,6 @@
                                         </tr>
 
                                     </thead>
-
                                     <tbody>
                                         <%
                                             QuestaoDAO qDAO = new QuestaoDAO();
@@ -82,7 +81,7 @@
                                                                 </a>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                                     <a class="dropdown-item" href="../../questao/editar.jsp?id=<%=q.getId()%>"><i class="fas fa-edit"></i> Editar</a>
-<!--                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir" ><i class="fas fa-trash"></i> Excluir</a>-->
+                                                                    <!--                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir" ><i class="fas fa-trash"></i> Excluir</a>-->
                                                                     <a class="dropdown-item" href="/djudge/Questao2Servlet?id=<%=q.getId()%>" name="acao" value="excluir"><i class="fas fa-trash"></i> Excluir</a>
                                                                     <a class="dropdown-item" href="questao_selecionada.jsp?id=<%=q.getId()%>"><i class="fas fa-arrows-alt"></i> Visualizar</a>
                                                                 </div>
@@ -124,7 +123,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <jsp:include page="../../footer.jsp"/>
         <script src="../../js/addons/datatables.min.js"></script>
         <script src="../../js/filtro/filtro_generico.js"></script>
