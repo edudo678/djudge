@@ -29,22 +29,6 @@
         <servlet-name>SubmissaoServlet</servlet-name>
         <servlet-class>servlet.SubmissaoServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Questao2Servlet</servlet-name>
-        <servlet-class>servlet.Questao2Servlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>QuestaoEditarServlet</servlet-name>
-        <servlet-class>servlet.QuestaoEditarServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PreencheBanco</servlet-name>
-        <servlet-class>PreencheBanco</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SubmissaoPublicoServlet</servlet-name>
-        <servlet-class>servlet.SubmissaoPublicoServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>QuestaoServlet</servlet-name>
         <url-pattern>/QuestaoServlet</url-pattern>
@@ -57,20 +41,7 @@
         <servlet-name>SubmissaoServlet</servlet-name>
         <url-pattern>/SubmissaoServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Questao2Servlet</servlet-name>
-        <url-pattern>/Questao2Servlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>QuestaoEditarServlet</servlet-name>
-        <url-pattern>/QuestaoEditarServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PreencheBanco</servlet-name>
-        <url-pattern>/PreencheBanco</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SubmissaoPublicoServlet</servlet-name>
-        <url-pattern>/SubmissaoPublicoServlet</url-pattern>
-    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>

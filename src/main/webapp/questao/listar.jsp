@@ -1,3 +1,9 @@
+<%-- 
+    Document   : index
+    Created on : 02/07/2019, 14:59:43
+    Author     : Junior
+--%>
+
 <%@page import="org.apache.commons.io.IOUtils"%>
 <%@page import="java.util.List"%>
 <%@page import="model.dao.QuestaoDAO"%>
@@ -17,54 +23,69 @@
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.css"/>
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css"/>
 
-
         <script src="../js/bootstrap/bootstrap.js"></script>
         <script src="../js/jquery/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script> 
         <script src="../js/bootstrap/bootstrap.min.js"></script>
+
     </head>
-    <body>
+    <body class="background">
         <jsp:include page="header.jsp"/>
 
-        <div class="container-fluid">
-            <div class="col-12 row justify-content-center">
-                <div class="card col-11 text-black">
-                    <br>
-                    <h5 class="border-bottom border-dark">Vamos praticar!</h5>
-                    <br>
 
-                    <div class="table-responsive-lg">
-                        <table class="table table-hover" id="filtro">
-                            <caption>Questões</caption>
-                            <thead>
-                                <tr>
-                                    <th>Título<i class="fa fa-sort float-right"></i></th>
-                                    <th>Nível<i class="fa fa-sort float-right"></i></th>
-                                    <th>Selecione<i class="fa fa-sort float-right"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    QuestaoDAO qDAO = new QuestaoDAO();
-                                    List<Questao> questoes = qDAO.getListPublicas();
-                                    for (Questao q : questoes) {
-                                %>
-                                <tr>
-                                    <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
-                                    <td><%=q.getNivel()%></td>
-                                    <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Ver mais</a></td>
-                                </tr>
-                                <% }%>
-                            </tbody>
-                        </table>
-                    </div>
+
+        <div class="container-fluid home">
+
+            <div class="row">
+                <div class="col-12">
+
                 </div>
             </div>
         </div>
-        <jsp:include page="../footer.jsp"/>
-        <!--Filtro generico-->
-        <script src="../js/addons/datatables.min.js"></script>
-        <script src="../js/filtro/filtro_generico.js"></script>
+
+        <div class="row">
+            <div class="col-12 row justify-content-center">
+                <div class="card col-11 text-black">
+                    <br>
+                    <h4 class="border-bottom border-dark">Questões adicionadas</h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Enunciado</th>
+                                <th scope="col">Entrada</th>
+                                <th scope="col">Saída</th>
+                                <th scope="col">Dificuldade</th>
+                                <th scope="col">Tempo de execução</th>
+                                <th scope="col">Avaliador</th>
+                                <th scope="col">Submissão</th>
+                                <!--<th scope="col">Submissões</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                QuestaoDAO qDAO = new QuestaoDAO();
+                                List<Questao> questoes = qDAO.getList();
+                                for (Questao q : questoes) {
+                            %>
+                            <tr>
+                                <td><%=IOUtils.toString(q.getTitulo(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getEnunciado(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getEntrada(), "ISO-8859-1")%></td>
+                                <td><%=IOUtils.toString(q.getSaida(), "ISO-8859-1")%></td>
+                                <td><%=q.getNivel()%></td>
+                                <td><%=q.getTempoExec()%></td>
+                                <td><%=q.getIdAvaliador()%></td>
+                                <td class="text-center"><a class="btn btn-primary" id="background-blue" href="modelo.jsp?id=<%=q.getId()%>">Submeter</a></td>
+                                <!--<td><span class="badge badge-primary badge-pill">14</span></td>-->
+                            </tr>
+                            <% }%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

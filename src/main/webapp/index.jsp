@@ -52,7 +52,7 @@
                         <div class="feature">
                             <i class="fas fa-code fa-3x"></i>
                         </div>
-                        <p class="lead">Lógica e sintaxe são avaliadas pelo avaliador</p>
+                        <p class="lead">Lógica e sintaxe são avaliadas pelo professor</p>
                     </div>
 
                     <div class="col-md-4">

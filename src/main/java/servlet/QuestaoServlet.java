@@ -19,6 +19,7 @@ import model.bean.QuestaoImagem;
 import model.bean.QuestaoRestricao;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
+import model.dao.PrivadoDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -33,9 +34,6 @@ import util.JDoodleOutputFormat;
  * @author eddunic
  */
 public class QuestaoServlet extends HttpServlet {
-
-    private String entradaFormat;
-    private String saidaFormat;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -72,8 +70,7 @@ public class QuestaoServlet extends HttpServlet {
 
                     if (!item.isFormField()) {
                         String fileName = item.getName();
-                        File path = new File("D:\\home\\eddunic\\NetBeansProjects\\djudge");
-                        
+                        File path = new File("/home/paulo/Área de trabalho/projetos/djudge");
                         if (!path.exists()) {
                             boolean status = path.mkdirs();
                         }
@@ -143,8 +140,11 @@ public class QuestaoServlet extends HttpServlet {
 
         Privado p = (Privado) request.getSession().getAttribute("usuario");
 
+        PrivadoDAO pDAO = new PrivadoDAO(); 
+        String siape = pDAO.getSiapeById(p.getId());
+        
         q.setAvaliador((Avaliador) p);
-
+        
         q.setIdAvaliador(q.getAvaliador().getId());
 
         GenericDAO<Questao> gq = new GenericDAO<>();
@@ -183,36 +183,19 @@ public class QuestaoServlet extends HttpServlet {
         //entradaexemplo
         QuestaoEntrada qe = new QuestaoEntrada();
 
-        String[] proSplit = entradaExemplo.split("\n");
-        entradaFormat = "";
-        for (String str : proSplit) {
-            entradaFormat += str.trim() + "\\n";
-        }
-
         qe.setEntrada(entradaExemplo.getBytes());
-
         qe.setIdQuestao(String.valueOf(q.getId()));
         qe.setQuestao(q);
 
         GenericDAO<QuestaoEntrada> gqe = new GenericDAO<>();
         gqe.saveOrUpdate(qe);
 
-        //
         JDoodle j = new JDoodle();
 
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId, entradaFormat);
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, compilerId);
 
         QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
-
-        System.out.println("convertendo:");
-        String[] proSplit2 = output.getCodeOutput().split("\\\\n");
-        saidaFormat = "";
-        for (String str2 : proSplit2) {
-            saidaFormat += str2 + "\n";
-        }
-        System.out.println(saidaFormat);
-
-        qs.setSaidaEsperada(saidaFormat.getBytes());
+        qs.setSaidaEsperada(output.getCodeOutput().getBytes());
         qs.setIdQuestao(String.valueOf(q.getId()));
         qs.setQuestao(q);
 
@@ -224,7 +207,6 @@ public class QuestaoServlet extends HttpServlet {
         gq.saveOrUpdate(q);
 
         response.sendRedirect("../djudge/questao/success.jsp?id=" + q.getId());
-
     }
 
 }

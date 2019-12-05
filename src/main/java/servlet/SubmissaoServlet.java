@@ -15,11 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Privado;
 import model.bean.Questao;
-import model.bean.QuestaoEntrada;
 import model.bean.QuestaoSaidaEsperada;
 import model.dao.GenericDAO;
 import model.dao.PrivadoDAO;
-import model.dao.QuestaoSaidaEsperadaDAO;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -37,8 +35,11 @@ import util.JDoodleOutputFormat;
 @MultipartConfig
 public class SubmissaoServlet extends HttpServlet {
 
-    private String entradaFormat;
-    private String saidaUsuarioFormat;
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -65,8 +66,8 @@ public class SubmissaoServlet extends HttpServlet {
 
                     if (!item.isFormField()) {
                         String fileName = item.getName();
-                        File path = new File("D:\\home\\eddunic\\NetBeansProjects\\djudge");
-                        
+
+                        File path = new File("/home/paulo/Área de trabalho/projetos/djudge");
                         if (!path.exists()) {
                             boolean status = path.mkdirs();
                         }
@@ -101,48 +102,19 @@ public class SubmissaoServlet extends HttpServlet {
         GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO();
         qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
 
-        QuestaoEntrada qe;
-        GenericDAO<QuestaoEntrada> gqeDAO = new GenericDAO();
-        qe = gqeDAO.findById(QuestaoEntrada.class, Long.parseLong(request.getParameter("id")));
-
-        String entradaDecode = new String(qe.getEntrada(), "ISO-8859-1");
-
-        String[] proSplit = entradaDecode.split("\n");
-        entradaFormat = "";
-        for (String str : proSplit) {
-            entradaFormat += str.trim() + "\\n";
-        }
-
-        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value, entradaFormat);
-
-        QuestaoSaidaEsperadaDAO qesdao = new QuestaoSaidaEsperadaDAO();
-
-        List<QuestaoSaidaEsperada> lista = qesdao.getSaidaByQuestao(request.getParameter("id"));
-        String saidaAvaliadorDecode = "";    
-        for (QuestaoSaidaEsperada qse : lista) {
-            saidaAvaliadorDecode = new String(qse.getSaidaEsperada(), "ISO-8859-1");
-        }
+        JDoodleOutputFormat output = j.post(request, response, uploadedFile, value);
         
-//        byte[] saidaAvaliador = qs.getSaidaEsperada();
-//        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
+        String saidaUsuario = output.getCodeOutput();
+        byte[] saidaAvaliador = qs.getSaidaEsperada();
+        String saidaAvaliadorDecode = new String(saidaAvaliador, "ISO-8859-1");
 
-        String[] proSplit2 = output.getCodeOutput().split("\\\\n");
-        saidaUsuarioFormat = "";
-        for (String str2 : proSplit2) {
-            saidaUsuarioFormat += str2 + "\n";
-        }
+        out.println("Saída do usuário -> " + saidaUsuario);
+        out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
 
-        out.println("Saída do usuário ->\n" + saidaUsuarioFormat);
-        out.println("Saída do avaliador ->\n" + saidaAvaliadorDecode);
-
-        String resp = null;
-        if (saidaUsuarioFormat.equals(saidaAvaliadorDecode)) {
-            response.sendRedirect("../djudge/feedback/subCerto.jsp?user=" + saidaUsuarioFormat + "&ava=" + saidaAvaliadorDecode);
-            resp = "Código CORRETO!";
+        if (saidaUsuario.equals(saidaAvaliadorDecode)) {
+            response.sendRedirect("../djudge/feedback/subCerto.jsp?user=" + saidaUsuario + "&ava=" + saidaAvaliadorDecode);
         } else {
-            response.sendRedirect("../djudge/feedback/subErro.jsp?user=" + saidaUsuarioFormat + "&ava=" + saidaAvaliadorDecode);
-            resp = "Código ERRADO!";
-
+            response.sendRedirect("../djudge/feedback/subErro.jsp?user=" + saidaUsuario + "&ava=" + saidaAvaliadorDecode);
         }
 
         Privado p = new Privado();
@@ -151,12 +123,11 @@ public class SubmissaoServlet extends HttpServlet {
         PrivadoDAO pDAO = new PrivadoDAO();
         String turma = pDAO.getTurmaById((p.getId()));
         String matricula = pDAO.getMatriculaById((p.getId()));
-
-        String tituloDecode = new String(q.getTitulo(), "ISO-8859-1");
-
+        
+        String tituloDecode  = new String(q.getTitulo(), "ISO-8859-1");       
+        
         try {
-            CommonsMail.enviarEmail(q.getAvaliador().getEmail(), uploadedFile, p.getNome(), turma, matricula, tituloDecode,
-                    saidaUsuarioFormat, saidaAvaliadorDecode, resp);
+            CommonsMail.enviarEmail("eduardo.bitencourt007@gmail.com", uploadedFile, p.getNome(), turma, matricula, tituloDecode);
         } catch (EmailException ex) {
             Logger.getLogger(SubmissaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
