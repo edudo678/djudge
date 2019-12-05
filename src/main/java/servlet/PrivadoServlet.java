@@ -31,7 +31,7 @@ public class PrivadoServlet extends HttpServlet {
                 if (turma != null) {
                     response.sendRedirect("usuario/aluno/index.jsp");
                 } else {
-                    response.sendRedirect("/djudge/usuario/professor/index.jsp");
+                    response.sendRedirect("usuario/avaliador/index.jsp");
                 }
             } else {
                 response.sendRedirect("/djudge/login.jsp");
@@ -119,15 +119,12 @@ public class PrivadoServlet extends HttpServlet {
                 } else {
                     try {
                         GenericDAO<Privado> pDAO2 = new GenericDAO<>();
-                        p
-                                = pDAO2.findById(Privado.class,
-                                        idPrivado);
+                        p = pDAO2.findById(Privado.class, idPrivado);
                         if (p != null) {
                             GenericDAO<Aluno> aDAO = new GenericDAO<>();
 
-                            if (aDAO.findById(Aluno.class,
-                                    idPrivado) == null) {
-                                response.sendRedirect("/djudge/usuario/professor/index.jsp");
+                            if (aDAO.findById(Aluno.class, idPrivado) == null) {
+                                response.sendRedirect("/djudge/usuario/avaliador/index.jsp");
                             } else {
                                 response.sendRedirect("/djudge/usuario/aluno/index.jsp");
                             }

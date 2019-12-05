@@ -24,4 +24,17 @@ public class QuestaoDAO {
         return questoes;
     }
     
+    public List<Questao> getListPublicas() {
+        EntityManager manager = ConnectionFactory.getEntityManager();
+        List<Questao> questoes = null;
+        try {
+            questoes = manager.createQuery("FROM Questao q where q.publico = 's'").getResultList();
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            manager.close();
+        }
+        return questoes;
+    }
+    
 }

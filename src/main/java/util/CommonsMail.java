@@ -9,7 +9,8 @@ import org.apache.commons.mail.MultiPartEmail;
 
 public class CommonsMail {
 
-    public static void enviarEmail(String endereco, File codigo, String nome, String turma, String matricula, String questao) throws EmailException, MalformedURLException {
+    public static void enviarEmail(String endereco, File codigo, String nome, String turma, String matricula, String questao, 
+            String saidaUsuario, String saidaAvaliador, String resp) throws EmailException, MalformedURLException {
                   
         EmailAttachment attachment = new EmailAttachment();  
         attachment.setPath(codigo.getPath());
@@ -27,8 +28,9 @@ public class CommonsMail {
           email.addTo(endereco); 
           email.setFrom("adopets.foundation@gmail.com"); 
           email.setSubject("Submissão Djudge");  
-          email.setMsg(questao + "\n" + "Nome: " + nome + "\n" + "Matrícula: " + matricula + "\n" + "Turma: " 
-                  + turma);  
+          email.setMsg(questao + "\n" + "Nome: " + nome + "\n" + "Matrícula: " + matricula + "\n" + "Turma: " + turma
+          + "\n\n" + "Saída do usuário ->\n" + saidaUsuario + "\n" + "Saída do avaliador ->\n" + saidaAvaliador
+          + "\n\n" + resp);  
 
           email.attach(attachment);  
   

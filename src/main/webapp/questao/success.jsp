@@ -44,7 +44,6 @@
                         <div class="mt-4 mx-4 mb-4">
 
                             <h4>Status da questão:</h4>
-
                             <div class="text-center">
                                 <img src="../img/sucess.gif" width="200px" height="200px">
                                 <h6>Questão cadastrada com sucesso!</h6>
@@ -54,7 +53,7 @@
 
                             <div class="row justify-content-end">
                                 <a href="#" id="imprimir" class="btn btn-secondary mr-1"><i class="fas fa-print fa-lg"></i> Imprimir questão</a>
-                                <a href="../usuario/professor/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
+                                <a href="../usuario/avaliador/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
                             </div>
 
                             <%
