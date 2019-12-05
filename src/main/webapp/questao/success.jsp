@@ -37,100 +37,99 @@
 
     <body>
         <jsp:include page="header.jsp"/>
-        <main>
-            <div class="container-fluid">
-                <div class="form-row justify-content-center">
-                    <div class="card col-lg-9 text-black">
-                        <div class="mt-4 mx-4 mb-4">
+        <div class="container-fluid">
+            <div class="form-row justify-content-center">
+                <div class="card col-lg-9 text-black">
+                    <div class="mt-4 mx-4 mb-4">
 
-                            <h4>Status da questão:</h4>
+                        <h4>Status da questão:</h4>
 
-                            <div class="text-center">
-                                <img src="../img/sucess.gif" width="200px" height="200px">
-                                <h6>Questão cadastrada com sucesso!</h6>
-                            </div>
+                        <div class="text-center">
+                            <img src="../img/sucess.gif" width="200px" height="200px">
+                            <h6>Questão cadastrada com sucesso!</h6>
+                        </div>
+                        <br>
+
+
+                        <div class="row justify-content-end">
+                            <a href="#" id="imprimir" class="btn btn-secondary mr-1"><i class="fas fa-print fa-lg"></i> Imprimir questão</a>
+                            <a href="../usuario/avaliador/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
+                        </div>
+
+                        <%
+                            Questao q = new Questao();
+                            GenericDAO<Questao> gqDAO = new GenericDAO();
+                            q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
+                        %>
+
+                        <div hidden id="oculto">
+
                             <br>
-
-
-                            <div class="row justify-content-end">
-                                <a href="#" id="imprimir" class="btn btn-secondary mr-1"><i class="fas fa-print fa-lg"></i> Imprimir questão</a>
-                                <a href="../usuario/professor/index.jsp" class="btn btn-success"><i class="fas fa-check"></i> Finalizar</a>
+                            <div class="form-row justify-content-center">
+                                <div class="col-md-8">
+                                    <label for="titulo"><strong>Título da questão</strong></label>
+                                    <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
+                                </div>
                             </div>
 
-                            <%
-                                Questao q = new Questao();
-                                GenericDAO<Questao> gqDAO = new GenericDAO();
-                                q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-                            %>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="enunciado"><strong>Enunciado</strong></label>
+                                    <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
+                                </div>
 
-                            <div hidden id="oculto">
+                                <div class="form-group">
+                                    <label for="entrada"><strong>Entrada</strong></label>
+                                    <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="saida"><strong>Saída</strong></label>
+                                    <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="restricao"><strong>Restrições</strong></label>
+                                    <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exemplo"><strong>Exemplos</strong></label><br>
+                                    <label>Entrada</label>
+                                    <textarea class="form-control" name="entradaExemplo" id="entradaExemplo" rows="3" placeholder="Escreva um exemplo de entrada da questão aqui"></textarea>
+                                </div>
 
                                 <br>
-                                <div class="form-row justify-content-center">
-                                    <div class="col-md-8">
-                                        <label for="titulo"><strong>Título da questão</strong></label>
-                                        <input type="titulo" class="form-control text-center" name="titulo" id="titulo" placeholder="Título da questão">
-                                    </div>
+                                <h5 class="border-bottom border-dark"></h5>
+                                <br>
+
+                                <div class="form-group col-md-6">
+                                    <label for="nivel">Nível</label>
+                                    <select class="form-control" id="nivel" name="nivel">
+                                        <option></option>
+                                        <option value="1">1 - fácil</option>
+                                        <option value="2">2 - médio</option>
+                                        <option value="3">3 - difícil</option>
+                                    </select>
                                 </div>
 
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="enunciado"><strong>Enunciado</strong></label>
-                                        <textarea class="form-control" name="enunciado" id="enunciado" rows="3" placeholder="Descreva o enunciado da questão aqui"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="entrada"><strong>Entrada</strong></label>
-                                        <textarea class="form-control" name="entrada" id="entrada" rows="3" placeholder="Descreva a entrada da questão aqui"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="saida"><strong>Saída</strong></label>
-                                        <textarea class="form-control" name="saida" id="saida" rows="3" placeholder="Descreva a saída da questão aqui"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="restricao"><strong>Restrições</strong></label>
-                                        <textarea class="form-control" name="restricao" id="restricao" rows="3" placeholder="Descreva as restrições da questão aqui"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exemplo"><strong>Exemplos</strong></label><br>
-                                        <label>Entrada</label>
-                                        <textarea class="form-control" name="entradaExemplo" id="entradaExemplo" rows="3" placeholder="Escreva um exemplo de entrada da questão aqui"></textarea>
-                                    </div>
-
-                                    <br>
-                                    <h5 class="border-bottom border-dark"></h5>
-                                    <br>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="nivel">Nível</label>
-                                        <select class="form-control" id="nivel" name="nivel">
-                                            <option></option>
-                                            <option value="1">1 - fácil</option>
-                                            <option value="2">2 - médio</option>
-                                            <option value="3">3 - difícil</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="peso">Peso</label>
-                                        <select class="form-control" id="peso" name="peso">
-                                            <option></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                    <br>        
+                                <div class="form-group col-md-6">
+                                    <label for="peso">Peso</label>
+                                    <select class="form-control" id="peso" name="peso">
+                                        <option></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
                                 </div>
+                                <br>        
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+
         <jsp:include page="../footer.jsp"/>
     </body>
 

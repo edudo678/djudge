@@ -50,18 +50,23 @@
                             Questao q = new Questao();
                             GenericDAO<Questao> gqDAO = new GenericDAO();
                             q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
+
                             QuestaoImagem qi = new QuestaoImagem();
                             GenericDAO<QuestaoImagem> gqiDAO = new GenericDAO();
                             qi = gqiDAO.findById(QuestaoImagem.class, Long.parseLong(request.getParameter("id")));
+
                             QuestaoRestricao qr = new QuestaoRestricao();
                             GenericDAO<QuestaoRestricao> gqrDAO = new GenericDAO();
                             qr = gqrDAO.findById(QuestaoRestricao.class, Long.parseLong(request.getParameter("id")));
+
                             QuestaoEntrada qe = new QuestaoEntrada();
                             GenericDAO<QuestaoEntrada> gqeDAO = new GenericDAO<>();
                             qe = gqeDAO.findById(QuestaoEntrada.class, Long.parseLong(request.getParameter("id")));
+
                             QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
                             GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO<>();
                             qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
+
                             String codeDecode = new String(q.getCodigoFonteGabarito(), "ISO-8859-1");
                         %>
 
@@ -188,6 +193,7 @@
         document.getElementById('imprimir').onclick = function () {
             var conteudo = document.getElementById('oculto').innerHTML,
                     tela_impressao = window.open('Questão');
+
             tela_impressao.document.write(conteudo);
             tela_impressao.window.print();
             tela_impressao.window.close();

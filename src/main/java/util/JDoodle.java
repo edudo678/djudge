@@ -54,7 +54,7 @@ enum Client {
 @MultipartConfig
 public class JDoodle {
 
-    public JDoodleOutputFormat post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value)
+    public JDoodleOutputFormat post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value, String entradaExemplo)
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
@@ -70,6 +70,7 @@ public class JDoodle {
         String script = jdcf.getScript();
         String language = value;
         String versionIndex = "0";
+        String stdin = entradaExemplo;
         //       String scriptPython = "print('ola')" ou "print(\\\"ola\\\")";
         //em arquivo -> "print('ola')" ou "print(\"ola\")"
 //	String scriptJava = "public class Teste { public static void main(String[] args) { System.out.println(\\\"testeJava\\\"); } }";
@@ -122,7 +123,103 @@ public class JDoodle {
         connection.setRequestProperty("Content-Type", "application/json");
 
         String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
-                + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
+                + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\",\"stdin\":\"" + stdin + "\"} ";
+
+        System.out.println(input);
+
+        OutputStream outputStream = connection.getOutputStream();
+        outputStream.write(input.getBytes());
+        outputStream.flush();
+
+        if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+            throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
+        }
+
+        BufferedReader bufferedReader;
+        bufferedReader = new BufferedReader(new InputStreamReader(
+                (connection.getInputStream())));
+
+        System.out.println("Output from JDoodle .... \n");
+
+        String saidaJDoodle, concat = "";
+        while ((saidaJDoodle = bufferedReader.readLine()) != null) {
+            concat += saidaJDoodle;
+        }
+
+        jdof = new JDoodleOutputFormat(concat, language); //formata a saída
+
+        System.out.println(jdof.getCodeOutput());
+
+        connection.disconnect();
+
+        return jdof;
+    }
+    
+        public JDoodleOutputFormat post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value, byte[] entradaAvaliador)
+            throws ServletException, IOException {
+
+        PrintWriter out = response.getWriter();
+
+        JDoodleOutputFormat jdof; //classe para formatar a saída do JDoodle
+        JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
+
+        jdcf = new JDoodleCodeFormat(uploadedFile, value); //formata o uploadFile
+
+        //JDoodle
+        String clientId = null;
+        String clientSecret = null;
+        String script = jdcf.getScript();
+        String language = value;
+        String versionIndex = "0";
+        String stdin = new String(entradaAvaliador, "ISO-8859-1"); 
+        Client[] clientes = Client.values();
+        teste:
+        for (Client c : clientes) {
+            try {
+                URL url = new URL("https://api.jdoodle.com/v1/credit-spent");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoOutput(true);
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
+
+                String input = "{\"clientId\": \"" + c.getId() + "\",\"clientSecret\":\"" + c.getSecret() + "\"} ";
+
+                OutputStream outputStream = connection.getOutputStream();
+                outputStream.write(input.getBytes());
+                outputStream.flush();
+
+                if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                    throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
+                }
+
+                BufferedReader bufferedReader;
+                bufferedReader = new BufferedReader(new InputStreamReader((connection.getInputStream())));
+
+                String saidaJDoodle;
+                while ((saidaJDoodle = bufferedReader.readLine()) != null) {
+                    if (!(saidaJDoodle.equals("{\"used\":221}"))) {
+                        clientId = c.getId();
+                        clientSecret = c.getSecret();
+                        System.out.println(saidaJDoodle);
+                        break teste;
+                    }
+                }
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        URL url = new URL("https://api.jdoodle.com/v1/execute");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
+                + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\",\"stdin\":\"" + stdin + "\"} ";
 
         System.out.println(input);
 

@@ -1,4 +1,4 @@
-
+//Este tinha a finalidade de compilador antes de ser substituído pelo JDoodle
 
 import java.io.BufferedReader;
 import java.io.File;

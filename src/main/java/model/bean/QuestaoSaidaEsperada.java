@@ -1,6 +1,7 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
 
     private String id_questao;
 
-    @ManyToOne
+    @ManyToOne(cascade={ CascadeType.REMOVE })
     private Questao questao;
 
     public QuestaoSaidaEsperada() {

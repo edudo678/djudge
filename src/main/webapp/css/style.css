@@ -8,27 +8,6 @@ and open the template in the editor.
     Author     : Junior
 */
 
-.text-green{
-    color: #45dd08;
-}
-
-.text-blue{
-    color: #007bff;
-}
-
-body {
-    margin:0;
-    padding:0;  
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:100vh;
-} 
-
-main {
-    flex:1 0 auto;
-}  
-
 .container-fluid{
     margin-top: 2%;
     margin-bottom: 2%;
@@ -39,7 +18,7 @@ main {
 }
 
 .text-red{
-    color: #e60000;
+    color: #e60000
 }
 
 /* deixa o background fixado no fundo */
