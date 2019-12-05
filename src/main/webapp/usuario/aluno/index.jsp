@@ -47,6 +47,45 @@
                             <div class="px-2 py-3">
                                 <div class="form-row">
                                     <div class="col-md-6">
+                                        <h4 class="mt-3 mr-2">Página Inicial</h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-lg-4 px-4 mb-3">
+                                        <div class="card">
+                                            <div class="col-md-12 px-0">
+                                                <img src="../../img/book.gif" class="card-img-top" alt="..." width="100%" height="100%">
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Assustos</h5>
+                                                <p class="card-text">Fique por dentro dos principais assuntos que caem nas provas da Maratona de Programação.</p>
+                                                <a href="#" class="btn btn-primary">Assuntos</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 px-4 mb-3">
+                                        <div class="card">  
+                                            <img src="../../img/homework.gif" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Já praticou hoje?</h5>
+                                                <p class="card-text">A próxima Maratona de Programação do IFAM-CMC está por vir, veja questões ateriores e teste seus conhecimentos.</p>
+                                                <a href="#" class="btn btn-primary">Praticar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 px-4 mb-3">
+                                        <div class="card">
+                                            <img src="../../img/computerDj.gif" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Alguma dúvida?</h5>
+                                                <p class="card-text">Caso você tenha alguma duvída ou problema de submição ou de acesso, clique no botão abaixo.</p>
+                                                <a href="#" class="btn btn-primary">Dúvida</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <div class="form-row">
+                                    <div class="col-md-6">
                                         <h4 class="mt-3 mr-2">Últimas maratonas</h4>
                                     </div>
                                     <div class="col-md-6">
@@ -55,46 +94,40 @@
                                 </div>
                                 <section>
                                     <div class="form-row py-3">
-                                        <div class="col-lg-4 px-2 mb-3">  
+                                        <div class="col-lg-4 px-4 mb-3">  
                                             <div class="card">
                                                 <img src="../../img/maratona2.jpg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Maratona de Programação 2019</h5>
-                                                    <p class="card-text text-justify d-inline-block text-truncate w-100">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°,2° e 3° anos de informática.</p>
-                                                </div>
-                                                <div class="card-body border-top">
-                                                    <a href="#" class="card-link">Sobre</a>
+                                                    <p class="card-text">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°....</p>
+                                                    <a href="#" class="btn btn-primary">Sobre</a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 px-2 mb-3">  
+                                        <div class="col-lg-4 px-4 mb-3">  
                                             <div class="card">
                                                 <img src="../../img/maratona2_2018 medals.png" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Maratona de Programação 2018</h5>
-                                                    <p class="card-text text-justify d-inline-block text-truncate w-100">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°,2° e 3° anos de informática.</p>
-                                                </div>
-                                                <div class="card-body border-top">
-                                                    <a href="#" class="card-link">Sobre</a>
+                                                    <p class="card-text">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°...</p>
+                                                    <a href="#" class="btn btn-primary">Sobre</a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 px-2 mb-3">  
+                                        <div class="col-lg-4 px-4 mb-3">  
                                             <div class="card">
                                                 <img src="../../img/maratona3_2018.png" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Maratona de Programação 2017</h5>
-                                                    <p class="card-text text-justify d-inline-block text-truncate w-100">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°,2° e 3° anos de informática.</p>
-                                                </div>
-                                                <div class="card-body border-top">
-                                                    <a href="#" class="card-link">Sobre</a>
+                                                    <p class="card-text">Em maio de 2018, foi realizado a primeira fase da maratona de programação no ifam cmc, com as turmas de 1°...</p>
+                                                    <a href="#" class="btn btn-primary">Sobre</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section>-->
                                 <section>
                                     <div class="form-row">
                                         <div class="col-md-6">
@@ -136,7 +169,7 @@
                                             </div>
                                         </div>
                                         <% }
-                                        }%>
+                                            }%>
                                     </div>
                                 </section>
                             </div>

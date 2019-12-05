@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Junior
 */
 
+.text-green{
+    color: #45dd08;
+}
+
 .text-blue{
     color: #007bff;
 }

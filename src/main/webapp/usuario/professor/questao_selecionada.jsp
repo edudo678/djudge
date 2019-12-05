@@ -50,23 +50,18 @@
                             Questao q = new Questao();
                             GenericDAO<Questao> gqDAO = new GenericDAO();
                             q = gqDAO.findById(Questao.class, Long.parseLong(request.getParameter("id")));
-
                             QuestaoImagem qi = new QuestaoImagem();
                             GenericDAO<QuestaoImagem> gqiDAO = new GenericDAO();
                             qi = gqiDAO.findById(QuestaoImagem.class, Long.parseLong(request.getParameter("id")));
-
                             QuestaoRestricao qr = new QuestaoRestricao();
                             GenericDAO<QuestaoRestricao> gqrDAO = new GenericDAO();
                             qr = gqrDAO.findById(QuestaoRestricao.class, Long.parseLong(request.getParameter("id")));
-
                             QuestaoEntrada qe = new QuestaoEntrada();
                             GenericDAO<QuestaoEntrada> gqeDAO = new GenericDAO<>();
                             qe = gqeDAO.findById(QuestaoEntrada.class, Long.parseLong(request.getParameter("id")));
-
                             QuestaoSaidaEsperada qs = new QuestaoSaidaEsperada();
                             GenericDAO<QuestaoSaidaEsperada> gqsDAO = new GenericDAO<>();
                             qs = gqsDAO.findById(QuestaoSaidaEsperada.class, Long.parseLong(request.getParameter("id")));
-
                             String codeDecode = new String(q.getCodigoFonteGabarito(), "ISO-8859-1");
                         %>
 
@@ -86,7 +81,7 @@
                                                 </a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="../../questao/cadastro.jsp"><i class="fas fa-plus-circle"></i> Novo</a>
-                                                    <a class="dropdown-item" href="../../questao/editar.jsp"><i class="fas fa-edit"></i> Editar</a>
+                                                    <a class="dropdown-item" href="../../questao/editar.jsp?id=<%=q.getId()%>"><i class="fas fa-edit"></i> Editar</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#excluir"><i class="fas fa-trash"></i> Excluir</a>
                                                     <a class="dropdown-item" href="index.jsp"><i class="fas fa-home"></i> Início</a>
                                                 </div>
@@ -168,8 +163,8 @@
                                         for (QuestaoSaidaEsperada s : saidas) {
                                     %>     
                                     <tr>       
-                                        <td><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></td>
-                                        <td><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></td>
+                                        <td><textarea class="form-control" rows="5" readonly="true"><%=IOUtils.toString(e.getEntrada(), "ISO-8859-1")%></textarea></td>
+                                        <td><textarea class="form-control" rows="5" readonly="true"><%=IOUtils.toString(s.getSaidaEsperada(), "ISO-8859-1")%></textarea></td>
                                     </tr>
                                     <%}%>
                                     <%}%>
@@ -193,7 +188,6 @@
         document.getElementById('imprimir').onclick = function () {
             var conteudo = document.getElementById('oculto').innerHTML,
                     tela_impressao = window.open('Questão');
-
             tela_impressao.document.write(conteudo);
             tela_impressao.window.print();
             tela_impressao.window.close();

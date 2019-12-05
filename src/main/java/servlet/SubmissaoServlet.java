@@ -112,9 +112,9 @@ public class SubmissaoServlet extends HttpServlet {
         out.println("Saída do avaliador -> " + saidaAvaliadorDecode);
 
         if (saidaUsuario.equals(saidaAvaliadorDecode)) {
-            out.println("Questão CORRETA!");
+            response.sendRedirect("../djudge/feedback/subCerto.jsp?user=" + saidaUsuario + "&ava=" + saidaAvaliadorDecode);
         } else {
-            out.println("Questão ERRADA!");
+            response.sendRedirect("../djudge/feedback/subErro.jsp?user=" + saidaUsuario + "&ava=" + saidaAvaliadorDecode);
         }
 
         Privado p = new Privado();
