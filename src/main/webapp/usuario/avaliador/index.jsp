@@ -37,7 +37,7 @@
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="card col-lg-7 px-4 py-4">
+                    <div class="card col-lg-10 px-4 py-4">
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <a class="font-weight-bold h4">Questões cadastradas</a><br>

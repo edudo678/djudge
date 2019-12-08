@@ -43,7 +43,7 @@
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="card col-lg-7 px-4 py-4 text-black">
+                    <div class="card col-lg-10 px-4 py-4 text-black">
                         <%
                             Questao q = new Questao();
                             GenericDAO<Questao> gqDAO = new GenericDAO();

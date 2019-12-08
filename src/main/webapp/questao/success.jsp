@@ -38,7 +38,7 @@
         <main>
             <div class="container-fluid">
                 <div class="form-row justify-content-center">
-                    <div class="card col-lg-7 px-4 py-4 text-black">
+                    <div class="card col-lg-10 px-4 py-4 text-black">
 
                         <h4>Status da questão:</h4>
 

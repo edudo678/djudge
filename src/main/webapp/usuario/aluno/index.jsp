@@ -38,7 +38,7 @@
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-lg-7">
+                    <div class="col-lg-10">
                         <div class="card px-4 py-4">  
                             <div>
                                 <a class="font-weight-bold h3">Bem-vindo(a), ${usuario.nome}</a> <br>
